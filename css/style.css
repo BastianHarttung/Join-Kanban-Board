@@ -35,6 +35,9 @@ body{
     margin: 10px;
     text-decoration: none;
 }
+.links a:hover{
+    color: white;
+}
 .profile-pic{
     height: 100px;
     border-radius: 50%;
