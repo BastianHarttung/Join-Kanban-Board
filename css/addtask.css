@@ -1,0 +1,149 @@
+button {
+    margin-top: 4px;
+    padding: 8px;
+    /*width: 325px;*/
+    /*width: 27vw;*/
+    border-radius: 4px;
+    border: solid rgb(160, 158, 158) 0px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.1em;
+}
+
+:root {
+    --addTask-area-color: rgb(235, 237, 252);
+}
+
+.addTask-head {
+    /*padding-left: 300px;*/
+    padding-top: 40px;
+    margin-left: 25%;
+    margin-right: 5%;
+}
+
+.addTask-headline {
+    font-size: 2em;
+}
+
+.addTask-headline-assist {
+    color: var(--main-color);
+}
+
+.addTask-area {
+    background-color: var(--addTask-area-color);
+    margin-left: 25%;
+    margin-right: 5%;
+    margin-top: 32px;
+    margin-bottom: 64px;
+    border-radius: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 8px;
+    padding-bottom: 32px;
+    /*width: 60vw;*/
+}
+
+.addTask-area-child {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.addTask-area-title {
+    color: var(--main-color);
+    margin-bottom: 4px;
+    font-size: 1.1em;
+}
+
+.addTask-input {
+    margin-top: 4px;
+    padding: 8px;
+    /*width: 325px;*/
+    width: 25vw;
+    border-radius: 4px;
+    border: solid rgb(160, 158, 158) 1px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.addTask-input-description {
+    min-height: 100px;
+}
+
+.addTask-select {
+    margin-top: 4px;
+    padding: 8px;
+    /*width: 325px;*/
+    width: 26.25vw;
+    border-radius: 4px;
+    border: solid rgb(160, 158, 158) 1px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.addTask-participants {
+    margin-top: 8px;
+    min-width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addTask-img-area {
+    width: 75px;
+    border-radius: 50%;
+}
+
+.addTask-icon-plus {
+    height: 45px;
+    cursor: pointer;
+}
+
+.addTask-cancel {
+    color: var(--main-color);
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.addTask-create-task {
+    background-color: var(--main-color);
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.addTask-cancel-or-create {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 150px;
+    align-items: flex-end;
+}
+
+@media(max-width: 1080px) {
+    .addTask-cancel-or-create {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+}
+
+@media(max-width: 880px) {
+    .addTask-input {
+        margin-top: 4px;
+        padding: 8px;
+        /*width: 325px;*/
+        width: 50vw;
+      
+    }
+    .addTask-select {
+        margin-top: 4px;
+        padding: 8px;
+        /*width: 325px;*/
+        width: 52.25vw;
+    
+    }
+}
+

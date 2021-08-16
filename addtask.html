@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font PT Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <title>AddTask</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/addTask.css">
+
+    <script src="./js/includehtml.js"></script>
+    <script src="./js/addtask.js"></script>
+    <script src="./js/script.js"></script>
+
+</head>
+
+<body onload="includeHTML()">
+    <div w3-include-html="./templates/navbar.html"></div>
+
+
+
+    <div class="addTask-head">
+        <div class="addTask-headline">
+            <b>Add Task</b>
+        </div>
+        <div class="addTask-headline-assist">
+            <b>Learning Management System Project</b>
+        </div>
+    </div>
+
+    <div class="addTask-area">
+        <div class="addTask-area-child">
+            <div class="addTask-area-title">
+                <b>TITLE</b>
+            </div>
+            <input class="addTask-input" id="addTaskTitle" type="text">
+        </div>
+        <div class="addTask-area-child">
+            <div class="addTask-area-title">
+                <b>DUE DATE</b>
+            </div>
+            <input class="addTask-input" id="addTaskDate" type="date"> 
+        </div>
+        <div class="addTask-area-child">
+            <div class="addTask-area-title">
+                <b>CATEGORY</b>
+            </div>
+            <select class="addTask-select" id="addTaskCatergory" placeholder="Category">  <!--addTask-input-->
+                <option>Management</option>
+                <option>Marketing</option>
+                <option>Product</option>
+                <option>Sale</option>
+            </select>
+        </div>
+        <div class="addTask-area-child">
+            <div class="addTask-area-title">
+                <b>URGENCY</b>
+            </div>
+            <select class="addTask-select" id="addTaskUrgency" placeholder="URGENCY"> <!--addTask-input-->
+                <option>LOW</option>
+                <option>CENTER</option>
+                <option>HIGH</option>
+                <option>UNKOWN</option>
+            </select>
+        </div>
+        <div class="addTask-area-child">
+            <div class="addTask-area-title">
+                <b>DESCRIPTION</b>
+            </div>
+            <textarea class="addTask-input addTask-input-description" id="addTaskDescription"></textarea>
+        </div>
+        <div class="addTask-area-child">
+            <div class="addTask-area-title">
+                <b>ASSIGNED TO</b>
+            </div>
+            <div class="addTask-participants">
+                <img class="addTask-img-area" src="assets/img/profilepic.png">
+                <img class="addTask-icon-plus" src="assets/img/icon plus.pngpng" onclick="assignedTo()" >
+            </div>
+            <div class="addTask-participants">
+                <img class="addTask-img-area" src="assets/img/profilepic.png">
+                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
+            </div>
+            <div class="addTask-participants">
+                <img class="addTask-img-area" src="assets/img/profilepic.png">
+                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
+            </div>
+        </div>
+        <div class="addTask-cancel-or-create">
+            <button class="addTask-cancel" onclick="deleteInput()"><b>CANCEL</b></button>
+            <button class="addTask-create-task" onclick="createTask()"><b>CREATE TASK</b></button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
