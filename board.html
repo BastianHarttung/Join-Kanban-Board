@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/board.css">
     
 </head>
-<body onload="includeHTML()">
+<body onload="init()">
     <header w3-include-html="./templates/navbar.html"></header>
     
     <div class = "mainContainer">
@@ -20,7 +20,7 @@
             <div class = "taskName">
                 <p>TO DO</p>
             </div>
-            <div class ="task">
+            <div class ="task" id="todo" ondrop="moveTo('todo')" ondragover="allowDrop(event)">
 
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class = "taskName">
                 <p>IN PROGRESS</p>
             </div>
-            <div class ="task">
+            <div class ="task" id ="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)">
                 
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div class = "taskName">
                 <p>TESTING</p>
             </div>
-            <div class ="task">
+            <div class ="task" id="testing" ondrop="moveTo('testing')" ondragover="allowDrop(event)">
                 
             </div>
         </div>
@@ -44,7 +44,7 @@
             <div class = "taskName">
                 <p>DONE</p>
             </div>
-            <div class ="task">
+            <div class ="task" id ="done" ondrop="moveTo('done')" ondragover="allowDrop(event)">
                 
             </div>
         </div>
@@ -52,5 +52,7 @@
 
     <script src="./js/includehtml.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/addtask.js"></script>
+    <script src="./js/board.js"></script>
 </body>
 </html>

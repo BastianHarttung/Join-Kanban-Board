@@ -27,3 +27,11 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.boardItem{
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
