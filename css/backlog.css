@@ -30,7 +30,8 @@
     width: 100%;
     margin-top: 10px;
     border-collapse: separate;    
-    border-spacing:0 10px;            
+    border-spacing:0 10px;  
+              
 }
 .table-head{
     color: var(--font-main-color);
@@ -40,20 +41,41 @@
 .table-head th{
     padding: 5px;
 }
-
 .table-todo-row{
     background-color: var(--background-area);
-    font-size: 20px;                
+    font-size: 20px;
+                    
 }
-
 .table-todo-row td{
     padding: 10px;    
 }
+
+/* Profile td */
 #table-profile{
-    min-width: 180px;
+    min-width: 300px;    
     border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-top-left-radius: 10px;        
+    white-space:nowrap;
+    border-left: 3px solid orange;
 }
+.table-profile-container{
+    display: flex;
+}
+#table-profile img{
+    display: inline;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    padding: 3px;
+    margin-right: 10px;
+}
+.profile-email{
+    color: var(--font-main-color);
+    text-decoration: none;
+}
+
+
+
 #table-details{
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
