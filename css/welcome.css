@@ -8,34 +8,49 @@
 }
 
 .welcome-container{
-    width: 90%;
-    height: 100%;
+    width: 90%;    
     font-size: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
+
 
 .welcome-headline-container{
     flex-direction: column;
+    text-align: center;
 }
-
-
 .welcome-logo{
     height: 130px;
 }
+
 .welcome-description{
     text-align: center;
     flex-direction: column;
 }
 
+/* Profile-pics */
+.welcome-profile-pics{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.welcome-profile-pics img{
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+
 @media(max-width: 1000px){
     .section-welcome{
         left: 150px;
     }
-    .welcome-container{
-        font-size: 24px;
+    .welcome-container{        
+        font-size: 25px;
     }
     .welcome-logo{
         height: 100px;
@@ -46,7 +61,8 @@
     .section-welcome{
         left: 100px;
     }
-    .welcome-container{
+    
+    .welcome-description{
         font-size: 20px;
     }
     .welcome-logo{
