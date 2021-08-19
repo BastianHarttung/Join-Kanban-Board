@@ -41,4 +41,9 @@
 }
 .table-head{
     color: var(--font-main-color);
+    font-size: 20px;
+    text-align: left;
+}
+.table-todo-row{
+    background-color: var(--background-area);
 }

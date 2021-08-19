@@ -13,12 +13,16 @@ body{
     --main-color: rgb(63, 60, 255);
     --font-main-color: rgb(8, 5, 170);
     --font-color-bright: rgb(216, 216, 216);
+    --background-area: rgb(235, 237, 252);
 }
 
 .d-flex-center{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.font-color-main{
+    color: var(--font-main-color);
 }
 
 /* ------Navigation navbar---------------------- */
