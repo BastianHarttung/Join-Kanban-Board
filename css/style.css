@@ -11,6 +11,7 @@ body{
 
 :root{
     --main-color: rgb(63, 60, 255);
+    --font-main-color: rgb(8, 5, 170);
     --font-color-bright: rgb(216, 216, 216);
 }
 

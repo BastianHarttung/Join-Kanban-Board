@@ -1,0 +1,44 @@
+.section-backlog{
+    height: 100vh;        
+    position: absolute;  
+    top: 0;
+    bottom: 0;  
+    left: 200px;
+    right: 0px;  
+    align-items: flex-start;
+}
+
+.backlog-container{
+    width: 90%;
+    margin: 20px 0px;
+}
+
+.backlog-table-container{
+    width: 90%;
+    flex-direction: column;
+}
+
+.backlog-head{
+    font-size: 25px;
+    text-align: left;    
+}
+.backlog-head h2{
+    margin: 10px 0px;
+}
+
+.backlog-head p{
+    color: var(--font-main-color);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 0px;
+}
+
+
+/* Table */
+.table{
+    width: 100%;
+    margin-top: 20px;
+}
+.table-head{
+    color: var(--font-main-color);
+}
