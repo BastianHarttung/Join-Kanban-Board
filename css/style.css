@@ -13,6 +13,7 @@ body{
     --font-main-color: rgb(8, 5, 170);
     --font-color-bright: rgb(216, 216, 216);
     --background-area: rgb(235, 237, 252);
+    --transition-time: 120ms;
 }
 
 .d-flex-center{
@@ -61,9 +62,9 @@ body{
     position: relative;    
     right: 0;
     border-radius: 10px;
-    transition: color 120ms ease-in-out,
-                right 120ms ease-in-out,
-                bottom 120ms ease-in-out;
+    transition: color var(--transition-time) ease-in-out,
+                right var(--transition-time) ease-in-out,
+                bottom var(--transition-time) ease-in-out;
 }
 .links a::before{
     content: '';
@@ -74,13 +75,14 @@ body{
     left: -20px;
     top: 0;
     bottom: 0;
-    transition: width 120ms ease-in-out;    
+    transition: width var(--transition-time) ease-in-out;    
 }
 .links a:hover::before{
     width: 4px;
 }
 
 .links a:hover{
+    background-color: rgb(100, 98, 250);
     color: white;   
     right: -50px;     
 } 
