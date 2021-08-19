@@ -14,14 +14,31 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/logo.png">
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/welcome.css">
     
 </head>
 <body onload="includeHTML()">
 
     <header w3-include-html="./templates/navbar.html"></header>
 
+    <section class="section-welcome d-flex-center">
+        
+        <div class="welcome-container">
+            
+            <div class="welcome-headline-container d-flex-center">
+                <h1>Welcome to</h1>
+                <img class="welcome-logo" src="./assets/img/logo.png" alt="Join">
+                <h3>World's best Kanban-Board</h3>
+            </div>
+
+            <div class="welcome-description d-flex-center">              
+                <p>Published by 3 developers <br> during a group project of the Developer akademie.</p>
+            </div> 
+
+        </div>        
     
-    
+    </section>
+
     <script src="./js/includehtml.js"></script>
     <script src="./js/script.js"></script>
 

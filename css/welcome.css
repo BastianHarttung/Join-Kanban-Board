@@ -1,0 +1,55 @@
+.section-welcome{       
+    height: 100vh;    
+    position: absolute;  
+    top: 0;
+    bottom: 0;  
+    left: 200px;
+    right: 0px;    
+}
+
+.welcome-container{
+    width: 90%;
+    height: 100%;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.welcome-headline-container{
+    flex-direction: column;
+}
+
+
+.welcome-logo{
+    height: 130px;
+}
+.welcome-description{
+    text-align: center;
+    flex-direction: column;
+}
+
+@media(max-width: 1000px){
+    .section-welcome{
+        left: 150px;
+    }
+    .welcome-container{
+        font-size: 24px;
+    }
+    .welcome-logo{
+        height: 100px;
+    }
+}
+
+@media(max-width: 700px) {
+    .section-welcome{
+        left: 100px;
+    }
+    .welcome-container{
+        font-size: 20px;
+    }
+    .welcome-logo{
+        height: 80px;
+    }
+}
