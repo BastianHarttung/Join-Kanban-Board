@@ -14,7 +14,7 @@ body{
 /* ------Navigation navbar---------------------- */
 .nav{
     background-color: var(--main-color);
-    width: 15%;
+    width: 200px;
     height: 100vh;
     position: fixed;
     left: 0;
@@ -53,8 +53,7 @@ body{
     left: -20px;
     top: 0;
     bottom: 0;
-    transition: width 120ms ease-in-out;
-    
+    transition: width 120ms ease-in-out;    
 }
 .links a:hover::before{
     width: 4px;
@@ -62,18 +61,23 @@ body{
 
 .links a:hover{
     color: white;   
-    right: -50px; 
-    
+    right: -50px;     
 } 
 .profile-pic{
-    height: 100px;
+    height: 90px;
     border-radius: 50%;
 }
 
 @media(max-width: 1000px){
+    .nav{
+        width: 150px;
+    }
     .links a{
         font-size: 22px;
     }
+    .links a:hover{       
+        right: -40px;     
+    } 
     .profile-pic{
         height: 70px;
     }
@@ -82,9 +86,18 @@ body{
     }
 }
 @media(max-width: 700px){
+    .nav{
+        width: 100px;
+    }
     .links a{
         font-size: 17px;
         padding: 10px;
+    }
+    .links a:hover{       
+        right: -25px;     
+    } 
+    .links a::before{        
+        left: -5px;           
     }
     .profile-pic{
         height: 50px;
