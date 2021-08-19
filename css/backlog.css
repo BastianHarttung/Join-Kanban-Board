@@ -9,21 +9,18 @@
 }
 
 .backlog-container{
-    width: 90%;
+    width: 93%;
     margin: 20px 0px;
 }
 
-.backlog-table-container{
-    width: 90%;
-    flex-direction: column;
-}
 
 .backlog-head{
     font-size: 25px;
-    text-align: left;    
+    text-align: left; 
+    padding: 10px;   
 }
 .backlog-head h2{
-    margin: 10px 0px;
+    margin: 5px 0px;
 }
 
 .backlog-head p{
@@ -37,13 +34,33 @@
 /* Table */
 .table{
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
+    border-collapse: collapse;
 }
 .table-head{
     color: var(--font-main-color);
     font-size: 20px;
     text-align: left;
+    margin-bottom: 10px;
 }
+.table-head th{
+    padding: 10px;
+}
+
 .table-todo-row{
     background-color: var(--background-area);
+    font-size: 20px;        
 }
+
+.table-todo-row td{
+    padding: 10px;    
+}
+#table-profile{
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+#table-details{
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+ 
