@@ -1,0 +1,34 @@
+.section-help{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.help-container{
+    width: 90%;
+    padding: 20px 0px;
+}
+
+/* Helpseite Überschrift */
+.help-heading{
+    font-size: 25px;
+}
+.help-heading h2{
+    margin: 10px 0px;
+}
+.help-heading p{
+    margin: 10px 0px;
+}
+
+
+/* Help-Bereiche */
+.help-description-container{
+    font-size: 20px;
+    margin-top: 40px;
+}
+.help-description-container img{
+    width: 100%;
+}
+
+@media (max-width: 1000px){
+
+}

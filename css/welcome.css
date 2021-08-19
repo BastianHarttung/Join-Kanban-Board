@@ -45,10 +45,7 @@
 }
 
 
-@media(max-width: 1000px){
-    .section-welcome{
-        left: 150px;
-    }
+@media(max-width: 1000px){    
     .welcome-container{        
         font-size: 25px;
     }
@@ -57,11 +54,7 @@
     }
 }
 
-@media(max-width: 700px) {
-    .section-welcome{
-        left: 100px;
-    }
-    
+@media(max-width: 700px) {       
     .welcome-description{
         font-size: 20px;
     }

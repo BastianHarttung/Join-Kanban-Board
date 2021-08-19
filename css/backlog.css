@@ -1,10 +1,4 @@
-.section-backlog{
-    height: 100vh;        
-    position: absolute;  
-    top: 0;
-    bottom: 0;  
-    left: 200px;
-    right: 0px;  
+.section-backlog{    
     align-items: flex-start;
 }
 
@@ -35,27 +29,28 @@
 .table{
     width: 100%;
     margin-top: 10px;
-    border-collapse: collapse;
+    border-collapse: separate;    
+    border-spacing:0 10px;            
 }
 .table-head{
     color: var(--font-main-color);
     font-size: 20px;
-    text-align: left;
-    margin-bottom: 10px;
+    text-align: left;    
 }
 .table-head th{
-    padding: 10px;
+    padding: 5px;
 }
 
 .table-todo-row{
     background-color: var(--background-area);
-    font-size: 20px;        
+    font-size: 20px;                
 }
 
 .table-todo-row td{
     padding: 10px;    
 }
 #table-profile{
+    min-width: 180px;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
 }
@@ -63,4 +58,4 @@
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
 }
- 
+
