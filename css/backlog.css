@@ -56,8 +56,22 @@
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;        
     white-space:nowrap;
-    border-left: 3px solid orange;
+    
 }
+#table-profile.orange{
+    border-left: 4px solid orange;
+}
+#table-profile.blue{
+    border-left: 4px solid blue;
+}
+#table-profile.red{
+    border-left: 4px solid red;
+}
+#table-profile.green{
+    border-left: 4px solid green;
+}
+
+
 .table-profile-container{
     display: flex;
 }

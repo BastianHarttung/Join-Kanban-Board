@@ -27,6 +27,8 @@
 }
 .help-description-container img{
     width: 100%;
+    border: 1px solid gray;
+    margin: 10px 0px;
 }
 
 @media (max-width: 1000px){
