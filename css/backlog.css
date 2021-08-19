@@ -43,8 +43,7 @@
 }
 .table-todo-row{
     background-color: var(--background-area);
-    font-size: 20px;
-                    
+    font-size: 20px;                    
 }
 .table-todo-row td{
     padding: 10px;    
@@ -55,8 +54,7 @@
     min-width: 300px;    
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;        
-    white-space:nowrap;
-    
+    white-space:nowrap;    
 }
 #table-profile.orange{
     border-left: 4px solid orange;
@@ -74,6 +72,7 @@
 
 .table-profile-container{
     display: flex;
+    align-items: center;
 }
 #table-profile img{
     display: inline;
@@ -95,3 +94,36 @@
     border-top-right-radius: 10px;
 }
 
+
+@media(max-width: 1000px){
+    .backlog-head{
+        font-size: 20px;          
+    }    
+    .backlog-head p{        
+        font-size: 15px;        
+    }
+
+    .table-head{        
+        font-size: 17px;           
+    }
+
+    .table-todo-row{        
+        font-size: 15px;                    
+    }
+    #table-profile{
+        min-width: 120px;  
+    }    
+}
+
+@media (max-width: 700px){
+    .table-profile-container{
+        flex-direction: column;
+        text-align: center;        
+    }
+}
+
+@media(max-width: 550px){
+    #table-profile{               
+        white-space: inherit;    
+    }
+}

@@ -26,8 +26,7 @@ body{
 
 .section{         
     height: 100vh;    
-    position: absolute;  
-    top: 0;
+    position: absolute;      
     bottom: 0;  
     left: 200px;
     right: 0px;      
@@ -39,15 +38,12 @@ body{
     background-color: var(--main-color);
     width: 200px;
     height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
+    position: fixed;    
     bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
 }
 .links{
     display: flex;
@@ -59,13 +55,15 @@ body{
     background-color: var(--main-color);
     font-size: 30px;    
     padding: 15px;
+    white-space: nowrap;
     text-decoration: none;
     text-align: right;    
     position: relative;    
     right: 0;
     border-radius: 10px;
     transition: color 120ms ease-in-out,
-                right 120ms ease-in-out;
+                right 120ms ease-in-out,
+                bottom 120ms ease-in-out;
 }
 .links a::before{
     content: '';
@@ -116,10 +114,10 @@ body{
 }
 @media(max-width: 700px){
     .section{
-        left: 100px;
+        left: 110px;
     }
     .nav{
-        width: 100px;
+        width: 110px;
     }
     .links a{
         font-size: 17px;
@@ -137,4 +135,47 @@ body{
     .nav-logo img{
         height: 50px;
     }
+}
+@media(max-width: 550px){
+    .section{
+        height: 90vh !important;
+        left: 0px;
+        top: 0;
+        bottom: 90px;
+    }
+    .nav{
+        background-color: var(--main-color);
+        width: 100vw;        
+        height: 90px;
+        position: fixed;        
+        bottom: 0;        
+        flex-direction: row;
+        z-index: 2;
+    }
+    .links{
+        flex-direction: row;
+    }
+    .links a{
+        font-size: 50px;
+        margin: 0px 10px;
+    }
+    .help-container{
+        padding-bottom: 150px !important;
+    }
+    .nav-profile-pic{
+       display: none;
+    }
+    .link-text{
+        display: none;
+    }
+    .links a:hover::before{
+        width: 0px;
+    }
+    
+    .links a:hover{
+        color: white;   
+        bottom: 25px;    
+        right: 0px; 
+    } 
+        
 }

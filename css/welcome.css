@@ -1,11 +1,4 @@
-.section-welcome{       
-    height: 100vh;    
-    position: absolute;  
-    top: 0;
-    bottom: 0;  
-    left: 200px;
-    right: 0px;    
-}
+
 
 .welcome-container{
     width: 90%;    
@@ -62,3 +55,4 @@
         height: 80px;
     }
 }
+
