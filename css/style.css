@@ -107,7 +107,7 @@ body{
     .links a:hover{       
         right: -40px;     
     } 
-    .profile-pic{
+    .nav-profile-pic{
         height: 70px;
     }
     .nav-logo img{
@@ -131,7 +131,7 @@ body{
     .links a::before{        
         left: -5px;           
     }
-    .profile-pic{
+    .nav-profile-pic{
         height: 50px;
     }
     .nav-logo img{
