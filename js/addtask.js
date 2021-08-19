@@ -1,4 +1,21 @@
 let allTasks = [];
+let allUsers = [
+    {
+        'name': 'Bastian Harttung',
+        'email': 'info@harttung-fotografie.de',
+        'profile-img': './assets/img/profile-bastian.png'
+    },
+    {
+        'name': 'Cam Trang',
+        'email': 'camtrang@web.de',
+        'profile-img': './assets/img/profilepic.png'
+    },
+    {
+        'name': 'Adriano Parente',
+        'email': 'adriano.parente@gmx.de',
+        'profile-img': './assets/img/profilepic.png'
+    },
+]
 let id = 0;
 
 function deleteInput() {
@@ -17,6 +34,7 @@ function createTask() {
     let urgency = document.getElementById('addTaskUrgency').value;
     let description = document.getElementById('addTaskDescription').value;
     let status = 'todo';
+    let usertask =  [];
     
     // Unser task ist letzendlich ein JSON
     let task = {
@@ -26,7 +44,8 @@ function createTask() {
         'category': category,
         'urgency': urgency,
         'description': description,
-        'status': status
+        'status': status,
+        'user': usertask,        //Muss noch geändert werden!!!!!!!!!!!!!
     };
  
     allTasks.push(task);
