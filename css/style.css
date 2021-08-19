@@ -69,3 +69,27 @@ body{
     height: 100px;
     border-radius: 50%;
 }
+
+@media(max-width: 1000px){
+    .links a{
+        font-size: 22px;
+    }
+    .profile-pic{
+        height: 70px;
+    }
+    .nav-logo img{
+        height: 60px;
+    }
+}
+@media(max-width: 700px){
+    .links a{
+        font-size: 17px;
+        padding: 10px;
+    }
+    .profile-pic{
+        height: 50px;
+    }
+    .nav-logo img{
+        height: 50px;
+    }
+}
