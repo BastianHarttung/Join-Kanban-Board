@@ -55,13 +55,13 @@ body{
     color: var(--font-color-bright);
     background-color: var(--main-color);
     font-size: 30px;    
-    padding: 15px;
+    padding: 15px 15px 15px 25px;
     white-space: nowrap;
     text-decoration: none;
     text-align: right;    
     position: relative;    
     right: 0;
-    border-radius: 10px;
+    border-radius: 0px 10px 10px 0px;
     transition: color var(--transition-time) ease-in-out,
                 right var(--transition-time) ease-in-out,
                 bottom var(--transition-time) ease-in-out;
@@ -72,7 +72,7 @@ body{
     width: 0;
     height: 100%;
     position: absolute;
-    left: -20px;
+    left: 0px;
     top: 0;
     bottom: 0;
     transition: width var(--transition-time) ease-in-out;    
@@ -82,7 +82,7 @@ body{
 }
 
 .links a:hover{
-    background-color: rgb(100, 98, 250);
+    background-color: rgb(3, 0, 194);
     color: white;   
     right: -50px;     
 } 
@@ -154,12 +154,18 @@ body{
         flex-direction: row;
         z-index: 2;
     }
+    .nav-logo{
+        margin: 0px 20px;
+    }
     .links{
         flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
     }
     .links a{
-        font-size: 50px;
-        margin: 0px 10px;
+        font-size: 40px;  
+        border-radius: 10px 10px 0px 0px;  
+        padding: 15px 15px 23px 15px;    
     }
     .help-container{
         padding-bottom: 150px !important;
@@ -181,3 +187,4 @@ body{
     } 
         
 }
+
