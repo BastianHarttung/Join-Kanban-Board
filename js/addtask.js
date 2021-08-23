@@ -1,22 +1,7 @@
-let allTasks = [];
-let allUsers = [
-    {
-        'name': 'Bastian Harttung',
-        'email': 'info@harttung-fotografie.de',
-        'profile-img': './assets/img/profile-bastian.png'
-    },
-    {
-        'name': 'Cam Trang',
-        'email': 'camtrang@web.de',
-        'profile-img': './assets/img/profilepic.png'
-    },
-    {
-        'name': 'Adriano Parente',
-        'email': 'adriano.parente@gmx.de',
-        'profile-img': './assets/img/profilepic.png'
-    },
-]
-let id = 0;
+let allTasks =[];
+let usertask = [];
+let id;
+
 
 function deleteInput() {
     document.getElementById('addTaskTitle').value = '';
@@ -26,40 +11,63 @@ function deleteInput() {
     document.getElementById('addTaskDescription').value = '';
 }
 
-function createTask() {
+function showUsersOnAddTask(){
 
+    for (let i = 0; i < allUsers.length; i++) {        
+
+       document.getElementById('addTask-participants-container').innerHTML += `
+            <div class="addTask-participants">
+                <img class="addTask-img-area" src="${allUsers[i]['profile-img']}">
+                <div class="addtask-plus" onclick="assignToTask(${i})">
+                    <i class="fas fa-plus"></i>
+                </div>            
+            </div>
+            `         
+    }    
+}
+
+function createTask() {
+    
     let title = document.getElementById('addTaskTitle').value;
     let createdAt = document.getElementById('addTaskDate').value;
     let category = document.getElementById('addTaskCatergory').value;
     let urgency = document.getElementById('addTaskUrgency').value;
     let description = document.getElementById('addTaskDescription').value;
-    let status = 'todo';
-    let usertask =  [];
+    let status = 'todo';  
+    id = Math.round(Math.random() * 1000);   
     
     // Unser task ist letzendlich ein JSON
     let task = {
-        'id': id,
+        'id': id,                   //evtl ändern weil nicht eindeutig ??????????
         'title': title,
         'createdAt': createdAt,
         'category': category,
         'urgency': urgency,
         'description': description,
         'status': status,
-        'user': usertask,        //Muss noch geändert werden!!!!!!!!!!!!!
+        'user': usertask,        
     };
  
-    allTasks.push(task);
-
-    id = id++;
+    allTasks.push(task);    
 
     let allTasksAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTasksAsString);
+ 
+    window.location.href = "./board.html";
+
+    deleteInput();
 
 }
 
-function loadallTasks() {
+function assignToTask(i){    
+     
+    usertask.push(allUsers[i])    
+
+    console.log('usertask: ',usertask)    
+}
+
+/* function loadallTasks() {
     let allTasksAsString = localStorage.getItem('allTasks');
     allTasks = JSON.parse(allTasksAsString);
-    console.log('Loaded all tasks', allTasks);
-}
-
+     console.log('Loaded all tasks', allTasks); 
+}   ist bereits in init bei script.js*/ 

@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font PT Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/91e28ba968.js" crossorigin="anonymous"></script>
-   
+    
     <title>AddTask</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/addtask.css">
+    <link rel="stylesheet" href="./css/addtask.css">    
+
+    <!-- Backend -->
+    <script src="./mini_backend.js"></script>
+    <script>setURL('http://gruppe-95.developerakademie.com/smallest_backend_ever')</script>
 
     <script src="./js/includehtml.js"></script>
-    <script src="./js/addtask.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/addtask.js"></script>
 
 </head>
 
-<body onload="includeHTML()">
+<body onload="init(), initAddTask()">
     <div w3-include-html="./templates/navbar.html"></div>
 
 
@@ -65,7 +67,7 @@
             </div>
             <select class="addTask-select" id="addTaskUrgency" placeholder="URGENCY"> <!--addTask-input-->
                 <option>LOW</option>
-                <option>CENTER</option>
+                <option>MIDDLE</option>
                 <option>HIGH</option>
                 <option>UNKOWN</option>
             </select>
@@ -80,18 +82,22 @@
             <div class="addTask-area-title">
                 <b>ASSIGNED TO</b>
             </div>
-            <div class="addTask-participants">
-                <img class="addTask-img-area" src="assets/img/profilepic.png">
-                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
+
+            <div id="addTask-participants-container">
+                <!-- <div class="addTask-participants">
+                    <img class="addTask-img-area" src="assets/img/profilepic.png">
+                    <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
+                </div>
+                <div class="addTask-participants">
+                    <img class="addTask-img-area" src="assets/img/profilepic.png">
+                    <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
+                </div>
+                <div class="addTask-participants">
+                    <img class="addTask-img-area" src="assets/img/profilepic.png">
+                    <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
+                </div> -->
             </div>
-            <div class="addTask-participants">
-                <img class="addTask-img-area" src="assets/img/profilepic.png">
-                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
-            </div>
-            <div class="addTask-participants">
-                <img class="addTask-img-area" src="assets/img/profilepic.png">
-                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
-            </div>
+
         </div>
         <div class="addTask-cancel-or-create">
             <button class="addTask-cancel" onclick="deleteInput()"><b>CANCEL</b></button>
@@ -100,7 +106,7 @@
 
     </div>
 
-   
+    
 
 </body>
 
