@@ -15,7 +15,7 @@ function showUsersOnAddTask(){
 
     for (let i = 0; i < allUsers.length; i++) {        
 
-       document.getElementById('addTask-participants-container').innerHTML += `
+       document.getElementById('addTask-participants').innerHTML += `
             <div class="addTask-participants">
                 <img class="addTask-img-area" src="${allUsers[i]['profile-img']}">
                 <div class="addtask-plus" onclick="assignToTask(${i})">
