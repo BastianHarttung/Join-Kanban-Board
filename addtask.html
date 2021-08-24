@@ -10,7 +10,11 @@
         rel="stylesheet">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/91e28ba968.js" crossorigin="anonymous"></script>
-   
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/img/logo.png" sizes="96x96">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/logo.png">
+
     <title>AddTask</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/addTask.css">
@@ -46,13 +50,14 @@
             <div class="addTask-area-title">
                 <b>DUE DATE</b>
             </div>
-            <input class="addTask-input" id="addTaskDate" type="date"> 
+            <input class="addTask-input" id="addTaskDate" type="date">
         </div>
         <div class="addTask-area-child">
             <div class="addTask-area-title">
                 <b>CATEGORY</b>
             </div>
-            <select class="addTask-select" id="addTaskCatergory" placeholder="Category">  <!--addTask-input-->
+            <select class="addTask-select" id="addTaskCatergory" placeholder="Category">
+                <!--addTask-input-->
                 <option>Management</option>
                 <option>Marketing</option>
                 <option>Product</option>
@@ -63,11 +68,11 @@
             <div class="addTask-area-title">
                 <b>URGENCY</b>
             </div>
-            <select class="addTask-select" id="addTaskUrgency" placeholder="URGENCY"> <!--addTask-input-->
+            <select class="addTask-select" id="addTaskUrgency" placeholder="URGENCY">
+                <!--addTask-input-->
                 <option>LOW</option>
-                <option>CENTER</option>
+                <option>MIDDLE</option>
                 <option>HIGH</option>
-                <option>UNKOWN</option>
             </select>
         </div>
         <div class="addTask-area-child">
@@ -82,15 +87,15 @@
             </div>
             <div class="addTask-participants">
                 <img class="addTask-img-area" src="assets/img/profilepic.png">
-                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
+                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()">
             </div>
             <div class="addTask-participants">
                 <img class="addTask-img-area" src="assets/img/profilepic.png">
-                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
+                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()">
             </div>
             <div class="addTask-participants">
                 <img class="addTask-img-area" src="assets/img/profilepic.png">
-                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()" >
+                <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()">
             </div>
         </div>
         <div class="addTask-cancel-or-create">
@@ -100,7 +105,7 @@
 
     </div>
 
-   
+
 
 </body>
 
