@@ -15,11 +15,15 @@
     <link rel="icon" type="image/png" href="./assets/img/logo.png" sizes="96x96">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/logo.png">
 
+    <!-- Backend -->
+    <script src="./mini_backend.js"></script>
+    <script>setURL('http://gruppe-95.developerakademie.com/smallest_backend_ever')</script>
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/welcome.css">
     
 </head>
-<body onload="includeHTML()">
+<body onload="includeHTML(), init()">
 
     <header w3-include-html="./templates/navbar.html"></header>
 
@@ -36,9 +40,9 @@
             <div class="welcome-description d-flex-center">              
                 <p>Published by 3 developers <br> during a group project of the Developer Akademie.</p>
                 <div class="welcome-profile-pics">
-                    <img src="./assets/img/profilepic.png" alt="Adriano Parente">
-                    <img src="./assets/img/profilepic.png" alt="Cam Hang">
-                    <img src="./assets/img/profile-bastian.png" alt="Bastian Harttung">
+                    <a href="https://github.com/AdrianoParente" target="_blank"><img src="./assets/img/profilepic.png" alt="Adriano Parente" title="Adriano Parente"></a> 
+                    <a href="https://github.com/TrangCH" target="_blank"><img src="./assets/img/profilepic.png" alt="Cam Trang" title="Cam Trang"></a> 
+                    <a href="https://github.com/BastianHarttung" target="_blank"><img src="./assets/img/profile-bastian.png" alt="Bastian Harttung" title="Bastian Harttung"></a> 
                 </div>
             </div> 
 

@@ -13,7 +13,7 @@ body{
     --font-main-color: rgb(8, 5, 170);
     --font-color-bright: rgb(216, 216, 216);
     --background-area: rgb(235, 237, 252);
-    --transition-time: 120ms;
+    --transition-time: 150ms;
 }
 
 .d-flex-center{
@@ -45,6 +45,7 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    z-index: 10;
 }
 .links{
     display: flex;
@@ -55,36 +56,26 @@ body{
     color: var(--font-color-bright);
     background-color: var(--main-color);
     font-size: 30px;    
-    padding: 15px;
+    padding: 15px 15px 15px 25px;
     white-space: nowrap;
     text-decoration: none;
     text-align: right;    
     position: relative;    
     right: 0;
-    border-radius: 10px;
+    border-radius: 0px 10px 10px 0px;
     transition: color var(--transition-time) ease-in-out,
+                background-color var(--transition-time) ease-in-out,
                 right var(--transition-time) ease-in-out,
-                bottom var(--transition-time) ease-in-out;
-}
-.links a::before{
-    content: '';
-    background-color: white;
-    width: 0;
-    height: 100%;
-    position: absolute;
-    left: -20px;
-    top: 0;
-    bottom: 0;
-    transition: width var(--transition-time) ease-in-out;    
-}
-.links a:hover::before{
-    width: 4px;
+                bottom var(--transition-time) ease-in-out,
+                border-bottom var(--transition-time) ease-in-out,
+                border-left var(--transition-time) ease-in-out;
 }
 
 .links a:hover{
-    background-color: rgb(100, 98, 250);
+    background-color: rgb(3, 0, 194);
     color: white;   
     right: -50px;     
+    border-left: 4px solid white 
 } 
 .nav-profile-pic{
     height: 90px;
@@ -105,7 +96,7 @@ body{
         font-size: 22px;
     }
     .links a:hover{       
-        right: -40px;     
+        right: -35px;     
     } 
     .nav-profile-pic{
         height: 70px;
@@ -140,7 +131,7 @@ body{
 }
 @media(max-width: 550px){
     .section{
-        height: 90vh !important;
+        height: 85vh !important;
         left: 0px;
         top: 0;
         bottom: 90px;
@@ -148,18 +139,23 @@ body{
     .nav{
         background-color: var(--main-color);
         width: 100vw;        
-        height: 90px;
+        height: 95px;
         position: fixed;        
         bottom: 0;        
-        flex-direction: row;
-        z-index: 2;
+        flex-direction: row;        
+    }
+    .nav-logo{
+        margin: 0px 20px;
     }
     .links{
         flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
     }
     .links a{
-        font-size: 50px;
-        margin: 0px 10px;
+        font-size: 40px;  
+        border-radius: 10px 10px 0px 0px;  
+        padding: 15px 15px 23px 15px;    
     }
     .help-container{
         padding-bottom: 150px !important;
@@ -170,14 +166,18 @@ body{
     .link-text{
         display: none;
     }
+    
     .links a:hover::before{
         width: 0px;
-    }
+    }            
     
     .links a:hover{
         color: white;   
         bottom: 25px;    
         right: 0px; 
+        border-left: 0px solid white;
+        border-bottom: 4px solid white;
     } 
         
 }
+

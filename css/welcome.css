@@ -34,10 +34,13 @@
     justify-content: center;
     align-items: center;    
 }
-.welcome-profile-pics img{
-    height: 100px;
+.welcome-profile-pics a{
     border-radius: 50%;
     margin: 10px;
+}
+.welcome-profile-pics img{
+    height: 100px;
+    border-radius: 50%;    
 }
 
 

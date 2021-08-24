@@ -11,14 +11,19 @@
    
     <title>Join Backlog</title>
 
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/img/logo.png" sizes="96x96">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/logo.png">
+     <!-- Backend -->
+     <script src="./mini_backend.js"></script>
+     <script>setURL('http://gruppe-95.developerakademie.com/smallest_backend_ever')</script>
+ 
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/backlog.css">
     
 </head>
-<body onload="includeHTML()">
+<body onload="init(), initBacklog()">
 
     <header w3-include-html="./templates/navbar.html"></header>
 
@@ -34,26 +39,26 @@
         
             <div class="backlog-table-container d-flex-center">
                 
-                <table class="table">
+                <table id="table" class="table">
                     <tr class="table-head">
                         <th>Assigned To</th>
                         <th>Category</th>
                         <th>Details</th>
                     </tr>
-                    <tr class="table-todo-row">
+                   <!--  <tr class="table-todo-row">
 
                         <td id="table-profile" class="orange">
                             <div class="table-profile-container">
-                                <img src="./assets/img/profile-bastian.png">
+                                <img id="profile-img" src="./assets/img/profile-bastian.png">
                                 <div class="table-profile-name-email">
-                                    <div>Bastian Harttung</div>
-                                    <a href="mailto: info@harttung-fotografie.de" class="profile-email">info@harttung-fotografie.de</a>    
+                                    <div id="profile-name">Bastian Harttung</div>
+                                    <a href="mailto: info@harttung-fotografie.de" id="profile-email" class="profile-email">info@harttung-fotografie.de</a>    
                                 </div>
                             </div>                                                      
                         </td>
                         <td id="table-category">Marketing</td>
                         <td id="table-details">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, tempora laborum magni in.</td>
-                    </tr>
+                    </tr> -->
                     
                 </table>
             </div>
@@ -64,6 +69,7 @@
     
     <script src="./js/includehtml.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/backlog.js"></script>
 
 </body>
 </html>

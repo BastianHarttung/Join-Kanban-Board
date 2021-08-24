@@ -3,7 +3,7 @@
 }
 
 .backlog-container{
-    width: 93%;
+    width: 91%;
     margin: 20px 0px;
 }
 
@@ -56,17 +56,17 @@
     border-top-left-radius: 10px;        
     white-space:nowrap;    
 }
+#table-profile.green{
+    border-left: 4px solid green;
+}
 #table-profile.orange{
     border-left: 4px solid orange;
-}
-#table-profile.blue{
-    border-left: 4px solid blue;
 }
 #table-profile.red{
     border-left: 4px solid red;
 }
-#table-profile.green{
-    border-left: 4px solid green;
+#table-profile.blue{
+    border-left: 4px solid blue;
 }
 
 
@@ -76,6 +76,7 @@
 }
 #table-profile img{
     display: inline;
+    width: 50px;
     height: 50px;
     border-radius: 50%;
     border: 1px solid gray;

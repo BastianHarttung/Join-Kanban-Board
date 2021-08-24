@@ -16,7 +16,7 @@ button {
 .addTask-head {
     /*padding-left: 300px;*/
     padding-top: 40px;
-    margin-left: 25%;
+    margin-left: 250px;
     margin-right: 5%;
 }
 
@@ -30,7 +30,7 @@ button {
 
 .addTask-area {
     background-color: var(--addTask-area-color);
-    margin-left: 25%;
+    margin-left: 250px;
     margin-right: 5%;
     margin-top: 32px;
     margin-bottom: 64px;
@@ -81,21 +81,30 @@ button {
 
 .addTask-participants {
     margin-top: 8px;
-    min-width: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .addTask-img-area {
-    width: 75px;
+    width: 60px;
     border-radius: 50%;
 }
-
-.addTask-icon-plus {
-    height: 45px;
+.addtask-plus{
+    background-color: var(--font-color-bright);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
     cursor: pointer;
 }
+.fa-plus{
+    font-size: 25px;
+}
+
+
 
 .addTask-cancel {
     color: var(--main-color);
@@ -104,7 +113,6 @@ button {
     text-align: center;
     cursor: pointer;
 }
-
 .addTask-create-task {
     background-color: var(--main-color);
     color: white;
