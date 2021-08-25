@@ -42,9 +42,13 @@
 }
 
 .boardItemDate{
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .boardItemTitle{
-    font-size: 12px;
+    font-size: 16px;
+}
+
+.boardItemUser{
+    font-size: 10px;
 }

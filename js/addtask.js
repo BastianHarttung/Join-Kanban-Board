@@ -34,6 +34,7 @@ function addNewParticipants() {
 
 }
 
+
 function createTask() {
     
     let title = document.getElementById('addTaskTitle').value;
@@ -42,7 +43,7 @@ function createTask() {
     let urgency = document.getElementById('addTaskUrgency').value;
     let description = document.getElementById('addTaskDescription').value;
     let status = 'todo';  
-    id = Math.round(Math.random() * 1000);   
+    id = allTasks.length;
     
     // Unser task ist letzendlich ein JSON
     let task = {
@@ -56,7 +57,8 @@ function createTask() {
         'user': usertask,        
     };
  
-    allTasks.push(task);    
+    allTasks.push(task);  
+      
 
     let allTasksAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTasksAsString);
