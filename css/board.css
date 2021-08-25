@@ -10,6 +10,10 @@
     padding-bottom: 20px;
 }
 
+:root {
+    --addTask-area-color: rgb(235, 237, 252);
+}
+
 .singleTaskContainer {
     display: flex;
     flex-direction: column;
@@ -25,7 +29,8 @@
 .task {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    background-color: var(--addTask-area-color);
 }
 
 .boardItem{
@@ -34,4 +39,12 @@
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
+}
+
+.boardItemDate{
+    font-size: 10px;
+}
+
+.boardItemTitle{
+    font-size: 12px;
 }

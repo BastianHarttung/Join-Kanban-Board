@@ -14,7 +14,7 @@ let allUsers = [
     {
         'name': 'Adriano Parente',
         'email': 'adriano.parente@gmx.de',
-        'profile-img': './assets/img/profilepic.png'
+        'profile-img': './assets/img/Adriano.jpg'
     },
 ]
 

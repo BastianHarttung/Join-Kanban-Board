@@ -1,32 +1,16 @@
 let currentDraggedElement;
-let allTasksOptimzed = [];
-let status = 'todo';
-let allTask;
 
-function optimzeAllTasks(allTasks) {
-    for (let i = 0; i < allTasks.length; i++) {
-        let taskOptimized = {
-            'id': i,
-            'title': allTask[i]['title'],
-            'category': allTask[i]['category'],
-            'urgency': allTask[i]['urgency'],
-            'description': allTask[i]['description'],
-            'status': status
-        };
-        allTasksOptimzed.push(taskOptimized);
-    }
-}
 
 function loadAllTasks() {
     let allTasksAsString = localStorage.getItem('allTasks');
-    allTask = JSON.parse(allTasksAsString);
+    allTasks = JSON.parse(allTasksAsString);
 }
 
 function updateHTML() {
-    let todo = allTasksOptimzed.filter(t => t['status'] == 'todo');
-    let inProgress = allTasksOptimzed.filter(t => t['status'] == 'inProgress');
-    let testing = allTasksOptimzed.filter(t => t['status'] == 'testing');
-    let done = allTasksOptimzed.filter(t => t['status'] == 'done');
+    let todo = allTasks.filter(t => t['status'] == 'todo');
+    let inProgress = allTasks.filter(t => t['status'] == 'inProgress');
+    let testing = allTasks.filter(t => t['status'] == 'testing');
+    let done = allTasks.filter(t => t['status'] == 'done');
     document.getElementById('todo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
@@ -55,7 +39,22 @@ function startDragging(id) {
 }
 
 function generateToDoElement(element) {
-    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem">${element['title']}</div>`
+    return `
+    <div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem">
+    <div class = "boardItemTitle">
+        ${element['id']}
+        </div>
+        <div class = "boardItemDate">
+        ${element['createdAt']}
+        </div>
+        <div class = "boardItemTitle">
+        ${element['title']}
+        </div>
+        <div class = "boardItemTitle">
+        ${element['status']}
+        </div>
+    </div>
+    `
 }
 
 function allowDrop(ev) {
@@ -63,13 +62,12 @@ function allowDrop(ev) {
 }
 
 function moveTo(status) {
-    allTasksOptimzed[currentDraggedElement]['status'] = status;
+    allTasks[currentDraggedElement]['status'] = status;
     updateHTML();
 }
 
 function init() {
     includeHTML();
     loadAllTasks();
-    optimzeAllTasks(allTask);
     updateHTML();
 }
