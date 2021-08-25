@@ -26,6 +26,14 @@ function showUsersOnAddTask(){
     }    
 }
 
+function addNewParticipants() {
+
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+
+
+}
+
 function createTask() {
     
     let title = document.getElementById('addTaskTitle').value;

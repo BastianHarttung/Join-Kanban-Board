@@ -181,6 +181,7 @@ button {
     justify-content: flex-start;
     min-width: 150px;
     align-items: flex-end;
+    margin-left: 32px;
 }
 
 @media(max-width: 1000px) {
@@ -191,7 +192,7 @@ button {
         margin-top: 32px;
         margin-bottom: 64px;
         border-radius: 16px;
-        width: 750px;
+        /*width: 750px;*/
         display: flex;
         /*flex-wrap: wrap;*/
         flex-direction: column;
