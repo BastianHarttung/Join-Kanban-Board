@@ -1,4 +1,4 @@
-let allTasks =[];
+let allTasks = [];
 let usertask = [];
 let id;
 
@@ -11,39 +11,51 @@ function deleteInput() {
     document.getElementById('addTaskDescription').value = '';
 }
 
-function showUsersOnAddTask(){
+function showUsersOnAddTask() {
 
-    for (let i = 0; i < allUsers.length; i++) {        
+    document.getElementById('addTask-participants').innerHTML = '';
 
-       document.getElementById('addTask-participants').innerHTML += `
+    for (let i = 0; i < allUsers.length; i++) {
+
+        document.getElementById('addTask-participants').innerHTML += `
             <div class="addTask-participants">
                 <img class="addTask-img-area" src="${allUsers[i]['profile-img']}">
                 <div class="addtask-plus" onclick="assignToTask(${i})">
                     <i class="fas fa-plus"></i>
                 </div>            
             </div>
-            `         
-    }    
+            `
+    }
 }
 
 function addNewParticipants() {
 
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
+    let name = document.getElementById('firstLastName').value;
+    let email = document.getElementById('mail').value;
 
+    allUsers.push({
+        'name': name,
+        'email': email
+    });
+
+    showUsersOnAddTask();
+}
+
+function renderNewParticipants() {
 
 }
 
+
 function createTask() {
-    
+
     let title = document.getElementById('addTaskTitle').value;
     let createdAt = document.getElementById('addTaskDate').value;
     let category = document.getElementById('addTaskCatergory').value;
     let urgency = document.getElementById('addTaskUrgency').value;
     let description = document.getElementById('addTaskDescription').value;
-    let status = 'todo';  
-    id = Math.round(Math.random() * 1000);   
-    
+    let status = 'todo';
+    id = Math.round(Math.random() * 1000);
+
     // Unser task ist letzendlich ein JSON
     let task = {
         'id': id,                   //evtl ändern weil nicht eindeutig ??????????
@@ -53,29 +65,29 @@ function createTask() {
         'urgency': urgency,
         'description': description,
         'status': status,
-        'user': usertask,        
+        'user': usertask,
     };
- 
-    allTasks.push(task);    
+
+    allTasks.push(task);
 
     let allTasksAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTasksAsString);
- 
+
     window.location.href = "./board.html";
 
     deleteInput();
 
 }
 
-function assignToTask(i){    
-     
-    usertask.push(allUsers[i])    
+function assignToTask(i) {
 
-    console.log('usertask: ',usertask)    
+    usertask.push(allUsers[i])
+
+    console.log('usertask: ', usertask)
 }
 
 /* function loadallTasks() {
     let allTasksAsString = localStorage.getItem('allTasks');
     allTasks = JSON.parse(allTasksAsString);
-     console.log('Loaded all tasks', allTasks); 
-}   ist bereits in init bei script.js*/ 
+     console.log('Loaded all tasks', allTasks);
+}   ist bereits in init bei script.js*/
