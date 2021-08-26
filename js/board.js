@@ -15,24 +15,17 @@ function updateHTML() {
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
-    for (let i = 0; i < todo.length; i++) {
-        const element = todo[i];
-        document.getElementById('todo').innerHTML += generateToDoElement(element, i);
-      
-    }
-    for (let i = 0; i < inProgress.length; i++) {
-        const element = inProgress[i];
-        document.getElementById('inProgress').innerHTML += generateToDoElement(element);
-    }
-    for (let i = 0; i < testing.length; i++) {
-        const element = testing[i];
-        document.getElementById('testing').innerHTML += generateToDoElement(element);
-    }
-    for (let i = 0; i < done.length; i++) {
-        const element = done[i];
-        document.getElementById('done').innerHTML += generateToDoElement(element);
-    }
+    drawSingleColumns(todo, 'todo');
+    drawSingleColumns(inProgress, 'inProgress');
+    drawSingleColumns(testing, 'testing');
+    drawSingleColumns(done, 'done');
+}
 
+function drawSingleColumns(array, string) {
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        document.getElementById(string).innerHTML += generateToDoElement(element);
+    }
 }
 
 function startDragging(id) {
@@ -54,7 +47,6 @@ function generateToDoElement(element, i) {
         </div>
     </div>
     `
-
 }
 
 function getUrgencyFrameColor(element) {
@@ -63,7 +55,7 @@ function getUrgencyFrameColor(element) {
         return 'green';
     } else if (element['urgency'] == 'MIDDLE') {
         return 'orange';
-    } else 
+    } else
         return 'red';
 }
 
@@ -74,6 +66,8 @@ function allowDrop(ev) {
 function moveTo(status) {
     allTasks[currentDraggedElement]['status'] = status;
     updateHTML();
+    let allTasksAsString = JSON.stringify(allTasks);
+    localStorage.setItem('allTasks', allTasksAsString);
 }
 
 function init() {
