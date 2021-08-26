@@ -41,17 +41,14 @@ function startDragging(id) {
 function generateToDoElement(element) {
     return `
     <div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem">
-    <div class = "boardItemTitle">
-        ${element['id']}
-        </div>
         <div class = "boardItemDate">
         ${element['createdAt']}
         </div>
         <div class = "boardItemTitle">
         ${element['title']}
         </div>
-        <div class = "boardItemTitle">
-        ${element['status']}
+        <div class = "boardItemUser">
+        ${element['user']}
         </div>
     </div>
     `

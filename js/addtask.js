@@ -41,11 +41,6 @@ function addNewParticipants() {
     showUsersOnAddTask();
 }
 
-function renderNewParticipants() {
-
-}
-
-
 function createTask() {
 
     let title = document.getElementById('addTaskTitle').value;
@@ -53,8 +48,13 @@ function createTask() {
     let category = document.getElementById('addTaskCatergory').value;
     let urgency = document.getElementById('addTaskUrgency').value;
     let description = document.getElementById('addTaskDescription').value;
-    let status = 'todo';
-    id = Math.round(Math.random() * 1000);
+
+    //let status = 'todo';
+    //id = Math.round(Math.random() * 1000);
+
+    let status = 'todo';  
+    id = allTasks.length;
+
 
     // Unser task ist letzendlich ein JSON
     let task = {
@@ -67,6 +67,7 @@ function createTask() {
         'status': status,
         'user': usertask,
     };
+
 
     allTasks.push(task);
 
