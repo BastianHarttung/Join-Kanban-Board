@@ -64,8 +64,7 @@ function createTask() {
         'category': category,
         'urgency': urgency,
         'description': description,
-        'status': status,
-        'userAssign': usertask[usertask.length - 1],
+        'status': status,        
         'user': usertask
     };
 
