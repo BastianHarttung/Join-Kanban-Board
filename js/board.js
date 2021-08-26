@@ -32,12 +32,12 @@ function startDragging(id) {
     currentDraggedElement = id;
 }
 
-function generateToDoElement(element, i) {
+function generateToDoElement(element) {
 
     let lastUser = element['user'].slice(-1);    
 
     return `
-    <div draggable="true" ondragstart="startDragging(${element['id']})" id ="boardItem${i}" class = "boardItem ${getUrgencyFrameColor(element)}">
+    <div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem ${getUrgencyFrameColor(element)}">
         <div class = "boardItemDate">
         ${element['createdAt']}
         </div>
