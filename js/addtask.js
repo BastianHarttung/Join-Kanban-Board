@@ -65,7 +65,8 @@ function createTask() {
         'urgency': urgency,
         'description': description,
         'status': status,
-        'user': usertask,
+        'userAssign': usertask[usertask.length - 1],
+        'user': usertask
     };
 
 

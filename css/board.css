@@ -33,7 +33,7 @@
     background-color: var(--addTask-area-color);
 }
 
-.boardItem{
+.boardItem {
     border: 1px solid gray;
     background-color: white;
     border-radius: 5px;
@@ -41,14 +41,58 @@
     margin: 10px;
 }
 
-.boardItemDate{
+.green {
+    border-left: 4px solid green;
+}
+
+.orange {
+    border-left: 4px solid orange;
+}
+
+.red {
+    border-left: 4px solid red;
+}
+
+.boardItemDate {
     font-size: 12px;
 }
 
-.boardItemTitle{
+.boardItemTitle {
     font-size: 16px;
 }
 
-.boardItemUser{
+.boardItemUser {
     font-size: 10px;
+}
+
+@media(max-width: 700px) {
+    .taskName {
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
+@media(max-width: 550px) {
+    .mainContainer {
+        height: 80%;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .singleTaskContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+    }
+    .boardItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }

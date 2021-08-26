@@ -17,7 +17,8 @@ function updateHTML() {
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < todo.length; i++) {
         const element = todo[i];
-        document.getElementById('todo').innerHTML += generateToDoElement(element);
+        document.getElementById('todo').innerHTML += generateToDoElement(element, i);
+      
     }
     for (let i = 0; i < inProgress.length; i++) {
         const element = inProgress[i];
@@ -31,16 +32,17 @@ function updateHTML() {
         const element = done[i];
         document.getElementById('done').innerHTML += generateToDoElement(element);
     }
-      
+
 }
 
 function startDragging(id) {
     currentDraggedElement = id;
 }
 
-function generateToDoElement(element) {
+function generateToDoElement(element, i) {
+
     return `
-    <div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem">
+    <div draggable="true" ondragstart="startDragging(${element['id']})" id ="boardItem${i}" class = "boardItem ${getUrgencyFrameColor(element)}">
         <div class = "boardItemDate">
         ${element['createdAt']}
         </div>
@@ -48,10 +50,21 @@ function generateToDoElement(element) {
         ${element['title']}
         </div>
         <div class = "boardItemUser">
-        ${element['user']}
+        ${element['userAssign']['name']}
         </div>
     </div>
     `
+
+}
+
+function getUrgencyFrameColor(element) {
+
+    if (element['urgency'] == 'LOW') {
+        return 'green';
+    } else if (element['urgency'] == 'MIDDLE') {
+        return 'orange';
+    } else 
+        return 'red';
 }
 
 function allowDrop(ev) {
