@@ -1,4 +1,4 @@
-let allTasks = [];
+
 let usertask = [];
 let id;
 
@@ -36,8 +36,14 @@ function addNewParticipants() {
     allUsers.push({
         'name': name,
         'email': email,
+<<<<<<< HEAD
         'profile-img': './assets/img/profilepic.png'
+=======
+        'profile-img': '../assets/img/profilepic.png'
+>>>>>>> ca08f960601ff5a9b687bc8471e5e9559ba1e216
     });
+
+    saveToBackend();      /* Save user to backend */
 
     showUsersOnAddTask();
 }
@@ -49,17 +55,12 @@ function createTask() {
     let category = document.getElementById('addTaskCatergory').value;
     let urgency = document.getElementById('addTaskUrgency').value;
     let description = document.getElementById('addTaskDescription').value;
-
-    //let status = 'todo';
-    //id = Math.round(Math.random() * 1000);
-
     let status = 'todo';  
-    id = allTasks.length;
-
+    id = allTasks.length; //id = Math.round(Math.random() * 1000);
 
     // Unser task ist letzendlich ein JSON
     let task = {
-        'id': id,                   //evtl ändern weil nicht eindeutig ??????????
+        'id': id,                   
         'title': title,
         'createdAt': createdAt,
         'category': category,
@@ -69,18 +70,20 @@ function createTask() {
         'user': usertask
     };
 
-
     allTasks.push(task);
 
-    let allTasksAsString = JSON.stringify(allTasks);
-    localStorage.setItem('allTasks', allTasksAsString);
-
-    window.location.href = "./board.html";
+    backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save task to backend */
 
     deleteInput();
 
+    window.location.href = "./board.html";   
 }
 
+/**
+ * add user to new task
+ * 
+ * @param {number} i Index of User in array 
+ */
 function assignToTask(i) {
 
     usertask.push(allUsers[i])
@@ -88,8 +91,3 @@ function assignToTask(i) {
     console.log('usertask: ', usertask)
 }
 
-/* function loadallTasks() {
-    let allTasksAsString = localStorage.getItem('allTasks');
-    allTasks = JSON.parse(allTasksAsString);
-     console.log('Loaded all tasks', allTasks);
-}   ist bereits in init bei script.js*/

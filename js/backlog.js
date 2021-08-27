@@ -1,40 +1,41 @@
 
-function backlogShowAllTasks(){
-    
+/**
+ * Show all Tasks in Backlog
+ * 
+ */
+function backlogShowAllTasks(){    
     if (allTasks.length == 0) {
         document.getElementById('table').innerHTML = `
             ${htmlTableHead()}
             <tr>No Tasks in Backlog</tr>
             `
     }else{
-        document.getElementById('table').innerHTML = htmlTableHead();               
-                
-        for (let i = 0; i < allTasks.length; i++) {
-            
-                let color;
+        document.getElementById('table').innerHTML = htmlTableHead();   
+        forLoopTasks();
+    }        
+};
 
-                if (allTasks[i]['urgency'] == 'LOW') {
-                    color = 'green';           
-                }else if(allTasks[i]['urgency'] == 'MIDDLE'){
-                    color = 'orange';
-                }else if(allTasks[i]['urgency'] == 'HIGH'){
-                    color = 'red';
-                }else{
-                    color = 'blue';
-                }
+/**
+ * Loop for making Backlog Rows
+ * 
+ */
+function forLoopTasks(){    
+    for (let i = 0; i < allTasks.length; i++) {                   
+        let color = colorChoice(i);
+        for (let j = 0; j < allTasks[i]['user'].length; j++) {                
+            document.getElementById('table').innerHTML += htmlTableRow(color,allTasks,i,j)
+        }   
+    }    
+};
 
-            for (let j = 0; j < allTasks[i]['user'].length; j++) {
-                
-                document.getElementById('table').innerHTML += htmlTableRow(color,allTasks,i,j)
-
-            }                
-               
-        }      
-        
-    }             
-
-}
-
+/**
+ * Returns the HTML table row for each task
+ * @param {string} color 
+ * @param {array} allTasks 
+ * @param {number} i 
+ * @param {number} j 
+ * @returns <tr>
+ */
 function htmlTableRow(color,allTasks,i,j){
     return `
         <tr class="table-todo-row">
@@ -51,8 +52,12 @@ function htmlTableRow(color,allTasks,i,j){
             <td id="table-details">${allTasks[i]['description']}</td>
         </tr>
         `    
-}
+};
 
+/**
+ * Returns the HTML table Head
+ * @returns <tr>
+ */
 function htmlTableHead(){
     return`
     <tr class="table-head">
@@ -61,4 +66,23 @@ function htmlTableHead(){
         <th>Details</th>
     </tr>
     `
-}
+};
+
+/**
+ * Choice which color has the task on backlog depending on Urgency
+ * @returns color
+ * @param {number} i
+ * 
+ */
+function colorChoice(i){    
+    if (allTasks[i]['urgency'] == 'LOW') {
+        color = 'green';           
+    } else if(allTasks[i]['urgency'] == 'MIDDLE'){
+        color = 'orange';
+    } else if(allTasks[i]['urgency'] == 'HIGH'){
+        color = 'red';
+    } else{
+        color = 'blue';
+    };  
+    return color;   
+};

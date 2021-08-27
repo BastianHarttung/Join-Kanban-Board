@@ -53,6 +53,10 @@
     border-left: 4px solid red;
 }
 
+.blue {
+    border-left: 4px solid blue;
+}
+
 .boardItemDate {
     font-size: 12px;
 }
