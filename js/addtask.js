@@ -35,7 +35,8 @@ function addNewParticipants() {
 
     allUsers.push({
         'name': name,
-        'email': email
+        'email': email,
+        'profile-img': './assets/img/profilepic.png'
     });
 
     showUsersOnAddTask();
