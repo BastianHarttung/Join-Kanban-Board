@@ -24,7 +24,7 @@ function updateHTML() {
 function drawSingleColumns(array, string) {
     for (let i = 0; i < array.length; i++) {
         const element = array[i];
-        document.getElementById(string).innerHTML += generateToDoElement(element);
+        document.getElementById(string).innerHTML += generateToDoElement(element,i);
     }
 }
 
