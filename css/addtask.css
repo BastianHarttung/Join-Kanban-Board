@@ -231,6 +231,22 @@ button {
     .addTask-cancel-or-create {
         margin-top: 32px;
     }
+
+    .width268 {
+        width: 343px;
+    }
+
+    .add-new-participants {
+        margin-left: 0px;
+    }
+
+    .addTask-input-new-participants {
+        width: 325px !important;
+    }
+
+    .addTask-add-new-paricipants {
+        width: 327px;
+    }
 }
 
 @media(max-width: 880px) {
@@ -266,6 +282,22 @@ button {
 
     .width250 {
         width: 250px;
+    }
+
+    .width268 {
+        width: 268px;
+    }
+
+    .add-new-participants {
+        margin-left: 0px;
+    }
+
+    .addTask-input-new-participants {
+        width: 250px !important;
+    }
+
+    .addTask-add-new-paricipants {
+        width: 252px;
     }
     
 }
@@ -307,15 +339,15 @@ button {
     }
 
     .addTask-select {
-        width: 268px;
+        width: 268pxpx;
     }
 
     .width300 {
         width: none;
     }
 
-    .width250 {
-        width: 250px;
+    .width268 {
+        width: 268px;
     }
 
     .add-new-participants {
@@ -323,11 +355,11 @@ button {
     }
 
     .addTask-input-new-participants {
-        width: 232px !important;
+        width: 250px !important;
     }
 
     .addTask-add-new-paricipants {
-        width: 232px;
+        width: 252px;
     }
     
 }
