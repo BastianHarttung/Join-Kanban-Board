@@ -1,22 +1,5 @@
-let allTasks = [];
-
-let allUsers = [
-    {
-        'name': 'Bastian Harttung',
-        'email': 'info@bastian-harttung.de',
-        'profile-img': '../assets/img/profile-bastian.png'
-    },
-    {
-        'name': 'Cam Trang',
-        'email': 'camtrang@web.de',
-        'profile-img': '../assets/img/profilepic.png'
-    },
-    {
-        'name': 'Adriano Parente',
-        'email': 'adriano.parente@gmx.de',
-        'profile-img': '../assets/img/Adriano.jpg'
-    },
-]
+let allTasks;
+let allUsers;
 
 function init() {
 
@@ -29,17 +12,21 @@ function init() {
 }
 
 function initAddTask(){
-    showUsersOnAddTask();       /* User bei AddTask auflisten */
+    setTimeout(() => {
+        showUsersOnAddTask();       /* User bei AddTask auflisten */
+    }, 300);    
 }
 
 function initBacklog(){
     setTimeout(() => {
         backlogShowAllTasks();  /* Tasks on Backlog */
-    }, 0);    
+    }, 300);    
 }
 
 function initBoard(){
-    updateHTML();
+    setTimeout(() => {
+        updateHTML();
+    }, 300);    
 }
 
 /* Aus backend laden */
@@ -49,11 +36,6 @@ async function loadFromBackend() {
     allUsers = JSON.parse(backend.getItem('allUsers')) || [];
     console.log('Loaded from backend allTasks: ' , allTasks);
     console.log('Loaded from backend allUsers: ' , allUsers)
-};
-
-function addUsersToBackend(){
-    allUsers.push(allUsers);
-    backend.setItem('allUsers', JSON.stringify(allUsers));
 };
 
 function deleteUser(){

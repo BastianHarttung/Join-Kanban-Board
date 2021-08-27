@@ -39,7 +39,7 @@ function addNewParticipants() {
         'profile-img': '../assets/img/profilepic.png'
     });
 
-    backend.setItem('allUsers', JSON.stringify(allUsers));      /* Save to backend */
+    backend.setItem('allUsers', JSON.stringify(allUsers));      /* Save user to backend */
 
     showUsersOnAddTask();
 }
@@ -68,14 +68,18 @@ function createTask() {
 
     allTasks.push(task);
 
-    backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save to backend */
+    backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save task to backend */
 
     deleteInput();
 
-    window.location.href = "./board.html";
-   
+    window.location.href = "./board.html";   
 }
 
+/**
+ * add user to new task
+ * 
+ * @param {number} i Index of User in array 
+ */
 function assignToTask(i) {
 
     usertask.push(allUsers[i])
