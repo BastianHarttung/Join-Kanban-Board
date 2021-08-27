@@ -1,6 +1,10 @@
 let allTasks;
 let allUsers;
 
+/**
+ * Init for every Page
+ * 
+ */
 function init() {
     includeHTML();                  /* Html templates laden */    
     loadFromBackend();              /* Aus backend laden */    
@@ -8,33 +12,36 @@ function init() {
 }
 
 /**
- * Users on AddTask Assigned To 
+ * show Users on AddTask Assigned To 
+ * 
  **/ 
 function initAddTask(){
-    setTimeout(() => {
-        showUsersOnAddTask();      
-    }, 300);    
+    setTimeout(showUsersOnAddTask, 300);    
 }
+
 /**
- * Tasks on Backlog 
+ * show Tasks on Backlog 
  */
 function initBacklog(){
-    setTimeout(() => {
-        backlogShowAllTasks();  
-    }, 300);    
+    setTimeout(backlogShowAllTasks, 300);    
 }
+
 /**
- * Tasks on Board 
+ * show Tasks on Board 
  */
 function initBoard(){
-    setTimeout(() => {
-        updateHTML();
-    }, 300);    
+    setTimeout(updateHTML, 300);    
 }
 
-
+/**
+ * Delete last user or task in array
+ * 
+ */
 function deleteLastUserInArray(){    
     allUsers.pop()
+}
+function deleteLastTaskInArray(){
+    allTasks.pop()
 }
 
 /**
@@ -54,12 +61,21 @@ function deleteAllUsersInBackend(){
 }
 function deleteLastUserBackend(){
     deleteLastUserInArray();
-    saveAllUsersToBackend();
+    saveToBackend();
     showUsersOnAddTask()
 }
+function deleteLastTaskBackend(){
+    deleteLastTaskInArray();
+    saveToBackend();    
+}
 
-function saveAllUsersToBackend(){
+/**
+ * Save Users and Tasks in Backend
+ * 
+ */
+function saveToBackend(){
     backend.setItem('allUsers', JSON.stringify(allUsers));
+    backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
 /**

@@ -39,7 +39,7 @@ function addNewParticipants() {
         'profile-img': '../assets/img/profilepic.png'
     });
 
-    saveAllUsersToBackend();      /* Save user to backend */
+    saveToBackend();      /* Save user to backend */
 
     showUsersOnAddTask();
 }
