@@ -95,4 +95,3 @@ function assignToTask(i) {
 
     console.log('usertask: ', usertask)
 }
-
