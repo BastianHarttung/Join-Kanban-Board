@@ -39,7 +39,7 @@ function addNewParticipants() {
         'profile-img': '../assets/img/profilepic.png'
     });
 
-    backend.setItem('allUsers', JSON.stringify(allUsers));      /* Save user to backend */
+    saveAllUsersToBackend();      /* Save user to backend */
 
     showUsersOnAddTask();
 }

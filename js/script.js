@@ -2,34 +2,45 @@ let allTasks;
 let allUsers;
 
 function init() {
-
-    includeHTML();              /* Html templates laden */
-    
-    loadFromBackend();           /* Aus backend laden */
-    
-    /* loadAllTasks();  */            /* Aus localStorage laden */                   
-  
+    includeHTML();                  /* Html templates laden */    
+    loadFromBackend();              /* Aus backend laden */    
+    /* loadAllTasks();  */          /* Aus localStorage laden */    
 }
 
+/**
+ * Users on AddTask Assigned To 
+ **/ 
 function initAddTask(){
     setTimeout(() => {
-        showUsersOnAddTask();       /* User bei AddTask auflisten */
+        showUsersOnAddTask();      
     }, 300);    
 }
-
+/**
+ * Tasks on Backlog 
+ */
 function initBacklog(){
     setTimeout(() => {
-        backlogShowAllTasks();  /* Tasks on Backlog */
+        backlogShowAllTasks();  
     }, 300);    
 }
-
+/**
+ * Tasks on Board 
+ */
 function initBoard(){
     setTimeout(() => {
         updateHTML();
     }, 300);    
 }
 
-/* Aus backend laden */
+
+function deleteLastUserInArray(){    
+    allUsers.pop()
+}
+
+/**
+ * Load allTasks and allUsers from backend
+ * 
+ * */  
 async function loadFromBackend() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
@@ -38,11 +49,23 @@ async function loadFromBackend() {
     console.log('Loaded from backend allUsers: ' , allUsers)
 };
 
-function deleteUser(){
+function deleteAllUsersInBackend(){
     backend.deleteItem('allUsers');
 }
+function deleteLastUserBackend(){
+    deleteLastUserInArray();
+    saveAllUsersToBackend();
+    showUsersOnAddTask()
+}
 
-/* aus local storage laden */
+function saveAllUsersToBackend(){
+    backend.setItem('allUsers', JSON.stringify(allUsers));
+}
+
+/**
+ * load from local storage
+ * 
+ **/  
 async function loadAllTasks() {
     let allTasksAsString = localStorage.getItem('allTasks');
     allTasks = await JSON.parse(allTasksAsString);
@@ -51,8 +74,5 @@ async function loadAllTasks() {
     }
     console.log('Loaded allTasks from local storage: ', allTasks);    
 }
-
-
-
 
 
