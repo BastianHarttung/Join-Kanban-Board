@@ -1,3 +1,10 @@
+/**
+ * init and show Tasks on Backlog 
+ */
+ async function initBacklog(){
+    await init();
+    backlogShowAllTasks()    
+}
 
 /**
  * Show all Tasks in Backlog

@@ -1,7 +1,14 @@
+/**
+ * show Users on AddTask Assigned To 
+ * 
+ **/ 
+ async function initAddTask(){
+    await init();
+    showUsersOnAddTask()   
+}
 
 let usertask = [];
 let id;
-
 
 function deleteInput() {
     document.getElementById('addTaskTitle').value = '';

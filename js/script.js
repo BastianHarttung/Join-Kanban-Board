@@ -5,32 +5,11 @@ let allUsers;
  * Init for every Page
  * 
  */
-function init() {
-    includeHTML();                  /* Html templates laden */    
-    loadFromBackend();              /* Aus backend laden */    
+async function init() {
+    await includeHTML();                  /* Html templates laden */    
+    await loadFromBackend();              /* Aus backend laden */  
+      
     /* loadAllTasks();  */          /* Aus localStorage laden */    
-}
-
-/**
- * show Users on AddTask Assigned To 
- * 
- **/ 
-function initAddTask(){
-    setTimeout(showUsersOnAddTask, 300);    
-}
-
-/**
- * show Tasks on Backlog 
- */
-function initBacklog(){
-    setTimeout(backlogShowAllTasks, 300);    
-}
-
-/**
- * show Tasks on Board 
- */
-function initBoard(){
-    setTimeout(updateHTML, 300);    
 }
 
 /**

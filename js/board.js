@@ -1,3 +1,11 @@
+/**
+ * show Tasks on Board 
+ */
+ async function initBoard(){
+    await init();
+    updateHTML() 
+}
+
 let currentDraggedElement;
 
 
