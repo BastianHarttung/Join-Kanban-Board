@@ -1,4 +1,4 @@
-let allTasks = [];
+
 let usertask = [];
 let id;
 
@@ -35,8 +35,11 @@ function addNewParticipants() {
 
     allUsers.push({
         'name': name,
-        'email': email
+        'email': email,
+        'profile-img': '../assets/img/profilepic.png'
     });
+
+    backend.setItem('allUsers', JSON.stringify(allUsers));      /* Save to backend */
 
     showUsersOnAddTask();
 }
@@ -48,17 +51,12 @@ function createTask() {
     let category = document.getElementById('addTaskCatergory').value;
     let urgency = document.getElementById('addTaskUrgency').value;
     let description = document.getElementById('addTaskDescription').value;
-
-    //let status = 'todo';
-    //id = Math.round(Math.random() * 1000);
-
     let status = 'todo';  
-    id = allTasks.length;
-
+    id = allTasks.length; //id = Math.round(Math.random() * 1000);
 
     // Unser task ist letzendlich ein JSON
     let task = {
-        'id': id,                   //evtl ändern weil nicht eindeutig ??????????
+        'id': id,                   
         'title': title,
         'createdAt': createdAt,
         'category': category,
@@ -68,16 +66,14 @@ function createTask() {
         'user': usertask
     };
 
-
     allTasks.push(task);
 
-    let allTasksAsString = JSON.stringify(allTasks);
-    localStorage.setItem('allTasks', allTasksAsString);
-
-    window.location.href = "./board.html";
+    backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save to backend */
 
     deleteInput();
 
+    window.location.href = "./board.html";
+   
 }
 
 function assignToTask(i) {
@@ -87,8 +83,3 @@ function assignToTask(i) {
     console.log('usertask: ', usertask)
 }
 
-/* function loadallTasks() {
-    let allTasksAsString = localStorage.getItem('allTasks');
-    allTasks = JSON.parse(allTasksAsString);
-     console.log('Loaded all tasks', allTasks);
-}   ist bereits in init bei script.js*/

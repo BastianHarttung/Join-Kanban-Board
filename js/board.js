@@ -1,11 +1,6 @@
 let currentDraggedElement;
 
 
-function loadAllTasks() {
-    let allTasksAsString = localStorage.getItem('allTasks');
-    allTasks = JSON.parse(allTasksAsString);
-}
-
 function updateHTML() {
     let todo = allTasks.filter(t => t['status'] == 'todo');
     let inProgress = allTasks.filter(t => t['status'] == 'inProgress');
@@ -57,8 +52,12 @@ function getUrgencyFrameColor(element) {
         return 'green';
     } else if (element['urgency'] == 'MIDDLE') {
         return 'orange';
-    } else
+    } else if (element['urgency'] == 'HIGH'){
         return 'red';
+    } else {
+        return 'blue';
+    }
+    
 }
 
 function allowDrop(ev) {
@@ -70,10 +69,4 @@ function moveTo(status) {
     updateHTML();
     let allTasksAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTasksAsString);
-}
-
-function init() {
-    includeHTML();
-    loadAllTasks();
-    updateHTML();
 }

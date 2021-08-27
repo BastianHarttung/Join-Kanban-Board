@@ -1,20 +1,20 @@
-
+let allTasks = [];
 
 let allUsers = [
     {
         'name': 'Bastian Harttung',
         'email': 'info@bastian-harttung.de',
-        'profile-img': './assets/img/profile-bastian.png'
+        'profile-img': '../assets/img/profile-bastian.png'
     },
     {
         'name': 'Cam Trang',
         'email': 'camtrang@web.de',
-        'profile-img': './assets/img/profilepic.png'
+        'profile-img': '../assets/img/profilepic.png'
     },
     {
         'name': 'Adriano Parente',
         'email': 'adriano.parente@gmx.de',
-        'profile-img': './assets/img/Adriano.jpg'
+        'profile-img': '../assets/img/Adriano.jpg'
     },
 ]
 
@@ -24,7 +24,7 @@ function init() {
     
     loadFromBackend();           /* Aus backend laden */
     
-    loadAllTasks();             /* Aus localStorage laden */                   
+    /* loadAllTasks();  */            /* Aus localStorage laden */                   
   
 }
 
@@ -38,14 +38,24 @@ function initBacklog(){
     }, 0);    
 }
 
-
+function initBoard(){
+    updateHTML();
+}
 
 /* Aus backend laden */
 async function loadFromBackend() {
     await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-    console.log('Loaded from backend: ' , users)
-}
+    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    allUsers = JSON.parse(backend.getItem('allUsers')) || [];
+    console.log('Loaded from backend allTasks: ' , allTasks);
+    console.log('Loaded from backend allUsers: ' , allUsers)
+};
+
+function addUsersToBackend(){
+    allUsers.push(allUsers);
+    backend.setItem('allUsers', JSON.stringify(allUsers));
+};
+
 
 /* aus local storage laden */
 async function loadAllTasks() {
