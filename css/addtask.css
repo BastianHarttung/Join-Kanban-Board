@@ -178,6 +178,11 @@ button {
     cursor: pointer;
 }
 
+
+.addTask-add-new-paricipants:hover {
+    background-color: var(--font-main-color);
+}
+
 .addTask-create-task:hover {
     background-color: var(--font-main-color);
     color: white;
