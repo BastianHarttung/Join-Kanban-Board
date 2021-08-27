@@ -56,6 +56,9 @@ function addUsersToBackend(){
     backend.setItem('allUsers', JSON.stringify(allUsers));
 };
 
+function deleteUser(){
+    backend.deleteItem('allUsers');
+}
 
 /* aus local storage laden */
 async function loadAllTasks() {
