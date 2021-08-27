@@ -36,11 +36,9 @@ function addNewParticipants() {
     allUsers.push({
         'name': name,
         'email': email,
-<<<<<<< HEAD
+
         'profile-img': './assets/img/profilepic.png'
-=======
-        'profile-img': '../assets/img/profilepic.png'
->>>>>>> ca08f960601ff5a9b687bc8471e5e9559ba1e216
+
     });
 
     saveToBackend();      /* Save user to backend */
