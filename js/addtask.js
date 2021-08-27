@@ -43,7 +43,9 @@ function addNewParticipants() {
     allUsers.push({
         'name': name,
         'email': email,
-        'profile-img': '../assets/img/profilepic.png'
+
+        'profile-img': './assets/img/profilepic.png'
+
     });
 
     saveToBackend();      /* Save user to backend */
