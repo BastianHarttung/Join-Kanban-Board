@@ -232,6 +232,10 @@ button {
 
 @media(max-width: 1000px) {
 
+    .addTask-head {
+        margin-left: 200px;
+    }
+
     .border-top {
         border-top: 1px solid rgb(160, 158, 158);
     }
@@ -299,6 +303,11 @@ button {
 
 
 @media(max-width: 700px) {
+
+    .addTask-head {
+        margin-left: 150px;
+    }
+
     .addTask-area {
         margin-left: 150px;
     }
