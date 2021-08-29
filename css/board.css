@@ -41,6 +41,10 @@
     margin: 10px;
 }
 
+.boardItemDelete:hover {
+    cursor: pointer;
+}
+
 .green {
     border-left: 4px solid green;
 }

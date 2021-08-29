@@ -1,9 +1,9 @@
 /**
  * show Tasks on Board 
  */
- async function initBoard(){
+async function initBoard() {
     await init();
-    updateHTML() 
+    updateHTML()
 }
 
 let currentDraggedElement;
@@ -27,7 +27,7 @@ function updateHTML() {
 function drawSingleColumns(array, string) {
     for (let i = 0; i < array.length; i++) {
         const element = array[i];
-        document.getElementById(string).innerHTML += generateToDoElement(element,i);
+        document.getElementById(string).innerHTML += generateToDoElement(element, i);
     }
 }
 
@@ -37,7 +37,7 @@ function startDragging(id) {
 
 function generateToDoElement(element) {
 
-    let lastUser = element['user'].slice(-1);    
+    let lastUser = element['user'].slice(-1);
 
     return `
     <div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem ${getUrgencyFrameColor(element)}">
@@ -50,6 +50,7 @@ function generateToDoElement(element) {
         <div class = "boardItemUser">
         ${lastUser[0]['name']}
         </div>
+       
     </div>
     `
 }
@@ -60,12 +61,10 @@ function getUrgencyFrameColor(element) {
         return 'green';
     } else if (element['urgency'] == 'MIDDLE') {
         return 'orange';
-    } else if (element['urgency'] == 'HIGH'){
+    } else 
         return 'red';
-    } else {
-        return 'blue';
-    }
     
+
 }
 
 function allowDrop(ev) {
@@ -75,6 +74,7 @@ function allowDrop(ev) {
 function moveTo(status) {
     allTasks[currentDraggedElement]['status'] = status;
     updateHTML();
+    /*saveToBackend();
     let allTasksAsString = JSON.stringify(allTasks);
-    localStorage.setItem('allTasks', allTasksAsString);
+    localStorage.setItem('allTasks', allTasksAsString);*/
 }
