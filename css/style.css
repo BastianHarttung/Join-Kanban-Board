@@ -12,6 +12,7 @@ body{
     --main-color: rgb(54, 52, 201);
     --font-main-color: rgb(8, 5, 170);
     --font-color-bright: rgb(216, 216, 216);
+    --font-color-bright-hover: rgb(190, 190, 190);
     --background-area: rgb(235, 237, 252);
     --transition-time: 150ms;
 }

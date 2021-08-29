@@ -126,6 +126,11 @@ button {
 .addTask-img-area {
     width: 60px;
     border-radius: 50%;
+    margin-right: 8px;
+}
+
+.name-area {
+    width: 50px;
 }
 
 .addtask-plus {
@@ -140,8 +145,33 @@ button {
     cursor: pointer;
 }
 
+.addtask-plus:hover {
+    background-color: var(--font-color-bright-hover);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 .fa-plus {
     font-size: 25px;
+}
+
+.delete-last-user {
+    color: rgb(179, 179, 179);
+    background-color: var(--addTask-area-color);
+    margin-left: 8px;
+}
+
+.delete-last-user:hover {
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(190, 190, 190);
+    color: black;
 }
 
 .addTask-cancel {

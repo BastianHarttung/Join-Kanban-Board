@@ -10,6 +10,9 @@
 let usertask = [];
 let id;
 
+/**
+ * Delete content in field input
+ */
 function deleteInput() {
     document.getElementById('addTaskTitle').value = '';
     document.getElementById('addTaskDate').value = '';
@@ -18,6 +21,10 @@ function deleteInput() {
     document.getElementById('addTaskDescription').value = '';
 }
 
+
+/**
+ * Show users in Add Task
+ */
 function showUsersOnAddTask() {
 
     document.getElementById('addTask-participants').innerHTML = '';
@@ -27,13 +34,19 @@ function showUsersOnAddTask() {
         document.getElementById('addTask-participants').innerHTML += `
             <div class="addTask-participants">
                 <img class="addTask-img-area" src="${allUsers[i]['profile-img']}">
-                <div class="addtask-plus" onclick="assignToTask(${i})">
+                <b class="name-area">${allUsers[i]['name']}</b>
+                <div id="${i}" class="addtask-plus" onclick="assignToTask(${i})">
                     <i class="fas fa-plus"></i>
-                </div>            
+                </div>
+                <button class="delete-last-user" onclick="deleteLastUserBackend(${i})"><b>Delete</b></button>            
             </div>
             `
     }
 }
+
+/**
+ * Add new participants to our group (name and email)
+ */
 
 function addNewParticipants() {
 
@@ -50,9 +63,13 @@ function addNewParticipants() {
 
     saveToBackend();      /* Save user to backend */
 
-    showUsersOnAddTask();
+    showUsersOnAddTask(); /* Show user von Add Task*/
 }
 
+
+/**
+ * To create new task and then save task to backend
+ */
 function createTask() {
 
     let title = document.getElementById('addTaskTitle').value;
@@ -75,13 +92,13 @@ function createTask() {
         'user': usertask
     };
 
-    allTasks.push(task);
+    allTasks.push(task); // push new task to alltasks
 
     backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save task to backend */
 
-    deleteInput();
+    deleteInput(); // delete content in field input
 
-    window.location.href = "./board.html";   
+    window.location.href = "./board.html";   // forword onto ""./board.html"
 }
 
 /**
