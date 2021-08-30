@@ -253,20 +253,16 @@ button {
 
     .border-top {
         border-top: 1px solid rgb(160, 158, 158);
-    }
-   /* .border-bottom {
-        border-bottom: 1px solid rgb(160, 158, 158);
-    } */
+    }   
 
     .addTask-area {
         margin-left: 200px;
         flex-direction: column;
     }
 
-    .addTask-cancel-or-create {
+    .addTask-cancel-or-create {        
         margin-top: 8px;
-        margin-bottom: 8px;
-        /*margin-left: 32px;*/
+        margin-bottom: 8px;        
         margin-right: 32px;
     }
 
@@ -278,10 +274,7 @@ button {
         margin-left: 0px !important;
         margin-top: 12px;
     }
-
-    .addTask-cancel-or-create {
-        margin-top: 32px;
-    }
+    
 
     .width268 {
         width: 343px;
@@ -389,10 +382,6 @@ button {
         
     }
 
-    .addTask-area-child-assigned-to {
-        padding-left: 72px;
-    }
-
     .addTask-input {
         width: 250px;
     }
@@ -420,5 +409,11 @@ button {
     .addTask-add-new-paricipants {
         width: 252px;
     }
-    
+
+    .addTask-cancel-or-create {
+        justify-content: center;       
+    }
+    .add-new-participants-container {
+        padding-left: 0px;
+    }
 }
