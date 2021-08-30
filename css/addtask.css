@@ -157,6 +157,18 @@ button {
     cursor: pointer;
 }
 
+.selectedPlus {
+    background-color: var(--font-color-bright-hover);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 .fa-plus {
     font-size: 25px;
 }

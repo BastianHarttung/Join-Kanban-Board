@@ -77,28 +77,35 @@ function createTask() {
     let category = document.getElementById('addTaskCatergory').value;
     let urgency = document.getElementById('addTaskUrgency').value;
     let description = document.getElementById('addTaskDescription').value;
-    let status = 'todo';  
-    id = allTasks.length; //id = Math.round(Math.random() * 1000);
 
-    // Unser task ist letzendlich ein JSON
-    let task = {
-        'id': id,                   
-        'title': title,
-        'createdAt': createdAt,
-        'category': category,
-        'urgency': urgency,
-        'description': description,
-        'status': status,        
-        'user': usertask
-    };
+    if(isValidForm()) {
+        let status = 'todo';  
+        id = allTasks.length; //id = Math.round(Math.random() * 1000);
+    
+        // Unser task ist letzendlich ein JSON
+        let task = {
+            'id': id,                   
+            'title': title,
+            'createdAt': createdAt,
+            'category': category,
+            'urgency': urgency,
+            'description': description,
+            'status': status,        
+            'user': usertask
+        };
+    
+        allTasks.push(task); // push new task to alltasks
+    
+        backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save task to backend */
+    
+        deleteInput(); // delete content in field input
+    
+        window.location.href = "./board.html";   // forword onto ""./board.html"
 
-    allTasks.push(task); // push new task to alltasks
+        return false;
+    } 
 
-    backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save task to backend */
 
-    deleteInput(); // delete content in field input
-
-    window.location.href = "./board.html";   // forword onto ""./board.html"
 }
 
 /**
@@ -108,7 +115,10 @@ function createTask() {
  */
 function assignToTask(i) {
 
-    usertask.push(allUsers[i])
+    document.getElementById(i).classList.remove('addtask-plus');
+    document.getElementById(i).classList.add('selectedPlus');
 
-    console.log('usertask: ', usertask)
+    usertask.push(allUsers[i]);
+
+    console.log('usertask: ', usertask);
 }

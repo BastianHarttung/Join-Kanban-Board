@@ -44,81 +44,88 @@
 
 
     <div class="addTask-area">
+        <form action="" onsubmit="createTask(); return false;">
 
-        <div class="addTask-area-inner">
-            <div class="addTask-area-child">
-                <div class="addTask-area-title">
-                    <b>TITLE</b>
-                </div>
-                <input class="addTask-input" id="addTaskTitle" type="text" placeholder="Please fill in">
-            </div>
-            <div class="addTask-area-child">
-                <div class="addTask-area-title">
-                    <b>DUE DATE</b>
-                </div>
-                <input class="addTask-input" id="addTaskDate" type="date" placeholder="Please fill in">
-            </div>
-            <div class="addTask-area-child">
-                <div class="addTask-area-title">
-                    <b>CATEGORY</b>
-                </div>
-                <select class="addTask-select" id="addTaskCatergory" placeholder="Category">
-                    <!--addTask-input-->
-                    <option>Management</option>
-                    <option>Marketing</option>
-                    <option>Product</option>
-                    <option>Sale</option>
-                </select>
-            </div>
-            <div class="addTask-area-child">
-                <div class="addTask-area-title">
-                    <b>URGENCY</b>
-                </div>
-                <select class="addTask-select" id="addTaskUrgency" placeholder="URGENCY">
-                    <!--addTask-input-->
-                    <option>LOW</option>
-                    <option>MIDDLE</option>
-                    <option>HIGH</option>
-                </select>
-            </div>
-            <div class="addTask-area-child">
-                <div class="addTask-area-title">
-                    <b>DESCRIPTION</b>
-                </div>
-                <textarea class="addTask-input addTask-input-description" id="addTaskDescription" placeholder="Please fill in"></textarea>
-            </div>
-            <div class="addTask-area-child addTask-area-child-assigned-to">
-                <div class="addTask-area-title">
-                    <b>ASSIGNED TO</b>
-                </div>
-                <div id="addTask-participants-container" class="addTask-participants-container">
-                    <div id="addTask-participants" class="width342 margin-bottom-32">
-
+            <div class="addTask-area-inner">
+                <div class="addTask-area-child">
+                    <div class="addTask-area-title">
+                        <b>TITLE</b>
                     </div>
-                    <div class="width300 width268 border-left-black border-top border-bottom">
-
-                        <div class="addTask-area-child addTask-area-input-add-new-paricipants">
-                            <div class="addTask-area-title">
-                                <b id="name">NAME</b>
-                            </div>
-                            <input class="addTask-input-new-participants" id="firstLastName" type="text" maxlength="15" placeholder="Please fill in">
-                        </div>
-
-                        <div class="addTask-area-child addTask-area-input-add-new-paricipants">
-                            <div class="addTask-area-title">
-                                <b id="email">E-MAIL-ADRESS</b>
-                            </div>
-                            <input class="addTask-input-new-participants" id="mail" type="text" placeholder="Please fill in">
-                        </div>
-
-                        <div class="addTask-area-child add-new-participants">
-                            <div class="addTask-area-title addTask-add-new-paricipants" onclick="addNewParticipants()">
-                                <b>ADD NEW PARTICIPANTS</b>
-                            </div>
-                        </div>
-
+                    <input class="addTask-input" id="addTaskTitle" type="text" placeholder="Please fill in" required>
+                </div>
+                <div class="addTask-area-child">
+                    <div class="addTask-area-title">
+                        <b>DUE DATE</b>
                     </div>
-                    <!--
+                    <input class="addTask-input" id="addTaskDate" type="date" placeholder="Please fill in" required>
+                </div>
+                <div class="addTask-area-child">
+                    <div class="addTask-area-title">
+                        <b>CATEGORY</b>
+                    </div>
+                    <select class="addTask-select" id="addTaskCatergory" placeholder="Category" required>
+                        <!--addTask-input-->
+                        <option value="" disabled selected>Please choose a category</option>
+                        <option>Management</option>
+                        <option>Marketing</option>
+                        <option>Product</option>
+                        <option>Sale</option>
+                    </select>
+                </div>
+                <div class="addTask-area-child">
+                    <div class="addTask-area-title">
+                        <b>URGENCY</b>
+                    </div>
+                    <select class="addTask-select" id="addTaskUrgency" placeholder="URGENCY" required>
+                        <!--addTask-input-->
+                        <option value="" disabled selected>Please choose an urgency</option>
+                        <option>LOW</option>
+                        <option>MIDDLE</option>
+                        <option>HIGH</option>
+                    </select>
+                </div>
+                <div class="addTask-area-child">
+                    <div class="addTask-area-title">
+                        <b>DESCRIPTION</b>
+                    </div>
+                    <textarea class="addTask-input addTask-input-description" id="addTaskDescription"
+                        placeholder="Please fill in" required></textarea>
+                </div>
+                <div class="addTask-area-child addTask-area-child-assigned-to">
+                    <div class="addTask-area-title">
+                        <b>ASSIGNED TO</b>
+                    </div>
+                    <div id="addTask-participants-container" class="addTask-participants-container">
+                        <div id="addTask-participants" class="width342 margin-bottom-32">
+
+                        </div>
+                        <div class="width300 width268 border-left-black border-top border-bottom">
+
+                            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
+                                <div class="addTask-area-title">
+                                    <b id="name">NAME</b>
+                                </div>
+                                <input class="addTask-input-new-participants" id="firstLastName" type="text"
+                                    maxlength="15" placeholder="Please fill in" required>
+                            </div>
+
+                            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
+                                <div class="addTask-area-title">
+                                    <b id="email">E-MAIL-ADRESS</b>
+                                </div>
+                                <input class="addTask-input-new-participants" id="mail" type="text"
+                                    placeholder="Please fill in" required>
+                            </div>
+
+                            <div class="addTask-area-child add-new-participants">
+                                <div class="addTask-area-title addTask-add-new-paricipants"
+                                    onclick="addNewParticipants()">
+                                    <b>ADD NEW PARTICIPANTS</b>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--
                 <div class="addTask-participants">
                     <img class="addTask-img-area" src="assets/img/profilepic.png">
                     <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()">
@@ -133,14 +140,17 @@
                 </div>-->
 
 
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="addTask-cancel-or-create">
-            <button class="addTask-cancel" onclick="deleteInput()"><b>CANCEL</b></button>
-            <button class="addTask-create-task" onclick="createTask()"><b>CREATE TASK</b></button>
-        </div>
+
+            <div class="addTask-cancel-or-create">
+                <button class="addTask-cancel" onclick="deleteInput()"><b>CANCEL</b></button>
+                <button class="addTask-create-task" type="submit"><b>CREATE TASK</b></button>
+            </div>
+
+        </form>
 
     </div>
 
