@@ -47,8 +47,7 @@ button {
     border-radius: 16px;
     /*width: 750px;*/
     display: flex;
-    /*flex-wrap: wrap;*/
-    flex-direction: column;
+    /*flex-wrap: wrap;*/    
     padding-top: 8px;
     padding-bottom: 32px;
     /*width: 60vw;*/
@@ -97,7 +96,7 @@ button {
 }
 
 .border-left-black {
-    border-left: 1px solid rgb(160, 158, 158);
+    border-top: 1px solid rgb(160, 158, 158);
 }
 
 .addTask-participants {
@@ -105,6 +104,10 @@ button {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+.add-new-participants-container{
+    margin-top: 30px;
 }
 
 .addTask-input-new-participants {
@@ -130,7 +133,7 @@ button {
 }
 
 .name-area {
-    width: 50px;
+    width: 100px;
 }
 
 .addtask-plus {
@@ -158,7 +161,7 @@ button {
 }
 
 .selectedPlus {
-    background-color: var(--font-color-bright-hover);
+    background-color: var(--main-color);
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -251,12 +254,13 @@ button {
     .border-top {
         border-top: 1px solid rgb(160, 158, 158);
     }
-    .border-bottom {
+   /* .border-bottom {
         border-bottom: 1px solid rgb(160, 158, 158);
-    }
+    } */
 
     .addTask-area {
         margin-left: 200px;
+        flex-direction: column;
     }
 
     .addTask-cancel-or-create {
@@ -264,10 +268,6 @@ button {
         margin-bottom: 8px;
         /*margin-left: 32px;*/
         margin-right: 32px;
-    }
-
-    .border-left-black {
-        border-left: 0px solid rgb(160, 158, 158);
     }
 
     .margin-bottom-32 {
@@ -297,6 +297,9 @@ button {
 
     .addTask-add-new-paricipants {
         width: 327px;
+    }
+    .add-new-participants-container{
+        padding-left: 38px;
     }
 }
 

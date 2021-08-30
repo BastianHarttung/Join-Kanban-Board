@@ -97,53 +97,10 @@
                     </div>
                     <div id="addTask-participants-container" class="addTask-participants-container">
                         <div id="addTask-participants" class="width342 margin-bottom-32">
-
-                        </div>
-                        <div class="width300 width268 border-left-black border-top border-bottom">
-
-                            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
-                                <div class="addTask-area-title">
-                                    <b id="name">NAME</b>
-                                </div>
-                                <input class="addTask-input-new-participants" id="firstLastName" type="text"
-                                    maxlength="15" placeholder="Please fill in" required>
-                            </div>
-
-                            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
-                                <div class="addTask-area-title">
-                                    <b id="email">E-MAIL-ADRESS</b>
-                                </div>
-                                <input class="addTask-input-new-participants" id="mail" type="text"
-                                    placeholder="Please fill in" required>
-                            </div>
-
-                            <div class="addTask-area-child add-new-participants">
-                                <div class="addTask-area-title addTask-add-new-paricipants"
-                                    onclick="addNewParticipants()">
-                                    <b>ADD NEW PARTICIPANTS</b>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!--
-                <div class="addTask-participants">
-                    <img class="addTask-img-area" src="assets/img/profilepic.png">
-                    <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()">
-                </div>
-                <div class="addTask-participants">
-                    <img class="addTask-img-area" src="assets/img/profilepic.png">
-                    <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()">
-                </div>
-                <div class="addTask-participants">
-                    <img class="addTask-img-area" src="assets/img/profilepic.png">
-                    <img class="addTask-icon-plus" src="assets/img/icon plus.png" onclick="assignedTo()">
-                </div>-->
-
-
+                        </div>   
                     </div>
                 </div>
             </div>
-
 
             <div class="addTask-cancel-or-create">
                 <button class="addTask-cancel" onclick="deleteInput()"><b>CANCEL</b></button>
@@ -151,6 +108,33 @@
             </div>
 
         </form>
+
+        <div class="add-new-participants-container width300 width268 border-top border-bottom">
+
+            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
+                <div class="addTask-area-title">
+                    <b id="name">NAME</b>
+                </div>
+                <input class="addTask-input-new-participants" id="firstLastName" type="text"
+                    maxlength="15" placeholder="Please fill in" required>
+            </div>
+
+            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
+                <div class="addTask-area-title">
+                    <b id="email">E-MAIL-ADRESS</b>
+                </div>
+                <input class="addTask-input-new-participants" id="mail" type="text"
+                    placeholder="Please fill in" required>
+            </div>
+
+            <div class="addTask-area-child add-new-participants">
+                <div class="addTask-area-title addTask-add-new-paricipants"
+                    onclick="addNewParticipants()">
+                    <b>ADD NEW PARTICIPANTS</b>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 

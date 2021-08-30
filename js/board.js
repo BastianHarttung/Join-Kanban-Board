@@ -64,7 +64,6 @@ function getUrgencyFrameColor(element) {
     } else 
         return 'red';
     
-
 }
 
 function allowDrop(ev) {
@@ -74,7 +73,7 @@ function allowDrop(ev) {
 function moveTo(status) {
     allTasks[currentDraggedElement]['status'] = status;
     updateHTML();
-    /*saveToBackend();
-    let allTasksAsString = JSON.stringify(allTasks);
+    saveToBackend();
+    /*let allTasksAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTasksAsString);*/
 }

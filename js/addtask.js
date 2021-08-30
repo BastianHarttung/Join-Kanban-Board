@@ -38,7 +38,7 @@ function showUsersOnAddTask() {
                 <div id="${i}" class="addtask-plus" onclick="assignToTask(${i})">
                     <i class="fas fa-plus"></i>
                 </div>
-                <button class="delete-last-user" onclick="deleteLastUserBackend(${i})"><b>Delete</b></button>            
+                <button class="delete-last-user" onclick="deleteUser(${i})"><b>Delete</b></button>            
             </div>
             `
     }
@@ -56,9 +56,7 @@ function addNewParticipants() {
     allUsers.push({
         'name': name,
         'email': email,
-
         'profile-img': './assets/img/profilepic.png'
-
     });
 
     saveToBackend();      /* Save user to backend */
@@ -104,8 +102,6 @@ function createTask() {
 
         return false;
     } 
-
-
 }
 
 /**

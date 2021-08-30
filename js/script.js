@@ -35,6 +35,12 @@ async function loadFromBackend() {
     console.log('Loaded from backend allUsers: ' , allUsers)
 };
 
+function deleteUser(id){
+    allUsers.splice(id,1);
+    saveToBackend();
+    showUsersOnAddTask()
+}
+
 function deleteAllUsersInBackend(){
     backend.deleteItem('allUsers');
 }
