@@ -8,7 +8,7 @@ async function initAddTask() {
 }
 
 let usertask = [];
-let id = 0;
+let id;
 
 /**
  * Delete content in field input
@@ -78,7 +78,7 @@ function createTask() {
 
     if (isValidForm()) {
         let status = 'todo';
-
+        id = Math.round(Math.random() * 1000);
 
         // Unser task ist letzendlich ein JSON
         let task = {
@@ -96,7 +96,7 @@ function createTask() {
 
         backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save task to backend */
 
-        id++; //id = Math.round(Math.random() * 1000);
+        
 
         deleteInput(); // delete content in field input
 
