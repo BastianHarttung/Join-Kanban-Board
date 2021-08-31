@@ -45,7 +45,12 @@ function drawSingleColumns(array, string) {
  * @param {*} id special identification number of a task
  */
 function startDragging(id) {
-    currentDraggedElement = id;
+
+    allTasks.forEach(task => {
+        if (task['id'] == id) {
+            currentDraggedElement = allTasks.indexOf(task)
+        }
+    });
 }
 
 /**
@@ -54,12 +59,15 @@ function startDragging(id) {
  * @param {*} element a special element(task) in an array
  * @returns an html task
  */
-function generateToDoElement(element) {
+function generateToDoElement(element, i) {
 
     let lastUser = element['user'].slice(-1);
 
     return `
     <div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem ${getUrgencyFrameColor(element)}">
+        <div class = "deleteTask" onclick = "deleteTask(${i})>
+        X
+        </div>
         <div class = "boardItemDate">
         ${element['createdAt']}
         </div>
@@ -74,6 +82,12 @@ function generateToDoElement(element) {
     `
 }
 
+function deleteTask(i) {
+    allTasks.splice(i, 1);
+    saveToBackend();
+    updateHTML();
+}
+
 /**
  * get the color for the taskframe, depends on the urgency
  * 
@@ -86,9 +100,9 @@ function getUrgencyFrameColor(element) {
         return 'green';
     } else if (element['urgency'] == 'MIDDLE') {
         return 'orange';
-    } else 
+    } else
         return 'red';
-    
+
 }
 
 /**

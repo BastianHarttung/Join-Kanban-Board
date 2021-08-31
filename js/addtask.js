@@ -1,14 +1,14 @@
 /**
  * show Users on AddTask Assigned To 
  * 
- **/ 
- async function initAddTask(){
+ **/
+async function initAddTask() {
     await init();
-    showUsersOnAddTask()   
+    showUsersOnAddTask()
 }
 
 let usertask = [];
-let id;
+let id = 0;
 
 /**
  * Delete content in field input
@@ -76,32 +76,34 @@ function createTask() {
     let urgency = document.getElementById('addTaskUrgency').value;
     let description = document.getElementById('addTaskDescription').value;
 
-    if(isValidForm()) {
-        let status = 'todo';  
-        id = allTasks.length; //id = Math.round(Math.random() * 1000);
-    
+    if (isValidForm()) {
+        let status = 'todo';
+
+
         // Unser task ist letzendlich ein JSON
         let task = {
-            'id': id,                   
+            'id': id,
             'title': title,
             'createdAt': createdAt,
             'category': category,
             'urgency': urgency,
             'description': description,
-            'status': status,        
+            'status': status,
             'user': usertask
         };
-    
+
         allTasks.push(task); // push new task to alltasks
-    
+
         backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save task to backend */
-    
+
+        id++; //id = Math.round(Math.random() * 1000);
+
         deleteInput(); // delete content in field input
-    
+
         window.location.href = "./board.html";   // forword onto ""./board.html"
 
         return false;
-    } 
+    }
 }
 
 /**
