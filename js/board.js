@@ -65,7 +65,7 @@ function generateToDoElement(element, i) {
 
     return `
     <div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem ${getUrgencyFrameColor(element)}">
-        <div class = "deleteTask" onclick = "deleteTask(${i})>
+        <div class = "deleteTask" onclick = "deleteTask(${i})">
         X
         </div>
         <div class = "boardItemDate">

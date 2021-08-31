@@ -41,7 +41,7 @@
     margin: 10px;
 }
 
-.boardItemDelete:hover {
+.deleteTask:hover {
     cursor: pointer;
 }
 
