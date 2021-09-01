@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font PT Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/91e28ba968.js" crossorigin="anonymous"></script>
-   
+
     <!-- Backend -->
     <script src="./smallest_backend_ever/mini_backend.js"></script>
     <script>setURL('http://gruppe-95.developerakademie.com/smallest_backend_ever')</script>
@@ -20,26 +22,37 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/help.css">
-    
+
 </head>
+
 <body onload="initPage()">
 
     <header w3-include-html="./templates/navbar.html"></header>
 
     <section class="section section-help">
-        
+
         <div class="help-container">
 
             <div class="help-heading">
                 <h2>Help</h2>
-                <p>How to work with Join Kanban-Board</p>  
+                <p>How to work with Join Kanban-Board</p>
+            </div>
+
+            <div class="help-description-container">
+                <h3>How to Login</h3>
+                <div>1. Go to <b>'Login-Page'</b></div>
+                <img src="./assets/img/Login.PNG" alt="Login">
+                <div>2. Type in E-Mail Address and Password.</div>
+                <div>3. Click <b>'Login'</b> </div>
+                <div>4. Alternative click <b>'Login as Guest'</b> </div>
             </div>
 
             <div class="help-description-container">
                 <h3>How to add task</h3>
                 <div>1. Go to <b>'Add Task'</b></div>
                 <img src="./assets/img/AddTask.PNG" alt="Add Task">
-                <div>2. Type in Title, Category, Description, Due Date, Urgency and add a person who had to solve the task</div>
+                <div>2. Type in Title, Category, Description, Due Date, Urgency and add a person who had to solve the
+                    task</div>
                 <div>3. Click <b>'Create Task'</b> </div>
             </div>
 
@@ -57,15 +70,27 @@
                 <div>2. First your task land in the <b>To Do</b> -Section.</div>
                 <div>3. You can move task by clicking on it and drop it to another section </div>
             </div>
-            
-        </div>       
-        
-        
+
+            <h1>Impressum</h1>
+
+            <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+            <p>Bastian Harttung<br />
+                Bahnhofstra&szlig;e 9<br />
+                91161 Hilpoltstein</p>
+
+            <h2>Kontakt</h2>
+            <p>Telefon: 0160/96250129<br />
+                E-Mail: info@bastian-harttung.de</p>
+
+            <p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
+
+        </div>
+
     </section>
-    
-    
+
     <script src="./js/includehtml.js"></script>
     <script src="./js/script.js"></script>
 
 </body>
+
 </html>
