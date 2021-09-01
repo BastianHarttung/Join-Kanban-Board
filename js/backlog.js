@@ -2,7 +2,7 @@
  * init and show Tasks on Backlog 
  */
  async function initBacklog(){
-    await init();
+    await initPage();
     backlogShowAllTasks()    
 }
 
@@ -48,7 +48,7 @@ function htmlTableRow(color,allTasks,i,j){
         <tr class="table-todo-row">
             <td id="table-profile" class="${color}">
                 <div class="table-profile-container">
-                    <img id="profile-img" src=${allTasks[i]['user'][j]['profile-img']}>
+                    <img id="profile-img" src=${allTasks[i]['user'][j]['profile_img']}>
                     <div class="table-profile-name-email">
                         <div id="profile-name">${allTasks[i]['user'][j]['name']}</div>
                         <a href="mailto: ${allTasks[i]['user'][j]['email']}" id="profile-email" class="profile-email">${allTasks[i]['user'][j]['email']}</a>    

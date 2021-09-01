@@ -3,12 +3,12 @@
  * 
  **/
 async function initAddTask() {
-    await init();
+    await initPage();
     showUsersOnAddTask()
 }
 
 let usertask = [];
-let id;
+
 
 /**
  * Delete content in field input
@@ -33,7 +33,7 @@ function showUsersOnAddTask() {
 
         document.getElementById('addTask-participants').innerHTML += `
             <div class="addTask-participants">
-                <img class="addTask-img-area" src="${allUsers[i]['profile-img']}">
+                <img class="addTask-img-area" src="${allUsers[i]['profile_img']}">
                 <b class="name-area">${allUsers[i]['name']}</b>
                 <div id="${i}" class="addtask-plus" onclick="assignToTask(${i})">
                     <i class="fas fa-plus"></i>
@@ -52,11 +52,13 @@ function addNewParticipants() {
 
     let name = document.getElementById('firstLastName').value;
     let email = document.getElementById('mail').value;
+    let password = document.getElementById('password').value;
 
     allUsers.push({
         'name': name,
         'email': email,
-        'profile-img': './assets/img/profilepic.png'
+        'password': password,
+        'profile_img': './assets/img/profilepic.png'
     });
 
     saveToBackend();      /* Save user to backend */
@@ -68,42 +70,38 @@ function addNewParticipants() {
 /**
  * To create new task and then save task to backend
  */
-function createTask() {
+function createTask(event) {
 
-    let title = document.getElementById('addTaskTitle').value;
-    let createdAt = document.getElementById('addTaskDate').value;
-    let category = document.getElementById('addTaskCatergory').value;
-    let urgency = document.getElementById('addTaskUrgency').value;
-    let description = document.getElementById('addTaskDescription').value;
-
-    if (isValidForm()) {
+    if (usertask == '') {
+        alert('Please choose a User')
+        event.preventDefault();
+    } else {
+        let title = document.getElementById('addTaskTitle').value;
+        let createdAt = document.getElementById('addTaskDate').value;
+        let category = document.getElementById('addTaskCatergory').value;
+        let urgency = document.getElementById('addTaskUrgency').value;
+        let description = document.getElementById('addTaskDescription').value;
+        
         let status = 'todo';
-        id = Math.round(Math.random() * 1000);
-
-        // Unser task ist letzendlich ein JSON
+        let id = Math.round(Math.random() * 10000);
+            
         let task = {
-            'id': id,
-            'title': title,
-            'createdAt': createdAt,
-            'category': category,
-            'urgency': urgency,
-            'description': description,
-            'status': status,
-            'user': usertask
+                'id': id,
+                'title': title,
+                'createdAt': createdAt,
+                'category': category,
+                'urgency': urgency,
+                'description': description,
+                'status': status,
+                'user': usertask
         };
 
         allTasks.push(task); // push new task to alltasks
+            
+        saveToBackend();        /* Save task to backend */
 
-        backend.setItem('allTasks', JSON.stringify(allTasks));      /* Save task to backend */
-
-        
-
-        deleteInput(); // delete content in field input
-
-        window.location.href = "./board.html";   // forword onto ""./board.html"
-
-        return false;
-    }
+        deleteInput(); // delete content in field input        
+    }    
 }
 
 /**

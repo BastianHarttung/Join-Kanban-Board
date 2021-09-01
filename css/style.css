@@ -15,6 +15,7 @@ body{
     --font-color-bright-hover: rgb(190, 190, 190);
     --background-area: rgb(235, 237, 252);
     --transition-time: 150ms;
+    --border-radius: 10px;
 }
 
 .d-flex-center{
@@ -80,6 +81,7 @@ body{
 } 
 .nav-profile-pic{
     height: 90px;
+    border: 2px solid rgb(128, 128, 128,.8);
     border-radius: 50%;
 }
 

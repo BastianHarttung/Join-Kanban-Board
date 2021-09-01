@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font PT Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/91e28ba968.js" crossorigin="anonymous"></script>
-    
-    <title>Join Kanban-Board 95</title>
+
+    <title>Join Kanban-Board 95 Login</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/img/logo.png" sizes="96x96">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/logo.png">
 
     <!-- Backend -->
-    <script src="./mini_backend.js"></script>
+    <script src="./smallest_backend_ever/mini_backend.js"></script>
     <script>setURL('http://gruppe-95.developerakademie.com/smallest_backend_ever')</script>
 
+    <!-- CookieBar -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=de&thirdparty=1&always=1&noGeoIp=1&showNoConsent=1&noConfirm=1"></script>
+    
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/welcome.css">
+    <link rel="stylesheet" href="./css/login.css">
     
 </head>
-<body onload="init()">
 
-    <header w3-include-html="./templates/navbar.html"></header>
+<body class="body-login" onload="initLogin()">
 
-    <section class="section d-flex-center">
-        
-        <div class="welcome-container">
-            
-            <div class="welcome-headline-container d-flex-center">
-                <h1>Welcome to</h1>
-                <img class="welcome-logo" src="./assets/img/logo.png" alt="Join">
-                <h3>World's best Kanban-Board</h3>
-            </div>
-
-            <div class="welcome-description d-flex-center">              
-                <p>Published by 3 developers <br> during a group project of the Developer Akademie.</p>
-                <div class="welcome-profile-pics">
-                    <a href="https://github.com/AdrianoParente" target="_blank"><img src="./assets/img/Adriano.jpg" alt="Adriano Parente" title="Adriano Parente"></a> 
-                    <a href="https://github.com/TrangCH" target="_blank"><img src="./assets/img/profilepic.png" alt="Cam Trang" title="Cam Trang"></a> 
-                    <a href="https://github.com/BastianHarttung" target="_blank"><img src="./assets/img/profile-bastian.png" alt="Bastian Harttung" title="Bastian Harttung"></a> 
-                </div>
-            </div> 
-
-        </div>        
-    
+    <section class="login-form-wrap">
+        <h1>Login to</h1>
+        <img src="./assets/img/logo.png" alt="Join">
+        <form class="login-form" action="./start.html"  onsubmit="loginUser(event)">
+            <label>
+                <input id="email-input" type="email" name="email" required placeholder="Email">
+            </label>
+            <label>
+                <input id="password-input" type="password" name="password" required placeholder="Password">
+            </label>
+            <input type="submit" value="Login" >
+        </form>
+        <h5><a href="./start.html" onclick="loginGuestUser()">Login as Guest</a></h5>
     </section>
 
-    <script src="./js/includehtml.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/includehtml.js"></script>    
+    <script src="./js/script.js"></script>  
+    <script src="./js/login.js"></script>
 
 </body>
+
 </html>

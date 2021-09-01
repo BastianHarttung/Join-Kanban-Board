@@ -2,7 +2,7 @@
  * show Tasks on Board 
  */
 async function initBoard() {
-    await init();
+    await initPage();
     updateHTML()
 }
 

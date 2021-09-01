@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="./css/addtask.css">
 
     <!-- Backend -->
-    <script src="./mini_backend.js"></script>
+    <script src="./smallest_backend_ever/mini_backend.js"></script>
     <script>setURL('http://gruppe-95.developerakademie.com/smallest_backend_ever')</script>
 
     <script src="./js/includehtml.js"></script>
@@ -44,7 +44,7 @@
 
 
     <div class="addTask-area">
-        <form action="" onsubmit="createTask(); return false;">
+        <form action="../board.html" onsubmit="createTask(event)">
 
             <div class="addTask-area-inner">
                 <div class="addTask-area-child">
@@ -116,15 +116,23 @@
                     <b id="name">NAME</b>
                 </div>
                 <input class="addTask-input-new-participants" id="firstLastName" type="text"
-                    maxlength="15" placeholder="Please fill in" required>
+                    maxlength="20" placeholder="Please fill in" required>
             </div>
 
             <div class="addTask-area-child addTask-area-input-add-new-paricipants">
                 <div class="addTask-area-title">
-                    <b id="email">E-MAIL-ADRESS</b>
+                    <b id="email">E-MAIL-ADDRESS</b>
                 </div>
                 <input class="addTask-input-new-participants" id="mail" type="text"
                     placeholder="Please fill in" required>
+            </div>
+
+            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
+                <div class="addTask-area-title">
+                    <b>PASSWORD (6 Characters minimum)</b>
+                </div>
+                <input class="addTask-input-new-participants" id="password" type="text"
+                    minlenght = "6" placeholder="Please fill in" required>
             </div>
 
             <div class="addTask-area-child add-new-participants">
