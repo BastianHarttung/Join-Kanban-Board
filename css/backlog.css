@@ -11,7 +11,7 @@
 .backlog-head{
     font-size: 25px;
     text-align: left; 
-    padding: 10px;   
+    padding: 7px;   
 }
 .backlog-head h2{
     margin: 5px 0px;
@@ -21,14 +21,13 @@
     color: var(--font-main-color);
     font-size: 18px;
     font-weight: 700;
-    margin: 10px 0px;
+    margin: 0px;
 }
 
 
 /* Table */
 .table{
-    width: 100%;
-    margin-top: 10px;
+    width: 100%;   
     border-collapse: separate;    
     border-spacing:0 10px;  
               
@@ -86,8 +85,8 @@
 .profile-email{
     color: var(--font-main-color);
     text-decoration: none;
+    word-wrap: break-word;
 }
-
 
 
 #table-details{

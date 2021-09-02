@@ -74,6 +74,9 @@
 }
 
 @media(max-width: 700px) {
+    .mainContainer{
+        left: 100px;
+    }
     .taskName {
         font-size: 14px;
         font-weight: bold;

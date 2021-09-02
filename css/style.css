@@ -110,13 +110,16 @@ body{
 }
 @media(max-width: 700px){
     .section{
-        left: 110px;
+        left: 80px;
     }
     .nav{
-        width: 110px;
+        width: 80px;
     }
-    .links a{
-        font-size: 17px;
+    .link-text{
+        display: none;
+    }
+    .links a{        
+        font-size: 30px;
         padding: 10px;
     }
     .links a:hover{       
@@ -130,6 +133,9 @@ body{
     }
     .nav-logo img{
         height: 50px;
+    }
+    .far{
+        width:35px;
     }
 }
 @media(max-width: 550px){

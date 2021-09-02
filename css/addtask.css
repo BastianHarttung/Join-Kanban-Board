@@ -248,7 +248,7 @@ button {
 @media(max-width: 1000px) {
 
     .addTask-head {
-        margin-left: 200px;
+        margin-left: 190px;
     }
 
     .border-top {
@@ -256,7 +256,7 @@ button {
     }   
 
     .addTask-area {
-        margin-left: 200px;
+        margin-left: 190px;
         flex-direction: column;
     }
 
@@ -313,11 +313,11 @@ button {
 @media(max-width: 700px) {
 
     .addTask-head {
-        margin-left: 150px;
+        margin-left: 110px;
     }
 
     .addTask-area {
-        margin-left: 150px;
+        margin-left: 110px;
     }
 
     .addTask-input {
