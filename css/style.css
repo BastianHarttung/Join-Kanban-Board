@@ -134,7 +134,7 @@ body{
 }
 @media(max-width: 550px){
     .section{
-        height: 85vh !important;
+        height: inherit !important;
         left: 0px;
         top: 0;
         bottom: 90px;

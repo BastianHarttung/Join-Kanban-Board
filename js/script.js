@@ -103,7 +103,7 @@ function addPublisherUsersToBackend(){
         { 
             'name': "Cam Trang", 
             'email': "camtrang@web.de", 
-            'profile_img': "../assets/img/profilepic.png",
+            'profile_img': "../assets/img/cam.jpg",
             'password': 'cam'
         },
         { 

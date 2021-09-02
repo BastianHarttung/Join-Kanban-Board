@@ -103,4 +103,7 @@
         justify-content: space-between;
         align-items: center;
     }
+    .deleteTask{
+        margin-right: 10px;
+    }
 }

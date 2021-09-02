@@ -127,4 +127,7 @@
     #table-profile{               
         white-space: inherit;    
     }
+    .table-todo-row td {
+        padding: 5px;
+    }
 }
