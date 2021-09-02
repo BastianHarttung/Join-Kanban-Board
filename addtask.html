@@ -44,7 +44,7 @@
 
 
     <div class="addTask-area">
-        <form action="../board.html" onsubmit="createTask(event)">
+        <form>
 
             <div class="addTask-area-inner">
                 <div class="addTask-area-child">
@@ -104,7 +104,7 @@
 
             <div class="addTask-cancel-or-create">
                 <button class="addTask-cancel" onclick="deleteInput()"><b>CANCEL</b></button>
-                <button class="addTask-create-task" type="submit"><b>CREATE TASK</b></button>
+                <button class="addTask-create-task" onclick="createTask(event)"><b>CREATE TASK</b></button>
             </div>
 
         </form>

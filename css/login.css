@@ -35,13 +35,13 @@
 
 .login-form-wrap h5 {
     margin-top: 40px;
-}
-
-.login-form-wrap h5>a {
     font-size: 14px;
     color: #fff;    
     font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
 }
+
 
 .login-form input[type="email"], .login-form input[type="password"] {
     width: 100%;
@@ -66,10 +66,10 @@
     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.23) inset, 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
-.login-form input[type="submit"] {
+.login-button {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    background-color: linear-gradient(to bottom, rgba(224, 224, 224, 1) 0%, rgba(206, 206, 206, 1) 100%);
+    background-color: var(--background-area);
     display: block;
     margin: 20px auto 0 auto;
     width: 100%;
@@ -78,7 +78,7 @@
     padding: 8px;
     font-size: 17px;
     color: #636363;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+    /* text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45); */
     font-weight: 700;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.17), 0 1px 0 rgba(255, 255, 255, 0.36) inset;
     cursor: pointer;
@@ -86,10 +86,8 @@
             background-color var(--transition-time) ease-in-out;
 }
 
-.login-form input:hover {
+.login-button:hover {
     background-color: #DDD;
-}
-.login-form input[type="submit"]:hover{
     color: white;
     background: #8d8d8d;
 }

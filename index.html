@@ -34,16 +34,16 @@
     <section class="login-form-wrap">
         <h1>Login to</h1>
         <img src="./assets/img/logo.png" alt="Join">
-        <form class="login-form" action="./start.html"  onsubmit="loginUser(event)">
+        <form class="login-form">
             <label>
-                <input id="email-input" type="email" name="email" required value = "email@example.com" placeholder="Email">
+                <input id="email-input" type="email" name="email" required placeholder="Email">
             </label>
             <label>
                 <input id="password-input" type="password" name="password" required placeholder="Password">
             </label>
-            <input type="submit" value="Login" >
+            <div class="login-button" onclick="loginUser()">Login</div>
         </form>
-        <h5><a href="./start.html" onclick="loginGuestUser()">Login as Guest</a></h5>
+        <h5 onclick="loginGuestUser()">Login as Guest</h5>
     </section>
 
     <script src="./js/includehtml.js"></script>    

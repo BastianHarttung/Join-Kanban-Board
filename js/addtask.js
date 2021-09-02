@@ -14,6 +14,7 @@ let usertask = [];
  * Delete content in field input
  */
 function deleteInput() {
+    
     document.getElementById('addTaskTitle').value = '';
     document.getElementById('addTaskDate').value = '';
     document.getElementById('addTaskCatergory').value = '';
@@ -70,9 +71,8 @@ async function addNewParticipants() {
 /**
  * To create new task and then save task to backend
  */
-function createTask(event) {
+async function createTask(event) {    
     event.preventDefault();
-    
     if (usertask == '') {
         alert('Please choose a User')
         
@@ -99,7 +99,7 @@ function createTask(event) {
 
         allTasks.push(task); // push new task to alltasks
             
-        saveToBackend();        /* Save task to backend */
+        await saveToBackend();        /* Save task to backend */
 
         deleteInput(); // delete content in field input 
         

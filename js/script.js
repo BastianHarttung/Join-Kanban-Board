@@ -13,7 +13,7 @@ async function initPage(){
  * 
  */
 async function init() {
-    await includeHTML();                        // Html templates laden 
+    includeHTML();                        // Html templates laden 
     await loadFromBackend();                    // Aus backend laden        
     /* loadAllTasks();  */                      // Aus localStorage laden falls erwünscht
 }
@@ -50,17 +50,17 @@ function deleteUser(id) {
  * Save Users and Tasks in Backend
  * 
  */
-function saveToBackend() {
-    backend.setItem('allUsers', JSON.stringify(allUsers));
-    backend.setItem('allTasks', JSON.stringify(allTasks));
-    backend.setItem('loggedInUser', JSON.stringify(loggedInUser));
+async function saveToBackend() {
+    await backend.setItem('allUsers', JSON.stringify(allUsers));
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    await backend.setItem('loggedInUser', JSON.stringify(loggedInUser));
 }
 
 /**
  * show Profile Pic of User who is logged in on Navbar
  * starts on init()
  */
-function showProfilePicOnNavbar(){
+async function showProfilePicOnNavbar(){
     document.getElementById('nav').innerHTML += `
         <a class="logged-user" href = "../index.html">
             <img id="nav-profile-pic" class="nav-profile-pic" src="${loggedInUser.profile_img}" title="Logout ${loggedInUser.name}">

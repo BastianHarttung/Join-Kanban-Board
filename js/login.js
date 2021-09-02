@@ -1,7 +1,7 @@
 async function initLogin(){
     await init();
     loggedInUser = {};
-    saveToBackend();    
+    await saveToBackend();    
 }
 
 /**
@@ -9,8 +9,8 @@ async function initLogin(){
  * login User and write json to loggedInUser
  * @param {click} event only to stop prevent link 
  */
-function loginUser(event) {
-    event.preventDefault();     //prevent link to the welcome page
+async function loginUser() {
+   
     let email = document.getElementById('email-input').value; //string
     let password = document.getElementById('password-input').value; //string
 
@@ -21,7 +21,7 @@ function loginUser(event) {
     } else {
         if (loggedInUser.password === password) {
             console.log('User logged in');
-            saveToBackend();
+            await saveToBackend();
             window.location.href = "../start.html";
         } else {
             alert('Wrong Password for this User');            
@@ -32,8 +32,8 @@ function loginUser(event) {
 /**
  * button login as guest
  */
-function loginGuestUser() {
+async function loginGuestUser() {
     loggedInUser = allUsers[3];
-    saveToBackend();
+    await saveToBackend();
     window.location.href = "../start.html";
 }
