@@ -10,22 +10,21 @@ async function initLogin(){
  * @param {click} event only to stop prevent link 
  */
 function loginUser(event) {
-
+    event.preventDefault();     //prevent link to the welcome page
     let email = document.getElementById('email-input').value; //string
     let password = document.getElementById('password-input').value; //string
 
     loggedInUser = allUsers.find(user => user.email === email) //Object with User
 
     if (loggedInUser === undefined) {
-        alert('No User with such Email!');
-        event.preventDefault();     //prevent link to the welcome page
+        alert('No User with such Email!');        
     } else {
         if (loggedInUser.password === password) {
             console.log('User logged in');
             saveToBackend();
+            window.location.href = "../start.html";
         } else {
-            alert('Wrong Password for this User');
-            event.preventDefault();     //prevent link to the welcome page
+            alert('Wrong Password for this User');            
         }
     }
 };

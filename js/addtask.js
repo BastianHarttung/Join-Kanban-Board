@@ -38,7 +38,7 @@ function showUsersOnAddTask() {
                 <div id="${i}" class="addtask-plus" onclick="assignToTask(${i})">
                     <i class="fas fa-plus"></i>
                 </div>
-                <button class="delete-last-user" onclick="deleteUser(${i})"><b>Delete</b></button>            
+                <button class="delete-last-user" onclick="deleteUser(${i})"><b>Delete User</b></button>            
             </div>
             `
     }
@@ -48,7 +48,7 @@ function showUsersOnAddTask() {
  * Add new participants to our group (name and email)
  */
 
-function addNewParticipants() {
+async function addNewParticipants() {
 
     let name = document.getElementById('firstLastName').value;
     let email = document.getElementById('mail').value;
@@ -61,7 +61,7 @@ function addNewParticipants() {
         'profile_img': './assets/img/profilepic.png'
     });
 
-    saveToBackend();      /* Save user to backend */
+    await saveToBackend();      /* Save user to backend */
 
     showUsersOnAddTask(); /* Show user von Add Task*/
 }
@@ -71,10 +71,11 @@ function addNewParticipants() {
  * To create new task and then save task to backend
  */
 function createTask(event) {
-
+    event.preventDefault();
+    
     if (usertask == '') {
         alert('Please choose a User')
-        event.preventDefault();
+        
     } else {
         let title = document.getElementById('addTaskTitle').value;
         let createdAt = document.getElementById('addTaskDate').value;
@@ -100,7 +101,9 @@ function createTask(event) {
             
         saveToBackend();        /* Save task to backend */
 
-        deleteInput(); // delete content in field input        
+        deleteInput(); // delete content in field input 
+        
+        window.location.href = "../board.html";
     }    
 }
 

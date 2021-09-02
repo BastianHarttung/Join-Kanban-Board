@@ -85,6 +85,15 @@ body{
     border-radius: 50%;
 }
 
+.logged-user{
+    color: var(--font-color-bright);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
 
 /* Responsive Navbar */
 
@@ -130,6 +139,9 @@ body{
     }
     .nav-profile-pic{
         height: 50px;
+    }
+    .logged-user{
+        font-size: 13px;
     }
     .nav-logo img{
         height: 50px;

@@ -62,8 +62,9 @@ function saveToBackend() {
  */
 function showProfilePicOnNavbar(){
     document.getElementById('nav').innerHTML += `
-        <a href = "../index.html">
+        <a class="logged-user" href = "../index.html">
             <img id="nav-profile-pic" class="nav-profile-pic" src="${loggedInUser.profile_img}" title="Logout ${loggedInUser.name}">
+            <div>Login</div>
         </a>
         `
 }
@@ -114,7 +115,7 @@ function addPublisherUsersToBackend(){
         },
     ];
     allTasks = [];
-    loggedInUser = {};
+    loggedInUser = allUsers[3];
     
     saveToBackend();
 }
