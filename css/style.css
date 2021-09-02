@@ -181,7 +181,7 @@ body{
     .help-container{
         padding-bottom: 150px !important;
     }
-    .nav-profile-pic{
+    .logged-user{
        display: none;
     }
     .link-text{
