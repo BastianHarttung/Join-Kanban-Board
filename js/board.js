@@ -65,7 +65,7 @@ function generateToDoElement(element, i) {
 
     return `
     <div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem ${getUrgencyFrameColor(element)}">
-        <div class = "deleteTask" onclick = "deleteTask(${allTasks[i]['id']})">
+        <div class = "deleteTask" onclick = "deleteTask(${element['id']})">
         X
         </div>
         <div class = "boardItemDate">
@@ -82,12 +82,18 @@ function generateToDoElement(element, i) {
     `
 }
 
-function deleteTask(i) { //3420
-    let task = allTasks.find(task => task.id === i);    //json mit gefilterter task
-    let index = allTasks.indexOf(task);
-    allTasks.splice(index, 1);
-    saveToBackend();
-    updateHTML();
+function deleteTask(id) { //3420
+    let index;
+    allTasks.forEach(task => {
+        if (task['id'] == id) {
+            index = allTasks.indexOf(task);
+            allTasks.splice(index, 1);
+        } 
+    // let task = allTasks.find(task => task.id === i);    //json mit gefilterter task
+});
+
+saveToBackend();
+updateHTML();
      
 }
 
