@@ -144,36 +144,29 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 5px;
     cursor: pointer;
 }
 
 .addtask-plus:hover {
-    background-color: var(--font-color-bright-hover);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
+    background-color: var(--font-color-bright-hover);       
+    transform: scale(1.2);
     cursor: pointer;
+}
+.addtask-plus.selectedPlus:hover{
+    background-color: var(--main-color);
 }
 
 .selectedPlus {
-    background-color: var(--main-color);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    cursor: pointer;
+    background-color: var(--main-color);     
 }
 
 .fa-plus {
     font-size: 25px;
+}
+
+.fa-plus.minus::before{
+    content: '\f068';
 }
 
 .delete-last-user {
