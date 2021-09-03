@@ -36,10 +36,10 @@ async function loadFromBackend() {
  * Delete User which delete button is clicked
  * @param {number} id index of array of user 
  */
-function deleteUser(id) {
+async function deleteUser(id) {
     if (id > 3) {
         allUsers.splice(id, 1);
-        saveToBackend();
+        await saveToBackend();
         showUsersOnAddTask()
     } else {
         alert("You can't delete this User!")
@@ -54,6 +54,7 @@ async function saveToBackend() {
     await backend.setItem('allUsers', JSON.stringify(allUsers));
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     await backend.setItem('loggedInUser', JSON.stringify(loggedInUser));
+    console.log('saved to backend');
 }
 
 /**
@@ -69,6 +70,7 @@ async function showProfilePicOnNavbar(){
         `
 }
 
+
 /**
  * HACK load from local storage
  * didnt start in programm
@@ -81,8 +83,6 @@ async function loadAllTasks() {
     }
     console.log('Loaded allTasks from local storage: ', allTasks);
 }
-
-
 
 /**
  * HACK Debugger Function to add Publisher User if it was deleted

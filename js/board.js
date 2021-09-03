@@ -82,14 +82,13 @@ function generateToDoElement(element, i) {
     `
 }
 
-function deleteTask(id) { //3420
+function deleteTask(id) { 
     let index;
     allTasks.forEach(task => {
         if (task['id'] == id) {
             index = allTasks.indexOf(task);
             allTasks.splice(index, 1);
-        } 
-    // let task = allTasks.find(task => task.id === i);    //json mit gefilterter task
+        }     
 });
 
 saveToBackend();
