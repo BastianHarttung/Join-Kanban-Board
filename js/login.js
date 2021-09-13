@@ -1,7 +1,7 @@
-async function initLogin(){
+async function initLogin() {
     await init();
     loggedInUser = {};
-    await saveToBackend();    
+    await saveToBackend();
 }
 
 /**
@@ -10,21 +10,21 @@ async function initLogin(){
  * @param {click} event only to stop prevent link 
  */
 async function loginUser() {
-   
+
     let email = document.getElementById('email-input').value; //string
     let password = document.getElementById('password-input').value; //string
 
     loggedInUser = allUsers.find(user => user.email === email) //Object with User
 
     if (loggedInUser === undefined) {
-        alert('No User with such Email!');        
+        alert('No User with such Email!');
     } else {
         if (loggedInUser.password === password) {
             console.log('User logged in');
             await saveToBackend();
             window.location.href = "../start.html";
         } else {
-            alert('Wrong Password for this User');            
+            alert('Wrong Password for this User');
         }
     }
 };
@@ -36,4 +36,31 @@ async function loginGuestUser() {
     loggedInUser = allUsers[3];
     await saveToBackend();
     window.location.href = "../start.html";
+};
+
+function startNewSignIn() {
+    document.getElementById('login-form').classList.add('d-none');
+    document.getElementById('signin-form').classList.remove('d-none');
+}
+
+/**
+ * Add new participants to our group (name and email)
+ */
+
+async function addNewParticipants() {
+
+    let name = document.getElementById('first-lastName-input').value;
+    let email = document.getElementById('email-input').value;
+    let password = document.getElementById('password-input').value;
+
+    allUsers.push({
+        'name': name,
+        'email': email,
+        'password': password,
+        'profile_img': './assets/img/profilepic.png'
+    });
+
+    await saveToBackend();      /* Save user to backend */
+
+    loginUser()
 }

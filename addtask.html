@@ -43,9 +43,9 @@
     </div>
 
 
-    <div class="addTask-area">
-        <form>
+    <div class="addTask-area-container">        
 
+        <div class="addTask-area">
             <div class="addTask-area-inner">
                 <div class="addTask-area-child">
                     <div class="addTask-area-title">
@@ -91,25 +91,27 @@
                     <textarea class="addTask-input addTask-input-description" id="addTaskDescription"
                         placeholder="Please fill in" required></textarea>
                 </div>
-                <div class="addTask-area-child addTask-area-child-assigned-to">
-                    <div class="addTask-area-title">
-                        <b>ASSIGNED TO</b>
-                    </div>
-                    <div id="addTask-participants-container" class="addTask-participants-container">
-                        <div id="addTask-participants" class="margin-bottom-32">
-                        </div>   
+
+            </div>
+
+            <div class="addTask-area-child addTask-area-child-assigned-to">
+                <div class="addTask-area-title">
+                    <b>ASSIGNED TO</b>
+                </div>
+                <div id="addTask-participants-container" class="addTask-participants-container">
+                    <div id="addTask-participants" class="margin-bottom-32">
                     </div>
                 </div>
             </div>
+        </div>            
 
-            <div class="addTask-cancel-or-create">
-                <button class="addTask-cancel" onclick="deleteInput()"><b>CANCEL</b></button>
-                <button class="addTask-create-task" onclick="createTask(event)"><b>CREATE TASK</b></button>
-            </div>
+        <div class="addTask-cancel-or-create">
+            <button class="addTask-cancel" onclick="deleteInput()"><b>CANCEL</b></button>
+            <button class="addTask-create-task" onclick="createTask(event)"><b>CREATE TASK</b></button>
+        </div>
+       
 
-        </form>
-
-        <div class="add-new-participants-container width300 width268 border-top border-bottom">
+        <!-- <div class="add-new-participants-container width300 width268 border-top border-bottom">
 
             <div class="addTask-area-child addTask-area-input-add-new-paricipants">
                 <div class="addTask-area-title">
@@ -142,7 +144,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
 
     </div>
 

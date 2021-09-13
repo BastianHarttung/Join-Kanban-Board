@@ -18,6 +18,10 @@ body{
     --border-radius: 10px;
 }
 
+.d-none{
+    display: none;
+}
+
 .d-flex-center{
     display: flex;
     justify-content: center;

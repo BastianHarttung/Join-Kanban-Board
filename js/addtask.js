@@ -49,27 +49,7 @@ function showUsersOnAddTask() {
     }
 }
 
-/**
- * Add new participants to our group (name and email)
- */
 
-async function addNewParticipants() {
-
-    let name = document.getElementById('firstLastName').value;
-    let email = document.getElementById('mail').value;
-    let password = document.getElementById('password').value;
-
-    allUsers.push({
-        'name': name,
-        'email': email,
-        'password': password,
-        'profile_img': './assets/img/profilepic.png'
-    });
-
-    await saveToBackend();      /* Save user to backend */
-
-    showUsersOnAddTask(); /* Show user von Add Task*/
-}
 
 
 /**
@@ -77,9 +57,24 @@ async function addNewParticipants() {
  */
 async function createTask(event) {
     event.preventDefault();
+    let title = document.getElementById('addTaskTitle');
+    let date = document.getElementById('addTaskDate');
+    let category = document.getElementById('addTaskCatergory');
+    let urgency = document.getElementById('addTaskUrgency');
+    let description = document.getElementById('addTaskDescription');
+
     if (usertask == '') {
         alert('Please choose a User')
-
+    } else if (title.value == '') {
+        alert('Please write a Title')
+    } else if (date.value == '') {
+        alert('Please choose a Date')
+    } else if (category.value == '') {
+        alert('Please choose a Category')
+    } else if (urgency.value == '') {
+        alert('Please choose Urgency')
+    } else if (description.value == '') {
+        alert('Please write a Description')
     } else {
 
         readTaskAndPushToArray()

@@ -38,19 +38,21 @@ button {
     color: var(--main-color);
 }
 
-.addTask-area {
+.addTask-area-container {
     background-color: var(--addTask-area-color);
     margin-left: 250px;
     margin-right: 32px;
     margin-top: 32px;
     margin-bottom: 64px;
-    border-radius: 16px;
-    /*width: 750px;*/
+    border-radius: 16px;    
     display: flex;
-    /*flex-wrap: wrap;*/    
+    flex-direction: column;       
     padding-top: 8px;
-    padding-bottom: 32px;
-    /*width: 60vw;*/
+    padding-bottom: 32px;    
+}
+.addTask-area {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .addTask-area-child {
@@ -236,6 +238,7 @@ button {
     min-width: 150px;
     align-items: flex-end;
     margin-left: 32px;
+    margin-top: 15px;
 }
 
 @media(max-width: 1000px) {
@@ -248,19 +251,18 @@ button {
         border-top: 1px solid rgb(160, 158, 158);
     }   
 
-    .addTask-area {
+    .addTask-area-container {
         margin-left: 190px;
         flex-direction: column;
     }
 
-    .addTask-cancel-or-create {        
-        margin-top: 8px;
+    .addTask-cancel-or-create {    
         margin-bottom: 8px;        
         margin-right: 32px;
     }
 
     .margin-bottom-32 {
-        margin-bottom: 32px;
+        margin-bottom: 10px;
     }
 
     .addTask-area-input-add-new-paricipants {
@@ -309,7 +311,7 @@ button {
         margin-left: 110px;
     }
 
-    .addTask-area {
+    .addTask-area-container {
         margin-left: 110px;
     }
 
@@ -355,11 +357,14 @@ button {
         text-align: center;
     }
     
-    .addTask-area {
+    .addTask-area-container {
         margin-left: 32px;
         margin-right: 32px;
         margin-bottom: 150px;
         align-items: center;
+        justify-content: center;
+    }
+    .addTask-area {
         justify-content: center;
     }
 
@@ -404,7 +409,8 @@ button {
     }
 
     .addTask-cancel-or-create {
-        justify-content: center;       
+        justify-content: center;  
+        margin-top: 5px;     
     }
     .add-new-participants-container {
         padding-left: 0px;
