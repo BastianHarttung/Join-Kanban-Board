@@ -3,9 +3,10 @@ let allTasks;
 let allUsers;
 let loggedInUser;
 
-async function initPage(){
+async function initPage() {
     await init();
-    await showProfilePicOnNavbar();             // show profile pic navbar   
+    await showProfilePicOnNavbar();             // show profile pic navbar 
+    checkUrlShowOnNav();
 }
 
 /**
@@ -16,6 +17,24 @@ async function init() {
     includeHTML();                        // Html templates laden 
     await loadFromBackend();                    // Aus backend laden        
     /* loadAllTasks();  */                      // Aus localStorage laden falls erwünscht
+}
+
+/**
+ * Check URL and mark Link on navbar
+ */
+function checkUrlShowOnNav() {
+    if (window.location.href == 'http://127.0.0.1:5500/board.html') {
+        document.getElementById('link-board').classList.add('active')
+    }
+    if (window.location.href == 'http://127.0.0.1:5500/backlog.html') {
+        document.getElementById('link-backlog').classList.add('active')
+    }
+    if (window.location.href == 'http://127.0.0.1:5500/addtask.html') {
+        document.getElementById('link-addtask').classList.add('active')
+    }
+    if (window.location.href == 'http://127.0.0.1:5500/help.html') {
+        document.getElementById('link-help').classList.add('active')
+    }
 }
 
 /**
@@ -43,7 +62,7 @@ async function deleteUser(id) {
         showUsersOnAddTask()
     } else {
         alert("You can't delete this User!")
-    }    
+    }
 }
 
 /**
@@ -61,7 +80,7 @@ async function saveToBackend() {
  * show Profile Pic of User who is logged in on Navbar
  * starts on init()
  */
-async function showProfilePicOnNavbar(){
+async function showProfilePicOnNavbar() {
     document.getElementById('nav').innerHTML += `
         <a class="logged-user" href = "../index.html">
             <img id="nav-profile-pic" class="nav-profile-pic" src="${loggedInUser.profile_img}" title="Logout ${loggedInUser.name}">
@@ -70,6 +89,7 @@ async function showProfilePicOnNavbar(){
         `
 }
 
+/*--------------------HACKS-------------------------------*/
 
 /**
  * HACK load from local storage
@@ -87,36 +107,36 @@ async function loadAllTasks() {
 /**
  * HACK Debugger Function to add Publisher User if it was deleted
  */
-function addPublisherUsersToBackend(){
+function addPublisherUsersToBackend() {
     allUsers = [
         {
             'name': "Bastian Harttung",
             'email': "info@bastian-harttung.de",
             'profile_img': "../assets/img/profile-bastian.png",
-            'password': 'bastian'           
+            'password': 'bastian'
         },
-        { 
-            'name': "Adriano Parente", 
+        {
+            'name': "Adriano Parente",
             'email': "adriano.parente@gmx.de",
             'profile_img': "../assets/img/Adriano.jpg",
-            'password': 'adriano'            
+            'password': 'adriano'
         },
-        { 
-            'name': "Cam Trang", 
-            'email': "camtrang@web.de", 
+        {
+            'name': "Cam Trang",
+            'email': "camtrang@web.de",
             'profile_img': "../assets/img/cam.jpg",
             'password': 'cam'
         },
-        { 
-            'name': "Guest", 
-            'email': "info@guest.de", 
+        {
+            'name': "Guest",
+            'email': "info@guest.de",
             'profile_img': "../assets/img/profilepic.png",
             'password': 'guest'
         },
     ];
     allTasks = [];
     loggedInUser = allUsers[3];
-    
+
     saveToBackend();
 }
 

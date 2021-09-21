@@ -1,14 +1,14 @@
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
-    font-family: 'PT Sans', sans-serif;    
+    font-family: 'PT Sans', sans-serif;
 }
 
-:root{
+:root {
     --main-color: rgb(54, 52, 201);
     --font-main-color: rgb(8, 5, 170);
     --font-color-bright: rgb(216, 216, 216);
@@ -18,34 +18,40 @@ body{
     --border-radius: 10px;
 }
 
-.d-none{
-    display: none;
+.d-none {
+    display: none !important;
 }
 
-.d-flex-center{
+.d-flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.font-color-main{
+
+.font-color-main {
     color: var(--font-main-color);
 }
 
-.section{         
-    height: 100vh;    
-    position: absolute;      
-    bottom: 0;  
+.section {
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
     left: 200px;
-    right: 0px;      
+    right: 0px;
 }
 
+.far {
+    z-index: 5;
+    cursor: pointer;
+}
 
 /* ------Navigation navbar---------------------- */
-.nav{
+
+.nav {
     background-color: var(--main-color);
     width: 200px;
     height: 100vh;
-    position: fixed;    
+    position: fixed;
     bottom: 0;
     display: flex;
     flex-direction: column;
@@ -53,43 +59,45 @@ body{
     align-items: center;
     z-index: 10;
 }
-.links{
+
+.links {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
 }
 
-.links a{
-    color: var(--font-color-bright);
-    background-color: var(--main-color);
-    font-size: 30px;    
-    padding: 15px 15px 15px 25px;
+.links a {
+    color: var(--font-color-bright);    
+    font-size: 30px;
+    padding: 13px 25px 13px 15px;
+    margin: 3px 0px 3px 0px;
     white-space: nowrap;
     text-decoration: none;
-    text-align: right;    
-    position: relative;    
-    right: 0;
-    border-radius: 0px 10px 10px 0px;
-    transition: color var(--transition-time) ease-in-out,
-                background-color var(--transition-time) ease-in-out,
-                right var(--transition-time) ease-in-out,
-                bottom var(--transition-time) ease-in-out,
-                border-bottom var(--transition-time) ease-in-out,
-                border-left var(--transition-time) ease-in-out;
+    text-align: right;
+    position: relative;
+    right: -15px;
+    border-radius: 10px 0px 0px 10px;
+    transition: color var(--transition-time) ease-in-out, background-color var(--transition-time) ease-in-out, right var(--transition-time) ease-in-out, bottom var(--transition-time) ease-in-out, border-bottom var(--transition-time) ease-in-out, border-left var(--transition-time) ease-in-out;
 }
 
-.links a:hover{
-    background-color: rgb(3, 0, 194);
-    color: white;   
-    right: -50px;     
-    border-left: 4px solid white 
-} 
-.nav-profile-pic{
+.links a:hover {
+    background-color: white;
+    color: rgb(88, 88, 88);
+    right: -7px;
+}
+
+.active {
+    background-color: white !important;
+    color: black !important;
+    right: -7px !important;
+}
+
+.nav-profile-pic {
     height: 90px;
-    border: 2px solid rgb(128, 128, 128,.8);
+    border: 2px solid rgb(128, 128, 128, .8);
     border-radius: 50%;
 }
 
-.logged-user{
+.logged-user {
     color: var(--font-color-bright);
     display: flex;
     flex-direction: column;
@@ -98,111 +106,109 @@ body{
     text-decoration: none;
 }
 
-
 /* Responsive Navbar */
 
-@media(max-width: 1000px){
-    .section{
+@media(max-width: 1000px) {
+    .section {
         left: 150px;
     }
-    .nav{
+    .nav {
         width: 150px;
     }
-    .links a{
+    .links a {
         font-size: 22px;
+        right: -12px;
     }
-    .links a:hover{       
-        right: -35px;     
-    } 
-    .nav-profile-pic{
+    .nav-profile-pic {
         height: 70px;
     }
-    .nav-logo img{
+    .nav-logo img {
         height: 60px;
     }
 }
-@media(max-width: 700px){
-    .section{
+
+@media(max-width: 700px) {
+    .section {
         left: 80px;
     }
-    .nav{
+    .nav {
         width: 80px;
     }
-    .link-text{
+    .link-text {
         display: none;
     }
-    .links a{        
+    .links a {
         font-size: 30px;
-        padding: 10px;
+        padding: 10px 30px 10px 10px;
+        right: -12px;
     }
-    .links a:hover{       
-        right: -25px;     
-    } 
-    .links a::before{        
-        left: -5px;           
+    .links a:hover {
+        right: -8px;
     }
-    .nav-profile-pic{
+    .active {
+        right: -8px !important;
+    }
+    .nav-profile-pic {
         height: 50px;
     }
-    .logged-user{
+    .logged-user {
         font-size: 13px;
     }
-    .nav-logo img{
+    .nav-logo img {
         height: 50px;
     }
-    .far{
-        width:35px;
+    .far {
+        width: 35px;
+        display: flex;
+        justify-content: center;        
     }
 }
-@media(max-width: 550px){
-    .section{
+
+@media(max-width: 550px) {
+    .section {
         height: inherit !important;
         left: 0px;
         top: 0;
         bottom: 90px;
     }
-    .nav{
+    .nav {
         background-color: var(--main-color);
-        width: 100vw;        
+        width: 100vw;
         height: 95px;
-        position: fixed;        
-        bottom: 0;        
-        flex-direction: row;        
+        position: fixed;
+        bottom: 0;
+        flex-direction: row;
     }
-    .nav-logo{
-        margin: 0px 20px;
+    .nav-logo {
+        margin: 0px 7px 0px 26px;
     }
-    .links{
+    .links {
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
     }
-    .links a{
-        font-size: 40px;  
-        border-radius: 10px 10px 0px 0px;  
-        padding: 15px 15px 23px 15px;    
+    .links a {
+        font-size: 40px;
+        border-radius: 0px 0px 10px 10px;
+        padding: 25px 15px 15px 15px;
+        right: 0;
+        top: -12px;
     }
-    .help-container{
+    .links a:hover {
+        right: 0;
+        top: -9px;
+    }
+    .active {
+        right: 0 !important;
+        top: -9px !important;
+    }
+    .help-container {
         padding-bottom: 150px !important;
     }
-    .logged-user{
-       display: none;
-    }
-    .link-text{
+    .logged-user {
         display: none;
     }
-    
-    .links a:hover::before{
-        width: 0px;
-    }            
-    
-    .links a:hover{
-        color: white;   
-        bottom: 25px;    
-        right: 0px; 
-        border-left: 0px solid white;
-        border-bottom: 4px solid white;
-    } 
-        
+    .link-text {
+        display: none;
+    }
 }
-

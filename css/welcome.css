@@ -1,7 +1,5 @@
-
-
-.welcome-container{
-    width: 90%;    
+.welcome-container {
+    width: 90%;
     font-size: 30px;
     display: flex;
     flex-direction: column;
@@ -11,57 +9,63 @@
     margin-bottom: 30px;
 }
 
-
-.welcome-headline-container{
+.welcome-headline-container {
     flex-direction: column;
     text-align: center;
 }
-.welcome-headline-container h1{
+
+.welcome-headline-container h1 {
     margin-top: 10px;
 }
-.welcome-logo{
+
+.welcome-logo {
     height: 130px;
 }
 
-.welcome-description{
+.welcome-description {
     text-align: center;
     flex-direction: column;
 }
 
 /* Profile-pics */
-.welcome-profile-pics{
+
+.welcome-profile-pics {
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
-.welcome-profile-pics a{
+
+.welcome-profile-pics a {
     border-radius: 50%;
     margin: 10px;
 }
-.welcome-profile-pics img{
+
+.welcome-profile-pics img {
     height: 100px;
     width: 100px;
-    border-radius: 50%;    
+    border-radius: 50%;
 }
 
-
-@media(max-width: 1000px){    
-    .welcome-container{        
+@media(max-width: 1000px) {
+    .welcome-container {
         font-size: 25px;
     }
-    .welcome-logo{
+    .welcome-logo {
         height: 100px;
     }
 }
 
-@media(max-width: 700px) {       
-    .welcome-description{
+@media(max-width: 700px) {
+    .welcome-description {
         font-size: 20px;
     }
-    .welcome-logo{
+    .welcome-logo {
         height: 80px;
     }
 }
 
-
-
+@media(max-width: 550px) {
+    .welcome-container {
+        margin-top: 10px;
+    }
+}

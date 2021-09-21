@@ -25,37 +25,37 @@
 <body onload="initBoard()">
     <header w3-include-html="./templates/navbar.html"></header>
     
+   <div id="lightbox-container" class="lightbox-container d-none" onclick="closeLightbox()">
+    </div>
+
     <div class = "mainContainer">
+
         <div class = "singleTaskContainer">
             <div class = "taskName">
                 <p>TO DO</p>
             </div>
             <div class ="task" id="todo" ondrop="moveTo('todo')" ondragover="allowDrop(event)">
-
             </div>
         </div>
         <div class = "singleTaskContainer">
             <div class = "taskName">
                 <p>IN PROGRESS</p>
             </div>
-            <div class ="task" id ="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)">
-                
+            <div class ="task" id ="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)">                
             </div>
         </div>
         <div class = "singleTaskContainer">
             <div class = "taskName">
                 <p>TESTING</p>
             </div>
-            <div class ="task" id="testing" ondrop="moveTo('testing')" ondragover="allowDrop(event)">
-                
+            <div class ="task" id="testing" ondrop="moveTo('testing')" ondragover="allowDrop(event)">                
             </div>
         </div>
         <div class = "singleTaskContainer">
             <div class = "taskName">
                 <p>DONE</p>
             </div>
-            <div class ="task" id ="done" ondrop="moveTo('done')" ondragover="allowDrop(event)">
-                
+            <div class ="task" id ="done" ondrop="moveTo('done')" ondragover="allowDrop(event)">                
             </div>
         </div>
     </div>

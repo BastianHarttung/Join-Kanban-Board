@@ -1,13 +1,12 @@
 .mainContainer {
     position: absolute;
     top: 0;
+    right: 0px;
     bottom: 0;
-    left: 20%;
-    width: 80%;
+    left: 200px;
     display: flex;
     justify-content: space-around;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 10px;
 }
 
 :root {
@@ -26,6 +25,11 @@
     font-weight: bold;
 }
 
+.taskName p {
+    margin: 10px 0px;
+    text-align: center;
+}
+
 .task {
     width: 100%;
     height: 100%;
@@ -36,29 +40,31 @@
 .boardItem {
     border: 1px solid gray;
     background-color: white;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 8px;
     margin: 10px;
-}
-
-.deleteTask:hover {
     cursor: pointer;
 }
 
+.deleteTask {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .green {
-    border-left: 4px solid green;
+    border-top: 5px solid green;
 }
 
 .orange {
-    border-left: 4px solid orange;
+    border-top: 5px solid orange;
 }
 
 .red {
-    border-left: 4px solid red;
+    border-top: 5px solid red;
 }
 
 .blue {
-    border-left: 4px solid blue;
+    border-top: 5px solid blue;
 }
 
 .boardItemDate {
@@ -73,25 +79,100 @@
     font-size: 10px;
 }
 
+/*------------Lightbox----------------------*/
+
+.lightbox-container {
+    background-color: rgb(0, 0, 0,0.6);
+    z-index: 10;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lightbox {
+    background-color: var(--addTask-area-color);
+    width: 50%;
+    max-width: 700px;
+    z-index: 15;
+    border-radius: 10px;
+    padding: 10px;  
+    animation: zoomIn 300ms ease-in-out;  
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.3)
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.lb-row {
+    padding: 6px;
+}
+.lb-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+.lb-category {
+    font-size: 1.2rem;
+}
+.lb-deleteTask i {
+    font-size: 1.8rem;
+}
+.taskUser-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.lb-taskUser {
+    font-size: 0.8rem;
+    max-width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.lb-taskUser img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid rgb(46, 46, 46);
+}
+
+/*------------------Responsive------------------*/
+
+@media (max-width: 1000px) {
+    .mainContainer {
+        left: 150px;
+    }
+}
+
 @media(max-width: 700px) {
-    .mainContainer{
-        left: 100px;
+    .mainContainer {
+        left: 80px;
     }
     .taskName {
         font-size: 14px;
         font-weight: bold;
     }
+    .deleteTask i{
+        width: 16px;
+        padding: 10px;
+    }    
 }
 
 @media(max-width: 550px) {
     .mainContainer {
         height: 80%;
-        left: 0;
-        width: 100%;
+        left: 5px;
+        right: 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        padding-top: 20px;
+        padding-top: 7px;
         padding-bottom: 20px;
     }
     .singleTaskContainer {
@@ -105,8 +186,5 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-    .deleteTask{
-        margin-right: 10px;
-    }
+    }      
 }

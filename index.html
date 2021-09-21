@@ -36,10 +36,10 @@
         <img src="./assets/img/logo.png" alt="Join">
         <form class="login-form">
             <label>
-                <input id="email-input" type="email" name="email" required placeholder="Email">
+                <input id="email-input-login" type="email" name="email" required placeholder="Email">
             </label>
             <label>
-                <input id="password-input" type="password" name="password" required placeholder="Password">
+                <input id="password-input-login" type="password" name="password" required placeholder="Password">
             </label>
             <div class="login-button" onclick="loginUser()">Login</div>
         </form>
@@ -47,7 +47,7 @@
         <h5 onclick="startNewSignIn()">Sign In</h5>
     </section>
 
-    <section id="signin-form" class="login-form-wrap d-none">
+    <section id="signin-form" class="signin-form-wrap d-none">
         <h1>Sign In to</h1>
         <img src="./assets/img/logo.png" alt="Join">
         <form class="login-form">
@@ -62,7 +62,8 @@
             </label>
             <div class="login-button" onclick="addNewParticipants()">Sign In</div>
         </form>  
-        <h5 onclick="loginGuestUser()">Login as Guest</h5>              
+        <h5 onclick="loginGuestUser()">Login as Guest</h5>
+        <h5 onclick="backToLogin()">Back to Login</h5>              
     </section>
 
     <script src="./js/includehtml.js"></script>    

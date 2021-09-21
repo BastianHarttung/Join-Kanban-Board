@@ -32,10 +32,10 @@ function updateHTML() {
  * @param {*} array an array with the status seperated tasks
  * @param {*} string string of the status seperated tasks and id of the html container
  */
-function drawSingleColumns(array, string) {
+function drawSingleColumns(array, category) {
     for (let i = 0; i < array.length; i++) {
         const element = array[i];
-        document.getElementById(string).innerHTML += generateToDoElement(element, i);
+        document.getElementById(category).innerHTML += generateToDoElement(element);
     }
 }
 
@@ -59,41 +59,90 @@ function startDragging(id) {
  * @param {*} element a special element(task) in an array
  * @returns an html task
  */
-function generateToDoElement(element, i) {
+function generateToDoElement(element) {
 
     let lastUser = element['user'].slice(-1);
 
     return `
-    <div draggable="true" ondragstart="startDragging(${element['id']})" class = "boardItem ${getUrgencyFrameColor(element)}">
-        <div class = "deleteTask" onclick = "deleteTask(${element['id']})">
-        X
-        </div>
+    <div draggable="true" onClick = "showTaskLightbox(${element['id']})" ondragstart="startDragging(${element['id']})" class = "boardItem ${getUrgencyFrameColor(element)}">
         <div class = "boardItemDate">
-        ${element['createdAt']}
+            ${element['createdAt']}
         </div>
         <div class = "boardItemTitle">
-        ${element['title']}
+            ${element['title']}
         </div>
         <div class = "boardItemUser">
-        ${lastUser[0]['name']}
-        </div>
-       
+            ${lastUser[0]['name']}
+        </div>   
+           
     </div>
     `
 }
 
-function deleteTask(id) { 
+/**
+ * 
+ * @param {*} $  
+ */
+function showTaskLightbox(taskId) {
+    
+    document.getElementById('lightbox-container').classList.remove('d-none')
+    let clickedTask = allTasks.filter(task => task['id'] == taskId)
+    console.log(clickedTask[0])
+    document.getElementById('lightbox-container').innerHTML = `
+        <div id="lightbox-container" class="lightbox-container">
+            <div id="lightbox" class="lightbox ${getUrgencyFrameColor(clickedTask[0])}">
+                <div id="title" class="lb-row lb-title">${clickedTask[0].title}</div>
+                <div id="date" class="lb-row lb-date">${clickedTask[0].createdAt}</div>
+                <div id="category" class="lb-row lb-category">${clickedTask[0].category}</div>
+                <div id="description" class="lb-row lb-description">${clickedTask[0].description}</div>
+                <div id="taskUser-row" class="taskUser-row">
+                </div>
+                <div class = "deleteTask lb-deleteTask" >
+                    <i class="far fa-trash-alt" onclick = "deleteTask(${taskId})"></i>
+                </div>  
+            </div>
+        </div>
+    `    
+    showUserOnLightbox(clickedTask);
+     
+}
+
+function showUserOnLightbox(clickedTask) {
+
+    for (let i = 0;  i < clickedTask[0].user.length; i++) {
+
+    document.getElementById('taskUser-row').innerHTML += `
+            <div id="taskUser-Container" class="lb-row lb-taskUser">
+                    <img src="${clickedTask[0].user[i].profile_img}">
+                    <div class="taskUser-name">${clickedTask[0].user[i].name}</div>
+            </div>`    
+    }    
+}
+
+/**
+ * Close Lightbox by clicking background
+ */
+function closeLightbox() {
+    document.getElementById('lightbox-container').classList.add('d-none')
+}
+
+/**
+ * Delete Task on click
+ * @param {id} id 
+ */
+
+function deleteTask(id) {
+     
     let index;
     allTasks.forEach(task => {
         if (task['id'] == id) {
             index = allTasks.indexOf(task);
             allTasks.splice(index, 1);
-        }     
-});
+        }
+    });
 
-saveToBackend();
-updateHTML();
-     
+    saveToBackend();
+    updateHTML();
 }
 
 /**

@@ -17,15 +17,13 @@ button {
 .width342 {
     width: 342px;
 }
+
 .width300 {
     width: 300px;
 }
 
-
-
 .addTask-head {
-    /*padding-left: 300px;*/
-    padding-top: 40px;
+    padding-top: 25px;
     margin-left: 250px;
     margin-right: 5%;
 }
@@ -42,14 +40,15 @@ button {
     background-color: var(--addTask-area-color);
     margin-left: 250px;
     margin-right: 32px;
-    margin-top: 32px;
-    margin-bottom: 64px;
-    border-radius: 16px;    
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 16px;
     display: flex;
-    flex-direction: column;       
+    flex-direction: column;
     padding-top: 8px;
-    padding-bottom: 32px;    
+    padding-bottom: 32px;
 }
+
 .addTask-area {
     display: flex;
     flex-wrap: wrap;
@@ -71,7 +70,6 @@ button {
 .addTask-input {
     margin-top: 4px;
     padding: 8px;
-    /*width: 325px;*/
     width: 325px;
     border-radius: 4px;
     border: solid rgb(160, 158, 158) 1px;
@@ -85,7 +83,6 @@ button {
 .addTask-select {
     margin-top: 4px;
     padding: 8px;
-    /*width: 325px;*/
     width: 344px;
     border-radius: 4px;
     border: solid rgb(160, 158, 158) 1px;
@@ -106,26 +103,6 @@ button {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-}
-
-.add-new-participants-container{
-    margin-top: 30px;
-}
-
-.addTask-input-new-participants {
-    margin-top: 4px;
-    padding: 8px;
-    /*width: 325px;*/
-    width: 200px;
-    border-radius: 4px;
-    border: solid rgb(160, 158, 158) 1px;
-    font-family: 'PT Sans', sans-serif;
-}
-
-.add-new-participants {
-    width: 218px !important;
-    margin-top: 24px;
-    margin-bottom: 16px;
 }
 
 .addTask-img-area {
@@ -151,23 +128,24 @@ button {
 }
 
 .addtask-plus:hover {
-    background-color: var(--font-color-bright-hover);       
+    background-color: var(--font-color-bright-hover);
     transform: scale(1.2);
     cursor: pointer;
 }
-.addtask-plus.selectedPlus:hover{
+
+.addtask-plus.selectedPlus:hover {
     background-color: var(--main-color);
 }
 
 .selectedPlus {
-    background-color: var(--main-color);     
+    background-color: var(--main-color);
 }
 
 .fa-plus {
     font-size: 25px;
 }
 
-.fa-plus.minus::before{
+.fa-plus.minus::before {
     content: '\f068';
 }
 
@@ -218,7 +196,6 @@ button {
     cursor: pointer;
 }
 
-
 .addTask-add-new-paricipants:hover {
     background-color: var(--font-main-color);
 }
@@ -242,51 +219,40 @@ button {
 }
 
 @media(max-width: 1000px) {
-
     .addTask-head {
         margin-left: 190px;
     }
-
     .border-top {
         border-top: 1px solid rgb(160, 158, 158);
-    }   
-
+    }
     .addTask-area-container {
         margin-left: 190px;
         flex-direction: column;
     }
-
-    .addTask-cancel-or-create {    
-        margin-bottom: 8px;        
+    .addTask-cancel-or-create {
+        margin-bottom: 8px;
         margin-right: 32px;
     }
-
     .margin-bottom-32 {
         margin-bottom: 10px;
     }
-
     .addTask-area-input-add-new-paricipants {
         margin-left: 0px !important;
         margin-top: 12px;
     }
-    
-
     .width268 {
         width: 343px;
     }
-
     .add-new-participants {
         margin-left: 0px;
     }
-
     .addTask-input-new-participants {
         width: 325px !important;
     }
-
     .addTask-add-new-paricipants {
         width: 327px;
     }
-    .add-new-participants-container{
+    .add-new-participants-container {
         padding-left: 38px;
     }
 }
@@ -304,59 +270,45 @@ button {
     }
 }
 
-
 @media(max-width: 700px) {
-
     .addTask-head {
         margin-left: 110px;
     }
-
     .addTask-area-container {
         margin-left: 110px;
     }
-
     .addTask-input {
         width: 250px;
     }
-
     .addTask-select {
         width: 268px;
     }
-
     .width300 {
         width: none;
     }
-
     .width250 {
         width: 250px;
     }
-
     .width268 {
         width: 268px;
     }
-
     .add-new-participants {
         margin-left: 0px;
     }
-
     .addTask-input-new-participants {
         width: 250px !important;
     }
-
     .addTask-add-new-paricipants {
         width: 252px;
     }
-    
 }
 
 @media(max-width: 550px) {
-
     .addTask-head {
         margin-left: 32px;
         margin-right: 5%;
         text-align: center;
     }
-    
     .addTask-area-container {
         margin-left: 32px;
         margin-right: 32px;
@@ -367,50 +319,39 @@ button {
     .addTask-area {
         justify-content: center;
     }
-
     .addTask-area-inner {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
     .addTask-area-child {
         display: flex;
         flex-direction: column;
-        
     }
-
     .addTask-input {
         width: 250px;
     }
-
     .addTask-select {
         width: 268pxpx;
     }
-
     .width300 {
         width: none;
     }
-
     .width268 {
         width: 268px;
     }
-
     .add-new-participants {
         margin-left: 0px;
     }
-
     .addTask-input-new-participants {
         width: 250px !important;
     }
-
     .addTask-add-new-paricipants {
         width: 252px;
     }
-
     .addTask-cancel-or-create {
-        justify-content: center;  
-        margin-top: 5px;     
+        justify-content: center;
+        margin-top: 5px;
     }
     .add-new-participants-container {
         padding-left: 0px;

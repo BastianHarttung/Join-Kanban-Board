@@ -11,8 +11,8 @@ async function initLogin() {
  */
 async function loginUser() {
 
-    let email = document.getElementById('email-input').value; //string
-    let password = document.getElementById('password-input').value; //string
+    let email = document.getElementById('email-input-login').value; //string
+    let password = document.getElementById('password-input-login').value; //string
 
     loggedInUser = allUsers.find(user => user.email === email) //Object with User
 
@@ -38,9 +38,20 @@ async function loginGuestUser() {
     window.location.href = "../start.html";
 };
 
+/**
+ * Sign In new User
+ */
 function startNewSignIn() {
     document.getElementById('login-form').classList.add('d-none');
     document.getElementById('signin-form').classList.remove('d-none');
+}
+
+/**
+ * Back to Login Screen
+ */
+function backToLogin(){
+    document.getElementById('login-form').classList.remove('d-none');
+    document.getElementById('signin-form').classList.add('d-none');
 }
 
 /**
@@ -49,7 +60,7 @@ function startNewSignIn() {
 
 async function addNewParticipants() {
 
-    let name = document.getElementById('first-lastName-input').value;
+    let name = document.getElementById('first-lastname-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
 
@@ -62,5 +73,22 @@ async function addNewParticipants() {
 
     await saveToBackend();      /* Save user to backend */
 
-    loginUser()
+    loginUserAfterSignIn(email,password)
 }
+
+async function loginUserAfterSignIn(email,password) {
+
+    loggedInUser = allUsers.find(user => user.email === email) //Object with User
+
+    if (loggedInUser === undefined) {
+        alert('No User with such Email!');
+    } else {
+        if (loggedInUser.password === password) {
+            console.log('User logged in');
+            await saveToBackend();
+            window.location.href = "../start.html";
+        } else {
+            alert('Wrong Password for this User');
+        }
+    }
+};
