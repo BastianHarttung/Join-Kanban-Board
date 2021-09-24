@@ -32,6 +32,8 @@
     margin: 10px 0px;
 }
 
-@media (max-width: 1000px){
-
+@media (max-width: 550px){
+    .help-container {
+        padding-bottom: 120px !important;
+    }
 }

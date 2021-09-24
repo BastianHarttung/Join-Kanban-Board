@@ -201,10 +201,7 @@ body {
     .active {
         right: 0 !important;
         top: -9px !important;
-    }
-    .help-container {
-        padding-bottom: 150px !important;
-    }
+    }    
     .logged-user {
         display: none;
     }

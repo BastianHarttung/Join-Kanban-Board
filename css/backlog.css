@@ -123,6 +123,9 @@
 }
 
 @media(max-width: 550px){
+    .backlog-container{
+        padding-bottom: 120px;
+    }
     #table-profile{               
         white-space: inherit;    
     }
