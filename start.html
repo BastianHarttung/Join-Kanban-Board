@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="./css/welcome.css">
     
 </head>
-<body onload="initPage()">
+<body onload="initWelcome()">
 
     <header w3-include-html="./templates/navbar.html"></header>
 
@@ -32,7 +32,8 @@
         <div class="welcome-container">
             
             <div class="welcome-headline-container d-flex-center">
-                <h1>Welcome to</h1>
+                <h1>Welcome <br>
+                    <b id="logged-user"></b></h1>
                 <img class="welcome-logo" src="./assets/img/logo.png" alt="Join">
                 <h3>World's best Kanban-Board</h3>
             </div>

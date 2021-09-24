@@ -169,7 +169,7 @@ body {
         height: inherit !important;
         left: 0px;
         top: 0;
-        bottom: 90px;
+        bottom: 100px;
     }
     .nav {
         background-color: var(--main-color);

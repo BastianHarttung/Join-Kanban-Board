@@ -3,6 +3,9 @@ let allTasks;
 let allUsers;
 let loggedInUser;
 
+/**
+ * Init Function for all Pages with Nav
+ */
 async function initPage() {
     await init();
     await showProfilePicOnNavbar();             // show profile pic navbar 
@@ -10,8 +13,15 @@ async function initPage() {
 }
 
 /**
- * Init for every Page
- * 
+ * Init Function for Welcome Page
+ */
+async function initWelcome() {
+    await initPage();
+    document.getElementById('logged-user').innerHTML = loggedInUser.name;
+}
+
+/**
+ * Init for every Page with loading from Backend and templates 
  */
 async function init() {
     includeHTML();                        // Html templates laden 
