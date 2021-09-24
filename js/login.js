@@ -64,16 +64,20 @@ async function addNewParticipants() {
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
 
-    allUsers.push({
+    if (name == '' || email == '' || password == '') {
+        alert('Please fill in all Input-Fields.')
+    }else {
+        allUsers.push({
         'name': name,
         'email': email,
         'password': password,
         'profile_img': './assets/img/profilepic.png'
-    });
+        });
 
-    await saveToBackend();      /* Save user to backend */
+        await saveToBackend();      /* Save user to backend */
 
-    loginUserAfterSignIn(email,password)
+        loginUserAfterSignIn(email,password)
+    }    
 }
 
 async function loginUserAfterSignIn(email,password) {
@@ -84,7 +88,7 @@ async function loginUserAfterSignIn(email,password) {
         alert('No User with such Email!');
     } else {
         if (loggedInUser.password === password) {
-            console.log('User logged in');
+            console.log('User logged in:', loggedInUser);
             await saveToBackend();
             window.location.href = "../start.html";
         } else {

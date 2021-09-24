@@ -23,16 +23,16 @@ async function init() {
  * Check URL and mark Link on navbar
  */
 function checkUrlShowOnNav() {
-    if (window.location.href == 'http://127.0.0.1:5500/board.html') {
+    if (window.location.href == 'http://gruppe-95.developerakademie.com/board.html') {
         document.getElementById('link-board').classList.add('active')
     }
-    if (window.location.href == 'http://127.0.0.1:5500/backlog.html') {
+    if (window.location.href == 'http://gruppe-95.developerakademie.com/backlog.html') {
         document.getElementById('link-backlog').classList.add('active')
     }
-    if (window.location.href == 'http://127.0.0.1:5500/addtask.html') {
+    if (window.location.href == 'http://gruppe-95.developerakademie.com/addtask.html') {
         document.getElementById('link-addtask').classList.add('active')
     }
-    if (window.location.href == 'http://127.0.0.1:5500/help.html') {
+    if (window.location.href == 'http://gruppe-95.developerakademie.com/help.html') {
         document.getElementById('link-help').classList.add('active')
     }
 }
@@ -87,83 +87,4 @@ async function showProfilePicOnNavbar() {
             <div>Login</div>
         </a>
         `
-}
-
-/*--------------------HACKS-------------------------------*/
-
-/**
- * HACK load from local storage
- * didnt start in programm
- **/
-async function loadAllTasks() {
-    let allTasksAsString = localStorage.getItem('allTasks');
-    allTasks = await JSON.parse(allTasksAsString);
-    if (allTasks == null) {
-        allTasks = []
-    }
-    console.log('Loaded allTasks from local storage: ', allTasks);
-}
-
-/**
- * HACK Debugger Function to add Publisher User if it was deleted
- */
-function addPublisherUsersToBackend() {
-    allUsers = [
-        {
-            'name': "Bastian Harttung",
-            'email': "info@bastian-harttung.de",
-            'profile_img': "../assets/img/profile-bastian.png",
-            'password': 'bastian'
-        },
-        {
-            'name': "Adriano Parente",
-            'email': "adriano.parente@gmx.de",
-            'profile_img': "../assets/img/Adriano.jpg",
-            'password': 'adriano'
-        },
-        {
-            'name': "Cam Trang",
-            'email': "camtrang@web.de",
-            'profile_img': "../assets/img/cam.jpg",
-            'password': 'cam'
-        },
-        {
-            'name': "Guest",
-            'email': "info@guest.de",
-            'profile_img': "../assets/img/profilepic.png",
-            'password': 'guest'
-        },
-    ];
-    allTasks = [];
-    loggedInUser = allUsers[3];
-
-    saveToBackend();
-}
-
-/**
- * HACK delete All Users in Backend 
- * only started in console
- */
-function deleteAllUsersInBackend() {
-    backend.deleteItem('allUsers');
-}
-function deleteLastUserBackend() {
-    deleteLastUserInArray();
-    saveToBackend();
-    showUsersOnAddTask()
-}
-function deleteLastTaskBackend() {
-    deleteLastTaskInArray();
-    saveToBackend();
-}
-
-/**
- * HACK Delete last user or task in array
- * 
- */
-function deleteLastUserInArray() {
-    allUsers.pop()
-}
-function deleteLastTaskInArray() {
-    allTasks.pop()
 }
