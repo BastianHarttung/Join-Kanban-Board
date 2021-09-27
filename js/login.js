@@ -1,3 +1,5 @@
+
+
 async function initLogin() {
     await init();
     loggedInUser = {};
@@ -9,21 +11,29 @@ async function initLogin() {
  * login User and write json to loggedInUser
  * @param {click} event only to stop prevent link 
  */
-async function loginUser() {
+function loginUser() {
 
     let email = document.getElementById('email-input-login').value; //string
     let password = document.getElementById('password-input-login').value; //string
 
+    checkLogin(email, password);
+};
+
+
+/**
+ * Check if Login is valid and Login if
+ */
+async function checkLogin(email, password) {
     let alertContainer = document.getElementById('input-alert-container');
-    let alert = document.getElementById('alert-text');
+    let alertText = document.getElementById('alert-text');
 
     loggedInUser = allUsers.find(user => user.email === email) //Object with User
 
     if (email === '') {
-        alert.innerHTML = 'Please type in Email-Adress';
+        alertText.innerHTML = 'Please type in Email-Adress';
         alertContainer.classList.remove('d-none');
     } else if (loggedInUser === undefined) {
-        alert.innerHTML = 'No User with such Email!';
+        alertText.innerHTML = 'No User with such Email!';
         alertContainer.classList.remove('d-none');
     } else {
         if (loggedInUser.password === password) {
@@ -31,11 +41,11 @@ async function loginUser() {
             await saveToBackend();
             window.location.href = "../start.html";
         } else {
-            alert.innerHTML = 'Wrong Password for this User';
+            alertText.innerHTML = 'Wrong Password for this User';
             alertContainer.classList.remove('d-none');
         }
     }
-};
+}
 
 /**
  * button login as guest
@@ -65,15 +75,18 @@ function backToLogin() {
 /**
  * Add new participants to our group (name and email)
  */
-
 async function addNewParticipants() {
 
     let name = document.getElementById('first-lastname-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
 
+    let alertContainer = document.getElementById('input-alert-container');
+    let alertText = document.getElementById('alert-text');
+
     if (name == '' || email == '' || password == '') {
-        alert('Please fill in all Input-Fields.')
+        alertText.innerHTML = 'Please fill in all Input-Fields.'
+        alertContainer.classList.remove('d-none');        
     } else {
         allUsers.push({
             'name': name,
@@ -84,23 +97,7 @@ async function addNewParticipants() {
 
         await saveToBackend();      /* Save user to backend */
 
-        loginUserAfterSignIn(email, password)
+        checkLogin(email, password)
     }
 }
 
-async function loginUserAfterSignIn(email, password) {
-
-    loggedInUser = allUsers.find(user => user.email === email) //Object with User
-
-    if (loggedInUser === undefined) {
-        alert('No User with such Email!');
-    } else {
-        if (loggedInUser.password === password) {
-            console.log('User logged in:', loggedInUser);
-            await saveToBackend();
-            window.location.href = "../start.html";
-        } else {
-            alert('Wrong Password for this User');
-        }
-    }
-};
