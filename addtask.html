@@ -31,7 +31,10 @@
 <body onload="initAddTask()">
     <div w3-include-html="./templates/navbar.html"></div>
 
-
+    <div id="input-alert-container" 
+        class="input-alert-container d-none" 
+        w3-include-html="./templates/input-alert.html"
+        onclick="closeAlert()"></div>
 
     <div class="addTask-head">
         <div class="addTask-headline">
@@ -42,8 +45,7 @@
         </div>
     </div>
 
-
-    <div class="addTask-area-container">        
+    <div class="addTask-area-container">
 
         <div class="addTask-area">
             <div class="addTask-area-inner">
@@ -103,51 +105,14 @@
                     </div>
                 </div>
             </div>
-        </div>            
+        </div>
 
         <div class="addTask-cancel-or-create">
             <button class="addTask-cancel" onclick="deleteInput()"><b>CANCEL</b></button>
             <button class="addTask-create-task" onclick="createTask(event)"><b>CREATE TASK</b></button>
         </div>
-       
-
-        <!-- <div class="add-new-participants-container width300 width268 border-top border-bottom">
-
-            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
-                <div class="addTask-area-title">
-                    <b id="name">NAME</b>
-                </div>
-                <input class="addTask-input-new-participants" id="firstLastName" type="text"
-                    maxlength="20" placeholder="Please fill in" required>
-            </div>
-
-            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
-                <div class="addTask-area-title">
-                    <b id="email">E-MAIL-ADDRESS</b>
-                </div>
-                <input class="addTask-input-new-participants" id="mail" type="text"
-                    placeholder="Please fill in" required>
-            </div>
-
-            <div class="addTask-area-child addTask-area-input-add-new-paricipants">
-                <div class="addTask-area-title">
-                    <b>PASSWORD (6 Characters minimum)</b>
-                </div>
-                <input class="addTask-input-new-participants" id="password" type="password"
-                    minlenght = "6" placeholder="Please fill in" required>
-            </div>
-
-            <div class="addTask-area-child add-new-participants">
-                <div class="addTask-area-title addTask-add-new-paricipants"
-                    onclick="addNewParticipants()">
-                    <b>ADD NEW PARTICIPANTS</b>
-                </div>
-            </div>
-
-        </div> -->
 
     </div>
-
 
 </body>
 

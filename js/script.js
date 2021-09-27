@@ -30,6 +30,13 @@ async function init() {
 }
 
 /**
+ * Add display none to Alert
+ */
+function closeAlert() {
+    document.getElementById('input-alert-container').classList.add('d-none')
+}
+
+/**
  * Check URL and mark Link on navbar
  */
 function checkUrlShowOnNav() {

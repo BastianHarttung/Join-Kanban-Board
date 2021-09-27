@@ -10,6 +10,7 @@ body {
 
 :root {
     --main-color: rgb(54, 52, 201);
+    --main-color-bright: rgb(117, 115, 255);
     --font-main-color: rgb(8, 5, 170);
     --font-color-bright: rgb(216, 216, 216);
     --font-color-bright-hover: rgb(190, 190, 190);
@@ -66,7 +67,7 @@ body {
 }
 
 .links a {
-    color: var(--font-color-bright);    
+    color: var(--font-color-bright);
     font-size: 30px;
     padding: 13px 25px 13px 15px;
     margin: 3px 0px 3px 0px;
@@ -104,6 +105,37 @@ body {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+}
+
+/*-------------Input alert-----------------------*/
+
+.input-alert-container {
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-alert {
+    color: white;
+    background-color: var(--main-color-bright);
+    font-size: 30px;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 0px 10px rgb(36, 36, 36, 0.8);
+    animation: zoomIn 230ms ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.4);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 /* Responsive Navbar */
@@ -160,7 +192,7 @@ body {
     .far {
         width: 35px;
         display: flex;
-        justify-content: center;        
+        justify-content: center;
     }
 }
 
@@ -201,7 +233,7 @@ body {
     .active {
         right: 0 !important;
         top: -9px !important;
-    }    
+    }
     .logged-user {
         display: none;
     }

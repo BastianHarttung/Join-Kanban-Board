@@ -63,26 +63,31 @@ async function createTask(event) {
     let urgency = document.getElementById('addTaskUrgency');
     let description = document.getElementById('addTaskDescription');
 
-    if (usertask == '') {
-        alert('Please choose a User')
-    } else if (title.value == '') {
-        alert('Please write a Title')
+    let alertContainer = document.getElementById('input-alert-container');
+    let alert = document.getElementById('alert-text');
+
+    if (title.value == '') {
+        alert.innerHTML = 'Please write a Title';
+        alertContainer.classList.remove('d-none');        
     } else if (date.value == '') {
-        alert('Please choose a Date')
+        alert.innerHTML = 'Please choose a Date';
+        alertContainer.classList.remove('d-none');        
     } else if (category.value == '') {
-        alert('Please choose a Category')
+        alert.innerHTML = 'Please choose a Category';
+        alertContainer.classList.remove('d-none');        
     } else if (urgency.value == '') {
-        alert('Please choose Urgency')
+        alert.innerHTML = 'Please choose Urgency';
+        alertContainer.classList.remove('d-none');        
     } else if (description.value == '') {
-        alert('Please write a Description')
+        alert.innerHTML = 'Please write a Description';
+        alertContainer.classList.remove('d-none');       
+    } else if (usertask == '') {
+        alert.innerHTML = 'Please choose a User';
+        alertContainer.classList.remove('d-none');        
     } else {
-
         readTaskAndPushToArray()
-
         await saveToBackend();        /* Save task to backend */
-
         deleteInput(); // delete content in field input 
-
         window.location.href = "../board.html";
     }
 }

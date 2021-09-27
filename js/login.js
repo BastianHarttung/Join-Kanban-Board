@@ -14,17 +14,25 @@ async function loginUser() {
     let email = document.getElementById('email-input-login').value; //string
     let password = document.getElementById('password-input-login').value; //string
 
+    let alertContainer = document.getElementById('input-alert-container');
+    let alert = document.getElementById('alert-text');
+
     loggedInUser = allUsers.find(user => user.email === email) //Object with User
 
-    if (loggedInUser === undefined) {
-        alert('No User with such Email!');
+    if (email === '') {
+        alert.innerHTML = 'Please type in Email-Adress';
+        alertContainer.classList.remove('d-none');
+    } else if (loggedInUser === undefined) {
+        alert.innerHTML = 'No User with such Email!';
+        alertContainer.classList.remove('d-none');
     } else {
         if (loggedInUser.password === password) {
             console.log('User logged in');
             await saveToBackend();
             window.location.href = "../start.html";
         } else {
-            alert('Wrong Password for this User');
+            alert.innerHTML = 'Wrong Password for this User';
+            alertContainer.classList.remove('d-none');
         }
     }
 };
@@ -49,7 +57,7 @@ function startNewSignIn() {
 /**
  * Back to Login Screen
  */
-function backToLogin(){
+function backToLogin() {
     document.getElementById('login-form').classList.remove('d-none');
     document.getElementById('signin-form').classList.add('d-none');
 }
@@ -66,21 +74,21 @@ async function addNewParticipants() {
 
     if (name == '' || email == '' || password == '') {
         alert('Please fill in all Input-Fields.')
-    }else {
+    } else {
         allUsers.push({
-        'name': name,
-        'email': email,
-        'password': password,
-        'profile_img': './assets/img/profilepic.png'
+            'name': name,
+            'email': email,
+            'password': password,
+            'profile_img': './assets/img/profilepic.png'
         });
 
         await saveToBackend();      /* Save user to backend */
 
-        loginUserAfterSignIn(email,password)
-    }    
+        loginUserAfterSignIn(email, password)
+    }
 }
 
-async function loginUserAfterSignIn(email,password) {
+async function loginUserAfterSignIn(email, password) {
 
     loggedInUser = allUsers.find(user => user.email === email) //Object with User
 
