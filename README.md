@@ -1,6 +1,7 @@
 # Join Kanban-Board
 This is a simple-to-use Kanban-Board. Have fun and enjoy the 
 possibilities.
+You can test it on: http://gruppe-95.developerakademie.com/
 
 ### Login
 - You can Login with your E-Mail Adress and Password
