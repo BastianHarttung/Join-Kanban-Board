@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: addtask.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: addtask.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * show Users on AddTask Assigned To 
+ * 
+ **/
+async function initAddTask() {
+    await initPage();
+    showUsersOnAddTask()
+}
+
+let usertask = [];
+
+
+/**
+ * Delete content in field input
+ */
+function deleteInput() {
+
+    document.getElementById('addTaskTitle').value = '';
+    document.getElementById('addTaskDate').value = '';
+    document.getElementById('addTaskCatergory').value = '';
+    document.getElementById('addTaskUrgency').value = '';
+    document.getElementById('addTaskDescription').value = '';
+}
+
+
+/**
+ * Show users in Add Task
+ */
+function showUsersOnAddTask() {
+
+    document.getElementById('addTask-participants').innerHTML = '';
+
+    for (let i = 0; i &lt; allUsers.length; i++) {
+
+        if (i &lt; 4) {
+            document.getElementById('addTask-participants').innerHTML += generateHTMLUser(i);
+        } else {
+            document.getElementById('addTask-participants').innerHTML += `
+            &lt;div class="addTask-participants">
+                &lt;img class="addTask-img-area" src="${allUsers[i]['profile_img']}">
+                &lt;b class="name-area">${allUsers[i]['name']}&lt;/b>
+                &lt;div id="${i}" class="addtask-plus" onclick="assignToTask(${i})">
+                    &lt;i id="plus-usertask${i}" class="fas fa-plus">&lt;/i>
+                &lt;/div>
+                &lt;button class="delete-last-user" onclick="deleteUser(${i})">&lt;b>Delete User&lt;/b>&lt;/button>            
+            &lt;/div>
+            `
+        }
+    }
+}
+
+
+
+
+/**
+ * To create new task and then save task to backend
+ */
+async function createTask(event) {
+    event.preventDefault();
+    let title = document.getElementById('addTaskTitle');
+    let date = document.getElementById('addTaskDate');
+    let category = document.getElementById('addTaskCatergory');
+    let urgency = document.getElementById('addTaskUrgency');
+    let description = document.getElementById('addTaskDescription');
+
+    let alertContainer = document.getElementById('input-alert-container');
+    let alert = document.getElementById('alert-text');
+
+    if (title.value == '') {
+        alert.innerHTML = 'Please write a Title';
+        alertContainer.classList.remove('d-none');        
+    } else if (date.value == '') {
+        alert.innerHTML = 'Please choose a Date';
+        alertContainer.classList.remove('d-none');        
+    } else if (category.value == '') {
+        alert.innerHTML = 'Please choose a Category';
+        alertContainer.classList.remove('d-none');        
+    } else if (urgency.value == '') {
+        alert.innerHTML = 'Please choose Urgency';
+        alertContainer.classList.remove('d-none');        
+    } else if (description.value == '') {
+        alert.innerHTML = 'Please write a Description';
+        alertContainer.classList.remove('d-none');       
+    } else if (usertask == '') {
+        alert.innerHTML = 'Please choose a User';
+        alertContainer.classList.remove('d-none');        
+    } else {
+        readTaskAndPushToArray()
+        await saveToBackend();        /* Save task to backend */
+        deleteInput(); // delete content in field input 
+        window.location.href = "../board.html";
+    }
+}
+
+/**
+ * add user to new task
+ * 
+ * @param {number} i Index of User in array 
+ */
+let usersActivated = [];
+function assignToTask(i) {
+
+    if (usersActivated.includes(i)) {
+        document.getElementById(i).classList.remove('selectedPlus');
+        document.getElementById('plus-usertask' + i).classList.remove('minus');
+        let indexUsertask = usertask.indexOf(usertask[i]);
+        usertask.splice(indexUsertask, 1);
+        let index = usersActivated.indexOf(i);
+        usersActivated.splice(index, 1);
+    } else {
+        document.getElementById(i).classList.add('selectedPlus');
+        document.getElementById('plus-usertask' + i).classList.add('minus');
+        usertask.push(allUsers[i]);
+        usersActivated.push(i);
+    }
+    console.log('usertask: ', usertask);
+}
+
+/**
+ * Read Values from Input and Push to Array allTasks
+ */
+function readTaskAndPushToArray() {
+
+    let title = document.getElementById('addTaskTitle').value;
+    let createdAt = document.getElementById('addTaskDate').value;
+    let category = document.getElementById('addTaskCatergory').value;
+    let urgency = document.getElementById('addTaskUrgency').value;
+    let description = document.getElementById('addTaskDescription').value;
+
+    let status = 'todo';
+    let id = Math.round(Math.random() * 10000);
+
+    let task = {
+        'id': id,
+        'title': title,
+        'createdAt': createdAt,
+        'category': category,
+        'urgency': urgency,
+        'description': description,
+        'status': status,
+        'user': usertask
+    };
+
+    allTasks.push(task); // push new task to alltasks
+}
+
+/**
+ * Generate Html to add User to task
+ * @param {i} i 
+ * @returns HTML Container for User Adding to Task
+ */
+function generateHTMLUser(i) {
+    return `
+        &lt;div class="addTask-participants">
+            &lt;img class="addTask-img-area" src="${allUsers[i]['profile_img']}">
+            &lt;b class="name-area">${allUsers[i]['name']}&lt;/b>
+            &lt;div id="${i}" class="addtask-plus" onclick="assignToTask(${i})">
+                &lt;i id="plus-usertask${i}" class="fas fa-plus">&lt;/i>
+            &lt;/div>                
+        &lt;/div>
+        `
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addNewParticipants">addNewParticipants</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#backlogShowAllTasks">backlogShowAllTasks</a></li><li><a href="global.html#backToLogin">backToLogin</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#checkUrlShowOnNav">checkUrlShowOnNav</a></li><li><a href="global.html#closeAlert">closeAlert</a></li><li><a href="global.html#closeLightbox">closeLightbox</a></li><li><a href="global.html#colorChoice">colorChoice</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#deleteInput">deleteInput</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#deleteUser">deleteUser</a></li><li><a href="global.html#drawSingleColumns">drawSingleColumns</a></li><li><a href="global.html#forLoopTasks">forLoopTasks</a></li><li><a href="global.html#generateHTMLUser">generateHTMLUser</a></li><li><a href="global.html#generateToDoElement">generateToDoElement</a></li><li><a href="global.html#getUrgencyFrameColor">getUrgencyFrameColor</a></li><li><a href="global.html#htmlTableHead">htmlTableHead</a></li><li><a href="global.html#htmlTableRow">htmlTableRow</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAddTask">initAddTask</a></li><li><a href="global.html#initBacklog">initBacklog</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initPage">initPage</a></li><li><a href="global.html#initWelcome">initWelcome</a></li><li><a href="global.html#loadFromBackend">loadFromBackend</a></li><li><a href="global.html#loginGuestUser">loginGuestUser</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#readTaskAndPushToArray">readTaskAndPushToArray</a></li><li><a href="global.html#saveToBackend">saveToBackend</a></li><li><a href="global.html#showProfilePicOnNavbar">showProfilePicOnNavbar</a></li><li><a href="global.html#showTaskLightbox">showTaskLightbox</a></li><li><a href="global.html#showUsersOnAddTask">showUsersOnAddTask</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#startNewSignIn">startNewSignIn</a></li><li><a href="global.html#updateHTML">updateHTML</a></li><li><a href="global.html#usersActivated">usersActivated</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Oct 21 2021 09:44:43 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

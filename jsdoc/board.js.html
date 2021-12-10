@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: board.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: board.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * show Tasks on Board 
+ */
+async function initBoard() {
+    await initPage();
+    updateHTML()
+}
+
+let currentDraggedElement;
+
+/**
+ * updates the status container
+ */
+function updateHTML() {
+    let todo = allTasks.filter(t => t['status'] == 'todo');
+    let inProgress = allTasks.filter(t => t['status'] == 'inProgress');
+    let testing = allTasks.filter(t => t['status'] == 'testing');
+    let done = allTasks.filter(t => t['status'] == 'done');
+    document.getElementById('todo').innerHTML = '';
+    document.getElementById('inProgress').innerHTML = '';
+    document.getElementById('testing').innerHTML = '';
+    document.getElementById('done').innerHTML = '';
+    drawSingleColumns(todo, 'todo');
+    drawSingleColumns(inProgress, 'inProgress');
+    drawSingleColumns(testing, 'testing');
+    drawSingleColumns(done, 'done');
+}
+
+/**
+ * draws all ststus container with the single tasks
+ * 
+ * @param {*} array an array with the status seperated tasks
+ * @param {*} string string of the status seperated tasks and id of the html container
+ */
+function drawSingleColumns(array, category) {
+    for (let i = 0; i &lt; array.length; i++) {
+        const element = array[i];
+        document.getElementById(category).innerHTML += generateToDoElement(element);
+    }
+}
+
+/**
+ * 
+ * 
+ * @param {*} id special identification number of a task
+ */
+function startDragging(id) {
+
+    allTasks.forEach(task => {
+        if (task['id'] == id) {
+            currentDraggedElement = allTasks.indexOf(task)
+        }
+    });
+}
+
+/**
+ * draws a task in html
+ * 
+ * @param {*} element a special element(task) in an array
+ * @returns an html task
+ */
+function generateToDoElement(element) {
+
+    let lastUser = element['user'].slice(-1);
+
+    return `
+    &lt;div draggable="true" onClick = "showTaskLightbox(${element['id']})" ondragstart="startDragging(${element['id']})" class = "boardItem ${getUrgencyFrameColor(element)}">
+        &lt;div class = "boardItemDate">
+            ${element['createdAt']}
+        &lt;/div>
+        &lt;div class = "boardItemTitle">
+            ${element['title']}
+        &lt;/div>
+        &lt;div class = "boardItemUser">
+            ${lastUser[0]['name']}
+        &lt;/div>   
+           
+    &lt;/div>
+    `
+}
+
+/**
+ * 
+ * @param {*} $  
+ */
+function showTaskLightbox(taskId) {
+    
+    document.getElementById('lightbox-container').classList.remove('d-none')
+    let clickedTask = allTasks.filter(task => task['id'] == taskId)
+    console.log(clickedTask[0])
+    document.getElementById('lightbox-container').innerHTML = `
+        &lt;div id="lightbox-container" class="lightbox-container">
+            &lt;div id="lightbox" class="lightbox ${getUrgencyFrameColor(clickedTask[0])}">
+                &lt;div id="title" class="lb-row lb-title">${clickedTask[0].title}&lt;/div>
+                &lt;div id="date" class="lb-row lb-date">${clickedTask[0].createdAt}&lt;/div>
+                &lt;div id="category" class="lb-row lb-category">${clickedTask[0].category}&lt;/div>
+                &lt;div id="description" class="lb-row lb-description">${clickedTask[0].description}&lt;/div>
+                &lt;div id="taskUser-row" class="taskUser-row">
+                &lt;/div>
+                &lt;div class = "deleteTask lb-deleteTask" >
+                    &lt;i class="far fa-trash-alt" onclick = "deleteTask(${taskId})">&lt;/i>
+                &lt;/div>  
+            &lt;/div>
+        &lt;/div>
+    `    
+    showUserOnLightbox(clickedTask);
+     
+}
+
+function showUserOnLightbox(clickedTask) {
+
+    for (let i = 0;  i &lt; clickedTask[0].user.length; i++) {
+
+    document.getElementById('taskUser-row').innerHTML += `
+            &lt;div id="taskUser-Container" class="lb-row lb-taskUser">
+                    &lt;img src="${clickedTask[0].user[i].profile_img}">
+                    &lt;div class="taskUser-name">${clickedTask[0].user[i].name}&lt;/div>
+            &lt;/div>`    
+    }    
+}
+
+/**
+ * Close Lightbox by clicking background
+ */
+function closeLightbox() {
+    document.getElementById('lightbox-container').classList.add('d-none')
+}
+
+/**
+ * Delete Task on click
+ * @param {id} id 
+ */
+
+function deleteTask(id) {
+     
+    let index;
+    allTasks.forEach(task => {
+        if (task['id'] == id) {
+            index = allTasks.indexOf(task);
+            allTasks.splice(index, 1);
+        }
+    });
+
+    saveToBackend();
+    updateHTML();
+}
+
+/**
+ * get the color for the taskframe, depends on the urgency
+ * 
+ * @param {*} element element a special element(task) in an array
+ * @returns color for the frame seperated for the urgency
+ */
+function getUrgencyFrameColor(element) {
+
+    if (element['urgency'] == 'LOW') {
+        return 'green';
+    } else if (element['urgency'] == 'MIDDLE') {
+        return 'orange';
+    } else
+        return 'red';
+
+}
+
+/**
+ * 
+ * @param {*} ev event
+ */
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+/**
+ * change status of a task after the task was dragged in an other container
+ * 
+ * @param {*} status status of the task
+ */
+function moveTo(status) {
+    allTasks[currentDraggedElement]['status'] = status;
+    updateHTML();
+    saveToBackend();
+    /*let allTasksAsString = JSON.stringify(allTasks);
+    localStorage.setItem('allTasks', allTasksAsString);*/
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addNewParticipants">addNewParticipants</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#backlogShowAllTasks">backlogShowAllTasks</a></li><li><a href="global.html#backToLogin">backToLogin</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#checkUrlShowOnNav">checkUrlShowOnNav</a></li><li><a href="global.html#closeAlert">closeAlert</a></li><li><a href="global.html#closeLightbox">closeLightbox</a></li><li><a href="global.html#colorChoice">colorChoice</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#deleteInput">deleteInput</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#deleteUser">deleteUser</a></li><li><a href="global.html#drawSingleColumns">drawSingleColumns</a></li><li><a href="global.html#forLoopTasks">forLoopTasks</a></li><li><a href="global.html#generateHTMLUser">generateHTMLUser</a></li><li><a href="global.html#generateToDoElement">generateToDoElement</a></li><li><a href="global.html#getUrgencyFrameColor">getUrgencyFrameColor</a></li><li><a href="global.html#htmlTableHead">htmlTableHead</a></li><li><a href="global.html#htmlTableRow">htmlTableRow</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAddTask">initAddTask</a></li><li><a href="global.html#initBacklog">initBacklog</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initPage">initPage</a></li><li><a href="global.html#initWelcome">initWelcome</a></li><li><a href="global.html#loadFromBackend">loadFromBackend</a></li><li><a href="global.html#loginGuestUser">loginGuestUser</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#readTaskAndPushToArray">readTaskAndPushToArray</a></li><li><a href="global.html#saveToBackend">saveToBackend</a></li><li><a href="global.html#showProfilePicOnNavbar">showProfilePicOnNavbar</a></li><li><a href="global.html#showTaskLightbox">showTaskLightbox</a></li><li><a href="global.html#showUsersOnAddTask">showUsersOnAddTask</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#startNewSignIn">startNewSignIn</a></li><li><a href="global.html#updateHTML">updateHTML</a></li><li><a href="global.html#usersActivated">usersActivated</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Oct 21 2021 09:44:43 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

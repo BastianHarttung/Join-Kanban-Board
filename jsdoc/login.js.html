@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: login.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: login.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+
+async function initLogin() {
+    await init();
+    loggedInUser = {};
+    await saveToBackend();
+}
+
+/**
+ * Login Button 
+ * login User and write json to loggedInUser
+ * @param {click} event only to stop prevent link 
+ */
+function loginUser() {
+
+    let email = document.getElementById('email-input-login').value; //string
+    let password = document.getElementById('password-input-login').value; //string
+
+    checkLogin(email, password);
+};
+
+
+/**
+ * Check if Login is valid and Login if
+ */
+async function checkLogin(email, password) {
+    let alertContainer = document.getElementById('input-alert-container');
+    let alertText = document.getElementById('alert-text');
+
+    loggedInUser = allUsers.find(user => user.email === email) //Object with User
+
+    if (email === '') {
+        alertText.innerHTML = 'Please type in Email-Adress';
+        alertContainer.classList.remove('d-none');
+    } else if (loggedInUser === undefined) {
+        alertText.innerHTML = 'No User with such Email!';
+        alertContainer.classList.remove('d-none');
+    } else {
+        if (loggedInUser.password === password) {
+            console.log('User logged in');
+            await saveToBackend();
+            window.location.href = "../start.html";
+        } else {
+            alertText.innerHTML = 'Wrong Password for this User';
+            alertContainer.classList.remove('d-none');
+        }
+    }
+}
+
+/**
+ * button login as guest
+ */
+async function loginGuestUser() {
+    loggedInUser = allUsers[3];
+    await saveToBackend();
+    window.location.href = "../start.html";
+};
+
+/**
+ * Sign In new User
+ */
+function startNewSignIn() {
+    document.getElementById('login-form').classList.add('d-none');
+    document.getElementById('signin-form').classList.remove('d-none');
+}
+
+/**
+ * Back to Login Screen
+ */
+function backToLogin() {
+    document.getElementById('login-form').classList.remove('d-none');
+    document.getElementById('signin-form').classList.add('d-none');
+}
+
+/**
+ * Add new participants to our group (name and email)
+ */
+async function addNewParticipants() {
+
+    let name = document.getElementById('first-lastname-input').value;
+    let email = document.getElementById('email-input').value;
+    let password = document.getElementById('password-input').value;
+
+    let alertContainer = document.getElementById('input-alert-container');
+    let alertText = document.getElementById('alert-text');
+
+    if (name == '' || email == '' || password == '') {
+        alertText.innerHTML = 'Please fill in all Input-Fields.'
+        alertContainer.classList.remove('d-none');        
+    } else {
+        allUsers.push({
+            'name': name,
+            'email': email,
+            'password': password,
+            'profile_img': './assets/img/profilepic.png'
+        });
+
+        await saveToBackend();      /* Save user to backend */
+
+        checkLogin(email, password)
+    }
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addNewParticipants">addNewParticipants</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#backlogShowAllTasks">backlogShowAllTasks</a></li><li><a href="global.html#backToLogin">backToLogin</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#checkUrlShowOnNav">checkUrlShowOnNav</a></li><li><a href="global.html#closeAlert">closeAlert</a></li><li><a href="global.html#closeLightbox">closeLightbox</a></li><li><a href="global.html#colorChoice">colorChoice</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#deleteInput">deleteInput</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#deleteUser">deleteUser</a></li><li><a href="global.html#drawSingleColumns">drawSingleColumns</a></li><li><a href="global.html#forLoopTasks">forLoopTasks</a></li><li><a href="global.html#generateHTMLUser">generateHTMLUser</a></li><li><a href="global.html#generateToDoElement">generateToDoElement</a></li><li><a href="global.html#getUrgencyFrameColor">getUrgencyFrameColor</a></li><li><a href="global.html#htmlTableHead">htmlTableHead</a></li><li><a href="global.html#htmlTableRow">htmlTableRow</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAddTask">initAddTask</a></li><li><a href="global.html#initBacklog">initBacklog</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initPage">initPage</a></li><li><a href="global.html#initWelcome">initWelcome</a></li><li><a href="global.html#loadFromBackend">loadFromBackend</a></li><li><a href="global.html#loginGuestUser">loginGuestUser</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#readTaskAndPushToArray">readTaskAndPushToArray</a></li><li><a href="global.html#saveToBackend">saveToBackend</a></li><li><a href="global.html#showProfilePicOnNavbar">showProfilePicOnNavbar</a></li><li><a href="global.html#showTaskLightbox">showTaskLightbox</a></li><li><a href="global.html#showUsersOnAddTask">showUsersOnAddTask</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#startNewSignIn">startNewSignIn</a></li><li><a href="global.html#updateHTML">updateHTML</a></li><li><a href="global.html#usersActivated">usersActivated</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Oct 21 2021 09:44:43 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

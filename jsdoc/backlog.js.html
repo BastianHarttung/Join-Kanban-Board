@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: backlog.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: backlog.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * init and show Tasks on Backlog 
+ */
+ async function initBacklog(){
+    await initPage();
+    backlogShowAllTasks()    
+}
+
+/**
+ * Show all Tasks in Backlog
+ * 
+ */
+function backlogShowAllTasks(){    
+    if (allTasks.length == 0) {
+        document.getElementById('table').innerHTML = `
+            ${htmlTableHead()}
+            &lt;tr>No Tasks in Backlog&lt;/tr>
+            `
+    }else{
+        document.getElementById('table').innerHTML = htmlTableHead();   
+        forLoopTasks();
+    }        
+};
+
+/**
+ * Loop for making Backlog Rows
+ * 
+ */
+function forLoopTasks(){    
+    for (let i = 0; i &lt; allTasks.length; i++) {                   
+        let color = colorChoice(i);
+        for (let j = 0; j &lt; allTasks[i]['user'].length; j++) {                
+            document.getElementById('table').innerHTML += htmlTableRow(color,allTasks,i,j)
+        }   
+    }    
+};
+
+/**
+ * Returns the HTML table row for each task
+ * @param {string} color 
+ * @param {array} allTasks 
+ * @param {number} i 
+ * @param {number} j 
+ * @returns &lt;tr>
+ */
+function htmlTableRow(color,allTasks,i,j){
+    return `
+        &lt;tr class="table-todo-row">
+            &lt;td id="table-profile" class="${color}">
+                &lt;div class="table-profile-container">
+                    &lt;img id="profile-img" src=${allTasks[i]['user'][j]['profile_img']}>
+                    &lt;div class="table-profile-name-email">
+                        &lt;div id="profile-name">${allTasks[i]['user'][j]['name']}&lt;/div>
+                        &lt;a href="mailto: ${allTasks[i]['user'][j]['email']}" id="profile-email" class="profile-email">${allTasks[i]['user'][j]['email']}&lt;/a>    
+                    &lt;/div>
+                &lt;/div>                                                      
+            &lt;/td>
+            &lt;td id="table-category">${allTasks[i]['category']}&lt;/td>
+            &lt;td id="table-details">${allTasks[i]['description']}&lt;/td>
+        &lt;/tr>
+        `    
+};
+
+/**
+ * Returns the HTML table Head
+ * @returns &lt;tr>
+ */
+function htmlTableHead(){
+    return`
+    &lt;tr class="table-head">
+        &lt;th>Assigned To&lt;/th>
+        &lt;th>Category&lt;/th>
+        &lt;th>Details&lt;/th>
+    &lt;/tr>
+    `
+};
+
+/**
+ * Choice which color has the task on backlog depending on Urgency
+ * @returns color
+ * @param {number} i
+ * 
+ */
+function colorChoice(i){    
+    if (allTasks[i]['urgency'] == 'LOW') {
+        color = 'green';           
+    } else if(allTasks[i]['urgency'] == 'MIDDLE'){
+        color = 'orange';
+    } else if(allTasks[i]['urgency'] == 'HIGH'){
+        color = 'red';
+    } else{
+        color = 'blue';
+    };  
+    return color;   
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addNewParticipants">addNewParticipants</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#backlogShowAllTasks">backlogShowAllTasks</a></li><li><a href="global.html#backToLogin">backToLogin</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#checkUrlShowOnNav">checkUrlShowOnNav</a></li><li><a href="global.html#closeAlert">closeAlert</a></li><li><a href="global.html#closeLightbox">closeLightbox</a></li><li><a href="global.html#colorChoice">colorChoice</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#deleteInput">deleteInput</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#deleteUser">deleteUser</a></li><li><a href="global.html#drawSingleColumns">drawSingleColumns</a></li><li><a href="global.html#forLoopTasks">forLoopTasks</a></li><li><a href="global.html#generateHTMLUser">generateHTMLUser</a></li><li><a href="global.html#generateToDoElement">generateToDoElement</a></li><li><a href="global.html#getUrgencyFrameColor">getUrgencyFrameColor</a></li><li><a href="global.html#htmlTableHead">htmlTableHead</a></li><li><a href="global.html#htmlTableRow">htmlTableRow</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAddTask">initAddTask</a></li><li><a href="global.html#initBacklog">initBacklog</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initPage">initPage</a></li><li><a href="global.html#initWelcome">initWelcome</a></li><li><a href="global.html#loadFromBackend">loadFromBackend</a></li><li><a href="global.html#loginGuestUser">loginGuestUser</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#readTaskAndPushToArray">readTaskAndPushToArray</a></li><li><a href="global.html#saveToBackend">saveToBackend</a></li><li><a href="global.html#showProfilePicOnNavbar">showProfilePicOnNavbar</a></li><li><a href="global.html#showTaskLightbox">showTaskLightbox</a></li><li><a href="global.html#showUsersOnAddTask">showUsersOnAddTask</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#startNewSignIn">startNewSignIn</a></li><li><a href="global.html#updateHTML">updateHTML</a></li><li><a href="global.html#usersActivated">usersActivated</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Oct 21 2021 09:44:43 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

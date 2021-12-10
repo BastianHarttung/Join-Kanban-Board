@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: script.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: script.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+let allTasks;
+let allUsers;
+let loggedInUser;
+
+/**
+ * Init Function for all Pages with Nav
+ */
+async function initPage() {
+    await init();
+    await showProfilePicOnNavbar();             // show profile pic navbar 
+    checkUrlShowOnNav();
+}
+
+/**
+ * Init Function for Welcome Page
+ */
+async function initWelcome() {
+    await initPage();
+    document.getElementById('logged-user').innerHTML = loggedInUser.name;
+}
+
+/**
+ * Init for every Page with loading from Backend and templates 
+ */
+async function init() {
+    includeHTML();                        // Html templates laden 
+    await loadFromBackend();                    // Aus backend laden        
+    /* loadAllTasks();  */                      // Aus localStorage laden falls erwünscht
+}
+
+/**
+ * Add display none to Alert
+ */
+function closeAlert() {
+    document.getElementById('input-alert-container').classList.add('d-none')
+}
+
+/**
+ * Check URL and mark Link on navbar
+ */
+function checkUrlShowOnNav() {
+    if (window.location.href == 'http://gruppe-95.developerakademie.com/board.html') {
+        document.getElementById('link-board').classList.add('active')
+    }
+    if (window.location.href == 'http://gruppe-95.developerakademie.com/backlog.html') {
+        document.getElementById('link-backlog').classList.add('active')
+    }
+    if (window.location.href == 'http://gruppe-95.developerakademie.com/addtask.html') {
+        document.getElementById('link-addtask').classList.add('active')
+    }
+    if (window.location.href == 'http://gruppe-95.developerakademie.com/help.html') {
+        document.getElementById('link-help').classList.add('active')
+    }
+}
+
+/**
+ * Load allTasks and allUsers from backend
+ * 
+ * */
+async function loadFromBackend() {
+    await downloadFromServer();
+    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    allUsers = JSON.parse(backend.getItem('allUsers')) || [];
+    loggedInUser = JSON.parse(backend.getItem('loggedInUser')) || {};
+    console.log('Loaded from backend allTasks: ', allTasks);
+    console.log('Loaded from backend allUsers: ', allUsers);
+    console.log('Loaded from backend loggedInUser: ', loggedInUser);
+};
+
+/**
+ * Delete User which delete button is clicked
+ * @param {number} id index of array of user 
+ */
+async function deleteUser(id) {
+    if (id > 3) {
+        allUsers.splice(id, 1);
+        await saveToBackend();
+        showUsersOnAddTask()
+    } else {
+        alert("You can't delete this User!")
+    }
+}
+
+/**
+ * Save Users and Tasks in Backend
+ * 
+ */
+async function saveToBackend() {
+    await backend.setItem('allUsers', JSON.stringify(allUsers));
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    await backend.setItem('loggedInUser', JSON.stringify(loggedInUser));
+    console.log('saved to backend');
+}
+
+/**
+ * show Profile Pic of User who is logged in on Navbar
+ * starts on init()
+ */
+async function showProfilePicOnNavbar() {
+    document.getElementById('nav').innerHTML += `
+        &lt;a class="logged-user" href = "../index.html">
+            &lt;img id="nav-profile-pic" class="nav-profile-pic" src="${loggedInUser.profile_img}" title="Logout ${loggedInUser.name}">
+            &lt;div>Login&lt;/div>
+        &lt;/a>
+        `
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addNewParticipants">addNewParticipants</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#backlogShowAllTasks">backlogShowAllTasks</a></li><li><a href="global.html#backToLogin">backToLogin</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#checkUrlShowOnNav">checkUrlShowOnNav</a></li><li><a href="global.html#closeAlert">closeAlert</a></li><li><a href="global.html#closeLightbox">closeLightbox</a></li><li><a href="global.html#colorChoice">colorChoice</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#deleteInput">deleteInput</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#deleteUser">deleteUser</a></li><li><a href="global.html#drawSingleColumns">drawSingleColumns</a></li><li><a href="global.html#forLoopTasks">forLoopTasks</a></li><li><a href="global.html#generateHTMLUser">generateHTMLUser</a></li><li><a href="global.html#generateToDoElement">generateToDoElement</a></li><li><a href="global.html#getUrgencyFrameColor">getUrgencyFrameColor</a></li><li><a href="global.html#htmlTableHead">htmlTableHead</a></li><li><a href="global.html#htmlTableRow">htmlTableRow</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAddTask">initAddTask</a></li><li><a href="global.html#initBacklog">initBacklog</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initPage">initPage</a></li><li><a href="global.html#initWelcome">initWelcome</a></li><li><a href="global.html#loadFromBackend">loadFromBackend</a></li><li><a href="global.html#loginGuestUser">loginGuestUser</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#readTaskAndPushToArray">readTaskAndPushToArray</a></li><li><a href="global.html#saveToBackend">saveToBackend</a></li><li><a href="global.html#showProfilePicOnNavbar">showProfilePicOnNavbar</a></li><li><a href="global.html#showTaskLightbox">showTaskLightbox</a></li><li><a href="global.html#showUsersOnAddTask">showUsersOnAddTask</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#startNewSignIn">startNewSignIn</a></li><li><a href="global.html#updateHTML">updateHTML</a></li><li><a href="global.html#usersActivated">usersActivated</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Oct 21 2021 09:44:43 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
